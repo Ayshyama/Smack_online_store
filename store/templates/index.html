@@ -34,7 +34,7 @@
         </div>
         <!-- Search Box -->
         <div class="search-box">
-            <input type="search" name="" id="" placeholder="Пошук товару">
+            <label for="search-input"></label><input type="search" id="search-input" name="search" placeholder="Пошук товару">
         </div>
     </header>
 
@@ -137,7 +137,7 @@
             <div class="box">
                 <h2>Григорій Тарасович</h2>
                 <br>
-                <img src="{% static 'img/rev1.jpg' %}">
+                <img src="{% static 'img/rev1.jpg' %}" alt="review_1">
                 <div class="stars">
                     <i class='bx bxs-star' ></i>
                     <i class='bx bxs-star' ></i>
@@ -152,7 +152,7 @@
             <div class="box">
                 <h2>Сковорода Григорович</h2>
                 <br>
-                <img src="{% static 'img/rev2.png' %}">
+                <img src="{% static 'img/rev2.png' %}" alt="review_2">
                 <div class="stars">
                     <i class='bx bxs-star' ></i>
                     <i class='bx bxs-star' ></i>
@@ -166,7 +166,7 @@
             <div class="box">
                 <h2>Бандера Степанович</h2>
                 <br>
-                <img src="{% static 'img/rev3.jpg' %}">
+                <img src="{% static 'img/rev3.jpg' %}" alt="review_3">
                 <div class="stars">
                     <i class='bx bxs-star' ></i>
                     <i class='bx bxs-star' ></i>
@@ -209,9 +209,9 @@
         </div>
         <div class="footer-box">
             <h3>Контакти</h3>
-            <span><i class="bx bxs-map"></i>250 New York City, USA 10001</span>
-            <span><i class="bx bxs-phone"></i>+1 444 744 8444</span>
-            <span><i class="bx bxs-envelope"></i>Sexyrybka@mail.com</span>
+            <li><span><i class="bx bxs-map"></i> 250 New York City, USA 10001</span></li>
+            <li><span><i class="bx bxs-phone"></i> +1 444 744 8444</span></li>
+            <li><span><i class="bx bxs-envelope"></i> Sexyrybka@mail.com</span></li>
         </div>
     </section>
 
