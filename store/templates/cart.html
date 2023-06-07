@@ -1,0 +1,61 @@
+{% extends "index.html" %}
+
+{% block home %}
+{% endblock %}
+{% block about %}
+{% endblock %}
+{% block categories %}
+{% endblock %}
+{% block customers %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <h1>Корзина</h1>
+
+        <div class="cart-container">
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Название товара</th>
+                        <th>Цена</th>
+                        <th>Количество</th>
+                        <th>Итого</th>
+                        <th>Удалить</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Товар 1</td>
+                        <td>$10</td>
+                        <td>2</td>
+                        <td>$20</td>
+                        <td><a href="#">Удалить</a></td>
+                    </tr>
+                    <tr>
+                        <td>Товар 2</td>
+                        <td>$15</td>
+                        <td>1</td>
+                        <td>$15</td>
+                        <td><a href="#">Удалить</a></td>
+                    </tr>
+                    <tr>
+                        <td>Товар 3</td>
+                        <td>$5</td>
+                        <td>3</td>
+                        <td>$15</td>
+                        <td><a href="#">Удалить</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="cart-summary">
+                <p>Итого: $50</p>
+                <br>
+                <a href="#" class="btn">Оформить заказ</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
