@@ -1,0 +1,133 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block home %}
+    <!-- Home -->
+    <section class="home" id="home">
+        <div class="intro-container">
+            <div class="home-text">
+                <h1>Смачна копчена риба</h1>
+                <br>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem cum cupiditate dicta, earum eum facere hic
+                    nam odit quod rem!</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad distinctio doloremque dolores eius
+                    eligendi esse et expedita officiis suscipit!</p>
+                <br>
+                <div class="btn-container">
+                    <a href="#" class="btn">Замовити Онлайн</a>
+                </div>
+                <br>
+            </div>
+        </div>
+        <div class="home-img">
+            <img src="{% static 'img/main.png' %}" alt="">
+        </div>
+    </section>
+{% endblock %}
+{% block about %}
+{% endblock %}
+{% block categories %}
+{% endblock %}
+{% block customers %}
+{% endblock %}
+
+{% block content %}
+
+<!--  Categories Selector  -->
+<div class="category-selection">
+    <h3 style="margin-bottom: 10px;">Оберіть Категорію:</h3>
+    <div class="category-buttons">
+        <button class="category-button" data-value="">Всі категорії</button>
+        <button class="category-button" data-value="морожена">Морожена Риба</button>
+        <button class="category-button" data-value="копчена">Копчена Риба</button>
+        <button class="category-button" data-value="в'ялена">В'ялена Риба</button>
+    </div>
+</div>
+
+<!--  Products  -->
+    <section class="products" id="products">
+        <div class="heading">
+            <h2>Морожена Риба</h2>
+        </div>
+        <!-- Container -->
+        <div class="products-container">
+            <div class="box">
+                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
+                <h3>Рибка 1</h3>
+                <hr>
+                <br>
+                <div class="content">
+                    <span>₴250</span>
+                    <a href="#">Додати в кошик</a>
+                </div>
+                <br>
+
+            </div>
+            <div class="box">
+                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
+                <h3>Рибка 2</h3>
+                <hr>
+                <br>
+                <div class="content">
+                    <span>₴250 за 1 КГ</span>
+                    <a href="#">Додати в кошик</a>
+                </div>
+                <br>
+
+            </div>
+            <div class="box">
+                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
+                <h3>Рибка 3</h3>
+                <hr>
+                <br>
+                <div class="content">
+                    <span>₴250</span>
+                    <a href="#">Додати в кошик</a>
+                </div>
+                <br>
+
+            </div>
+            <div class="box">
+                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
+                <h3>Рибка 4</h3>
+                <hr>
+                <br>
+                <div class="content">
+                    <span>₴250</span>
+                    <a href="#">Додати в кошик</a>
+                </div>
+                <br>
+
+            </div>
+            <div class="box">
+                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
+                <h3>Рибка 5</h3>
+                <hr>
+                <br>
+                <div class="content">
+                    <span>₴250</span>
+                    <a href="#">Додати в кошик</a>
+                </div>
+                <br>
+
+            </div>
+            <div class="box">
+                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
+                <h3>Рибка 6</h3>
+                <hr>
+                <br>
+                <div class="content">
+                    <span>UAH 250</span>
+                    <a href="#">Додати в кошик</a>
+                </div>
+                <br>
+
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
+
+

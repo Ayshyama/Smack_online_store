@@ -37,22 +37,65 @@
             <label for="search-input"></label><input type="search" id="search-input" name="search" placeholder="Пошук товару">
         </div>
     </header>
-
+    
+{% block home %}
     <!-- Home -->
     <section class="home" id="home">
         <div class="intro-container">
             <div class="home-text">
-                <h1>Смачна копчена риба ням</h1>
+                <h1>Смачна копчена риба</h1>
+                <br>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem cum cupiditate dicta, earum eum facere hic
                     nam odit quod rem!</p>
-                <a href="#" class="btn">Замовити Онлайн</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad distinctio doloremque dolores eius
+                    eligendi esse et expedita officiis suscipit!</p>
+                <br>
+                <div class="btn-container">
+                    <a href="#" class="btn">Замовити Онлайн</a>
+                </div>
+                <br>
             </div>
         </div>
         <div class="home-img">
             <img src="{% static 'img/main.png' %}" alt="">
         </div>
     </section>
+{% endblock %}
 
+{% block categories %}
+    <!--  Categories  -->
+    <section class="categories" id="products">
+        <div class="heading">
+            <h2>Асортимент</h2>
+        </div>
+        <!-- Container -->
+        <div class="categories-container">
+            <a href="{% url 'products' %}">
+                <div class="box">
+                    <img src="{% static 'img/skumbriya.png' %}" alt="Морожена Риба">
+                    <br>
+                    <h3>Морожена Риба</h3>
+                </div>
+            </a>
+            <a href="{% url 'products' %}">
+                <div class="box">
+                    <img src="{% static 'img/kopcena.png' %}" alt="Копчена Риба">
+                    <br>
+                    <h3>Копчена Риба</h3>
+                </div>
+            </a>
+            <a href="{% url 'products' %}">
+                <div class="box">
+                    <img src="{% static 'img/valena.png' %}" alt="В'ялена Риба">
+                    <br>
+                    <h3>В'ялена Риба</h3>
+                </div>
+            </a>
+        </div>
+    </section>
+{% endblock %}
+
+{% block about %}
     <!--  About  -->
     <section class="about" id="about">
         <div class="about-img">
@@ -65,68 +108,22 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad distinctio doloremque dolores eius
                 eligendi esse et expedita officiis suscipit!</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad in ipsa minima rerum voluptatum!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque debitis facilis in nam natus nemo nobis
+                porro, quia recusandae similique.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad distinctio doloremque dolores eius
+                eligendi esse et expedita officiis suscipit!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad in ipsa minima rerum voluptatum!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque debitis facilis in nam natus nemo nobis
+                porro, quia recusandae similique.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad distinctio doloremque dolores eius
+                eligendi esse et expedita officiis suscipit!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad in ipsa minima rerum voluptatum!</p>
             <a href="#" class="btn">Дізнатися Більше</a>
         </div>
     </section>
+{% endblock %}
 
-    <!--  Products  -->
-    <section class="products" id="products">
-        <div class="heading">
-            <h2>Наша Продукція</h2>
-        </div>
-        <!-- Container -->
-        <div class="products-container">
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 1</h3>
-                <div class="content">
-                    <span>UAH 250</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-            </div>
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 2</h3>
-                <div class="content">
-                    <span>UAH 250</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-            </div>
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 3</h3>
-                <div class="content">
-                    <span>UAH 250</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-            </div>
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 4</h3>
-                <div class="content">
-                    <span>UAH 250</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-            </div>
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 5</h3>
-                <div class="content">
-                    <span>UAH 250</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-            </div>
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 6</h3>
-                <div class="content">
-                    <span>UAH 250</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
+{% block customers %}
     <!--  Customers  -->
     <section class="section customers" id="customers">
         <div class="heading">
@@ -179,9 +176,30 @@
                     ea earum fuga, fugiat hic impedit ipsa ipsam iusto maxime minus nulla officia quibusdam quidem
                     quisquam quod ratione reprehenderit tempore veniam!</p>
             </div>
-
+            <div class="box">
+                <h2>Володимир Олександрович</h2>
+                <br>
+                <img src="{% static 'img/rev4.jpg' %}" alt="review_3">
+                <div class="stars">
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star-half' ></i>
+                </div>
+                <br>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet aperiam autem delectus dolorem
+                    ea earum fuga, fugiat hic impedit ipsa ipsam iusto maxime minus nulla officia quibusdam quidem
+                    quisquam quod ratione reprehenderit tempore veniam!</p>
+            </div>
         </div>
     </section>
+{% endblock %}
+
+    <!-- Products content section -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
 
     <!-- Footer  -->
     <section class="footer">
@@ -219,12 +237,6 @@
     <div class="copyright">
         <a href="https://github.com/Ayshyama"><p>&copy; Рибний Смак 2023</p></a>
     </div>
-
-
-
-
-
-
 
     <!-- Link to JS -->
     <script src="{% static 'js/main.js' %}"></script>
