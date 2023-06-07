@@ -29,8 +29,58 @@
         </ul>
         <!-- Icon -->
         <div class="header-icon">
-            <i class="bx bx-cart-alt" ></i>
+            <i class="bx bx-cart-alt" id="open-cart-modal"></i>
             <i class="bx bx-search" id="search-icon"></i>
+        </div>
+
+        <!-- Modal -->
+        <div id="cart-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="close-cart-modal">&times;</span>
+                <h1>Корзина</h1>
+                <div class="cart-container">
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>Название товара</th>
+                                <th>Цена</th>
+                                <th>Количество</th>
+                                <th>Итого</th>
+                                <th>Удалить</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Товар 1</td>
+                                <td>$10</td>
+                                <td>2</td>
+                                <td>$20</td>
+                                <td><a href="#">Удалить</a></td>
+                            </tr>
+                            <tr>
+                                <td>Товар 2</td>
+                                <td>$15</td>
+                                <td>1</td>
+                                <td>$15</td>
+                                <td><a href="#">Удалить</a></td>
+                            </tr>
+                            <tr>
+                                <td>Товар 3</td>
+                                <td>$5</td>
+                                <td>3</td>
+                                <td>$15</td>
+                                <td><a href="#">Удалить</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="cart-summary">
+                        <p>Итого: $50</p>
+                        <br>
+                        <a href="#" class="btn">Оформить заказ</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- Search Box -->
         <div class="search-box">
@@ -79,14 +129,14 @@
             </a>
             <a href="{% url 'products' %}">
                 <div class="box">
-                    <img src="{% static 'img/kopcena.png' %}" alt="Копчена Риба">
+                    <img src="{% static 'img/skumbriya.png' %}" alt="Копчена Риба">
                     <br>
                     <h3>Копчена Риба</h3>
                 </div>
             </a>
             <a href="{% url 'products' %}">
                 <div class="box">
-                    <img src="{% static 'img/valena.png' %}" alt="В'ялена Риба">
+                    <img src="{% static 'img/skumbriya.png' %}" alt="В'ялена Риба">
                     <br>
                     <h3>В'ялена Риба</h3>
                 </div>
@@ -118,6 +168,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad distinctio doloremque dolores eius
                 eligendi esse et expedita officiis suscipit!</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad in ipsa minima rerum voluptatum!</p>
+            <br>
             <a href="#" class="btn">Дізнатися Більше</a>
         </div>
     </section>
