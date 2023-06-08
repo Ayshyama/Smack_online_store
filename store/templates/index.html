@@ -13,6 +13,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
+{% block navbar %}
     <!-- Navbar -->
     <header>
         <a href="#" class="logo">
@@ -87,7 +88,8 @@
             <label for="search-input"></label><input type="search" id="search-input" name="search" placeholder="Пошук товару">
         </div>
     </header>
-    
+{% endblock %}
+
 {% block home %}
     <!-- Home -->
     <section class="home" id="home">
@@ -129,14 +131,14 @@
             </a>
             <a href="{% url 'products' %}">
                 <div class="box">
-                    <img src="{% static 'img/skumbriya.png' %}" alt="Копчена Риба">
+                    <img src="{% static 'img/kopcena.png' %}" alt="Копчена Риба">
                     <br>
                     <h3>Копчена Риба</h3>
                 </div>
             </a>
             <a href="{% url 'products' %}">
                 <div class="box">
-                    <img src="{% static 'img/skumbriya.png' %}" alt="В'ялена Риба">
+                    <img src="{% static 'img/valena.png' %}" alt="В'ялена Риба">
                     <br>
                     <h3>В'ялена Риба</h3>
                 </div>

@@ -25,7 +25,9 @@ window.addEventListener('scroll' , () => {
     header.classList.toggle('shadow', window.scrollY > 0);
 });
 
-
+function changeLink() {
+  window.location.href = "/";
+}
 
 // JavaScript код для плавной прокрутки с учетом отступа
 document.addEventListener('DOMContentLoaded', function() {
