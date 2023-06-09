@@ -1,119 +1,5 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
-
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Рибний Смак</title>
-    <!-- Link to CSS -->
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <!-- Box Icons   -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
-<body>
-{% block navbar %}
-    <!-- Navbar -->
-    <header>
-        <a href="#" class="logo">
-            <img src="{% static 'img/logo.png' %}" alt="Logo">
-        </a>
-        <!-- Menu-Icon -->
-        <i class="bx bx-menu" id="menu-icon"></i>
-        <!-- Links -->
-        <ul class="navbar">
-          <li><a class="scroll-link" href="#home">Головна</a></li>
-          <li><a class="scroll-link" href="#about">Про Нас</a></li>
-          <li><a class="scroll-link" href="#products">Асортимент</a></li>
-          <li><a class="scroll-link" href="#customers">Відгуки</a></li>
-        </ul>
-        <!-- Icon -->
-        <div class="header-icon">
-            <i class="bx bx-cart-alt" id="open-cart-modal"></i>
-            <i class="bx bx-search" id="search-icon"></i>
-        </div>
-
-        <!-- Modal -->
-        <div id="cart-modal" class="modal">
-            <div class="modal-content">
-                <span class="close" id="close-cart-modal">&times;</span>
-                <h1>Корзина</h1>
-                <div class="cart-container">
-                    <table class="cart-table">
-                        <thead>
-                            <tr>
-                                <th>Название товара</th>
-                                <th>Цена</th>
-                                <th>Количество</th>
-                                <th>Итого</th>
-                                <th>Удалить</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Товар 1</td>
-                                <td>$10</td>
-                                <td>2</td>
-                                <td>$20</td>
-                                <td><a href="#">Удалить</a></td>
-                            </tr>
-                            <tr>
-                                <td>Товар 2</td>
-                                <td>$15</td>
-                                <td>1</td>
-                                <td>$15</td>
-                                <td><a href="#">Удалить</a></td>
-                            </tr>
-                            <tr>
-                                <td>Товар 3</td>
-                                <td>$5</td>
-                                <td>3</td>
-                                <td>$15</td>
-                                <td><a href="#">Удалить</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <div class="cart-summary">
-                        <p>Итого: $50</p>
-                        <br>
-                        <a href="#" class="btn">Оформить заказ</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Search Box -->
-        <div class="search-box">
-            <label for="search-input"></label><input type="search" id="search-input" name="search" placeholder="Пошук товару">
-        </div>
-    </header>
-{% endblock %}
-
-{% block home %}
-    <!-- Home -->
-    <section class="home" id="home">
-        <div class="intro-container">
-            <div class="home-text">
-                <h1>Смачна копчена риба</h1>
-                <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem cum cupiditate dicta, earum eum facere hic
-                    nam odit quod rem!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad distinctio doloremque dolores eius
-                    eligendi esse et expedita officiis suscipit!</p>
-                <br>
-                <div class="btn-container">
-                    <a href="#" class="btn">Замовити Онлайн</a>
-                </div>
-                <br>
-            </div>
-        </div>
-        <div class="home-img">
-            <img src="{% static 'img/main.png' %}" alt="">
-        </div>
-    </section>
-{% endblock %}
-
 {% block categories %}
     <!--  Categories  -->
     <section class="categories" id="products">
@@ -122,21 +8,21 @@
         </div>
         <!-- Container -->
         <div class="categories-container">
-            <a href="{% url 'products' %}">
+            <a href="{% url 'store:products' %}">
                 <div class="box">
                     <img src="{% static 'img/skumbriya.png' %}" alt="Морожена Риба">
                     <br>
                     <h3>Морожена Риба</h3>
                 </div>
             </a>
-            <a href="{% url 'products' %}">
+            <a href="{% url 'store:products' %}">
                 <div class="box">
                     <img src="{% static 'img/kopcena.png' %}" alt="Копчена Риба">
                     <br>
                     <h3>Копчена Риба</h3>
                 </div>
             </a>
-            <a href="{% url 'products' %}">
+            <a href="{% url 'store:products' %}">
                 <div class="box">
                     <img src="{% static 'img/valena.png' %}" alt="В'ялена Риба">
                     <br>
@@ -146,153 +32,3 @@
         </div>
     </section>
 {% endblock %}
-
-{% block about %}
-    <!--  About  -->
-    <section class="about" id="about">
-        <div class="about-img">
-            <img src="{% static 'img/about.jpg' %}" alt="">
-        </div>
-        <div class="about-text">
-            <h2>Наша Історія</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque debitis facilis in nam natus nemo nobis
-                porro, quia recusandae similique.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad distinctio doloremque dolores eius
-                eligendi esse et expedita officiis suscipit!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad in ipsa minima rerum voluptatum!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque debitis facilis in nam natus nemo nobis
-                porro, quia recusandae similique.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad distinctio doloremque dolores eius
-                eligendi esse et expedita officiis suscipit!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad in ipsa minima rerum voluptatum!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque debitis facilis in nam natus nemo nobis
-                porro, quia recusandae similique.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad distinctio doloremque dolores eius
-                eligendi esse et expedita officiis suscipit!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad in ipsa minima rerum voluptatum!</p>
-            <br>
-            <a href="#" class="btn">Дізнатися Більше</a>
-        </div>
-    </section>
-{% endblock %}
-
-{% block customers %}
-    <!--  Customers  -->
-    <section class="section customers" id="customers">
-        <div class="heading">
-            <h2>Відгуки про нас</h2>
-        </div>
-        <!--  Container  -->
-        <div class="customers-container">
-            <div class="box">
-                <h2>Григорій Тарасович</h2>
-                <br>
-                <img src="{% static 'img/rev1.jpg' %}" alt="review_1">
-                <div class="stars">
-                    <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star-half' ></i>
-                </div>
-                <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias aliquid commodi ea et,
-                    laboriosam nostrum placeat tempore ut veniam.</p>
-            </div>
-            <div class="box">
-                <h2>Сковорода Григорович</h2>
-                <br>
-                <img src="{% static 'img/rev2.png' %}" alt="review_2">
-                <div class="stars">
-                    <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star-half' ></i>
-                </div>
-                <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nulla omnis quas saepe ullam!</p>
-            </div>
-            <div class="box">
-                <h2>Бандера Степанович</h2>
-                <br>
-                <img src="{% static 'img/rev3.jpg' %}" alt="review_3">
-                <div class="stars">
-                    <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star-half' ></i>
-                </div>
-                <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet aperiam autem delectus dolorem
-                    ea earum fuga, fugiat hic impedit ipsa ipsam iusto maxime minus nulla officia quibusdam quidem
-                    quisquam quod ratione reprehenderit tempore veniam!</p>
-            </div>
-            <div class="box">
-                <h2>Володимир Олександрович</h2>
-                <br>
-                <img src="{% static 'img/rev4.jpg' %}" alt="review_3">
-                <div class="stars">
-                    <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star-half' ></i>
-                </div>
-                <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet aperiam autem delectus dolorem
-                    ea earum fuga, fugiat hic impedit ipsa ipsam iusto maxime minus nulla officia quibusdam quidem
-                    quisquam quod ratione reprehenderit tempore veniam!</p>
-            </div>
-        </div>
-    </section>
-{% endblock %}
-
-    <!-- Products content section -->
-    <main>
-        {% block content %}{% endblock %}
-    </main>
-
-    <!-- Footer  -->
-    <section class="footer">
-        <div class="footer-box">
-            <h2>Рибний Смак</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consectetur culpa, delectus ex fugit ipsa
-                libero perferendis praesentium tempore temporibus!</p>
-            <div class="social">
-                <a href="#"><i class='bx bxl-facebook'></i></a>
-                <a href="#"><i class='bx bxl-instagram' ></i></a>
-                <a href="#"><i class='bx bxl-tiktok' ></i></a>
-            </div>
-        </div>
-        <div class="footer-box">
-            <h3>Підтримка</h3>
-            <li><a href="#">Часті Запитання</a></li>
-            <li><a href="#">Політика Повернення</a></li>
-            <li><a href="#">Умови</a></li>
-        </div>
-        <div class="footer-box">
-            <h3>Корисна Інформація</h3>
-            <li><a href="#">Блог</a></li>
-            <li><a href="#">Рецепти</a></li>
-            <li><a href="#">Поради</a></li>
-        </div>
-        <div class="footer-box">
-            <h3>Контакти</h3>
-            <li><span><i class="bx bxs-map"></i> 250 New York City, USA 10001</span></li>
-            <li><span><i class="bx bxs-phone"></i> +1 444 744 8444</span></li>
-            <li><span><i class="bx bxs-envelope"></i> Sexyrybka@mail.com</span></li>
-        </div>
-    </section>
-
-<!--    Copyright-->
-    <div class="copyright">
-        <a href="https://github.com/Ayshyama"><p>&copy; Рибний Смак 2023</p></a>
-    </div>
-
-    <!-- Link to JS -->
-    <script src="{% static 'js/main.js' %}"></script>
-
-</body>
-</html>
