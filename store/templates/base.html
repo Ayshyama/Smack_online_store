@@ -16,17 +16,17 @@
 {% block navbar %}
     <!-- Navbar -->
     <header>
-        <a href="{% url 'index' %}" class="logo">
+        <a href="{% url 'store:index' %}" class="logo">
             <img src="{% static 'img/logo.png' %}" alt="Logo">
         </a>
         <!-- Menu-Icon -->
         <i class="bx bx-menu" id="menu-icon"></i>
         <!-- Links -->
         <ul class="navbar">
-            <li><a class="scroll-link" href="{% url 'index' %}#home">Головна</a></li>
-            <li><a class="scroll-link" href="{% url 'index' %}#about">Про Нас</a></li>
-            <li><a class="scroll-link" href="{% url 'index' %}#products">Асортимент</a></li>
-            <li><a class="scroll-link" href="{% url 'index' %}#customers">Відгуки</a></li>
+            <li><a class="scroll-link" href="{% url 'store:index' %}#home">Головна</a></li>
+            <li><a class="scroll-link" href="{% url 'store:index' %}#about">Про Нас</a></li>
+            <li><a class="scroll-link" href="{% url 'store:index' %}#products">Асортимент</a></li>
+            <li><a class="scroll-link" href="{% url 'store:index' %}#customers">Відгуки</a></li>
         </ul>
         <!-- Icon -->
         <div class="header-icon">
