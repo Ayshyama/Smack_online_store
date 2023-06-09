@@ -16,9 +16,7 @@
     --second-color: #edeae3;
     --text-color: #1b1b1b;
     --bg-color: #fff;
-
-    /*  Box Shadow  */
-    --box-shadow: 2px 2px 10px 4px rgb(14 55 54 / 15%);
+    --box-shadow: 2px 2px 10px 4px rgb(14 55 54 / 20%);
 }
 section {
     padding: 50px 100px;
@@ -64,7 +62,7 @@ header.shadow {
     transition: 0.2s all linear;
 }
 .header-icon {
-    font-size: 22px;
+    font-size: 30px;
     cursor: pointer;
     z-index: 10000;
     display: flex;
@@ -112,7 +110,7 @@ header.shadow {
     width: 100%;
     min-height: 100vh;
     background-size: cover;
-    background: url(img/bg.jpg) no-repeat center;
+    background: url(../img/bg.jpg) no-repeat center;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(17rem,auto));
     align-items: center;
@@ -130,7 +128,7 @@ header.shadow {
     margin: 0.5rem 0 1.4rem;
 }
 .btn-container {
-    text-align: right;
+    text-align: center;
 }
 .btn {
     padding: 12px 30px;
@@ -289,6 +287,7 @@ header.shadow {
 
 
 .categories-selector {
+    margin-top: 100px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -350,10 +349,17 @@ header.shadow {
     padding: 20px;
     background: #f1f1f1;
     border-radius: 0.5rem;
+    cursor: pointer;
 }
 .products-container .box h3 {
     text-align: center;
     font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.5rem 0 0.5rem;
+}
+.products-container .box h4 {
+    text-align: center;
+    font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
     margin: 0.5rem 0 0.5rem;
@@ -364,6 +370,7 @@ header.shadow {
     flex-direction: column; /* Change the flex direction to column */
     align-items: center;
     justify-content: space-around;
+    margin-top: auto; /* Add margin-top: auto */
 }
 
 .products-container .box .content span {
@@ -393,67 +400,60 @@ header.shadow {
 
 
 
-/* ---------- CART ---------- */
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 20% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 60%;
-    max-width: 1000px;
-}
-
-.close {
-    color: var(--main-color);
-    float: right;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: -20px;
-}
-
-/* Добавленные стили */
-#open-cart-modal {
-    cursor: pointer;
-}
+/* ---------- IMAGES FULL_SIZE ---------- */
 
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal img {
+  cursor: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 20% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 60%;
-    max-width: 400px;
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 2px solid #888;
+  width: 80%;
+  max-width: 800px;
 }
 
 .close {
-    color: var(--main-color);
-    float: right;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: -20px;
+  color: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
-    color: #8a6f4d;
-    text-decoration: none;
-    cursor: pointer;
+  color: #8a6f4d;
+  text-decoration: none;
+  cursor: pointer;
 }
+
+.modal-description {
+  margin-left: 22px;
+  margin-right: 20px;
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
 
 
 
@@ -501,6 +501,7 @@ header.shadow {
     }
     #menu-icon {
         display: initial;
+        font-size: 40px;
     }
     .navbar {
         position: absolute;
@@ -526,6 +527,9 @@ header.shadow {
     }
     .about {
         align-items: center;
+    }
+    .intro-container {
+        margin-top: 100px;
     }
 }
 
@@ -566,3 +570,19 @@ header.shadow {
     }
 }
 
+
+/* for modal */
+@media (max-width: 767px) {
+  .modal-content {
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+  }
+
+  .modal img {
+    height: 100%;
+  }
+}
