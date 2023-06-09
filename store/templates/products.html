@@ -5,7 +5,12 @@
 {% block about %}{% endblock %}
 {% block categories %}{% endblock %}
 {% block customers %}{% endblock %}
-
+        {% block menu %}
+        <ul class="navbar">
+            <li><a class="scroll-link" href="{% url 'store:index' %}#home">Головна</a></li>
+            <li><a class="scroll-link" href="{% url 'store:index' %}#about">Про Нас</a></li>
+        </ul>
+        {% endblock %}
 {% block content %}
 
 <!--  Categories Selector  -->
@@ -22,158 +27,129 @@
 </div>
 
 <!--  Products  -->
-    <section class="products" id="products">
-        <div class="heading">
-            <h2>Морожена Риба</h2>
+<section class="products" id="products">
+    <div class="heading">
+        <h2>Морожена Риба</h2>
+    </div>
+    <!-- Container -->
+    <div class="products-container">
+        <div class="box">
+            <img class="fish-image" src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
+            <h3>Атарина Чорноморська</h3>
+            <hr>
+            <h4>Морожена</h4>
+            <br>
+            <div class="content">
+                <span>250грн/100 грам</span>
+                <a href="#">Додати в кошик</a>
+            </div>
+            <br>
         </div>
-        <!-- Container -->
-        <div class="products-container">
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 1</h3>
-                <hr>
-                <br>
-                <div class="content">
-                    <span>₴250 за 100 Грам</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-                <br>
 
+        <div class="box">
+            <img class="fish-image" src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
+            <h3>Філе сома кларієвого на шкірі с/м ~2,5 кг</h3>
+            <hr>
+            <h4>Морожена</h4>
+            <br>
+            <div class="content">
+                <span>435 грн/1 Кг</span>
+                <a href="#">Додати в кошик</a>
             </div>
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 2</h3>
-                <hr>
-                <br>
-                <div class="content">
-                    <span>₴250 за 1 КГ</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-                <br>
-
-            </div>
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 3</h3>
-                <hr>
-                <br>
-                <div class="content">
-                    <span>₴250/1 шт.</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-                <br>
-
-            </div>
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 4</h3>
-                <hr>
-                <br>
-                <div class="content">
-                    <span>₴250</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-                <br>
-
-            </div>
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 5</h3>
-                <hr>
-                <br>
-                <div class="content">
-                    <span>₴250</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-                <br>
-
-            </div>
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 6</h3>
-                <hr>
-                <br>
-                <div class="content">
-                    <span>UAH 250</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-                <br>
-
-            </div>
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 1</h3>
-                <hr>
-                <br>
-                <div class="content">
-                    <span>₴250</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-                <br>
-
-            </div>
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 2</h3>
-                <hr>
-                <br>
-                <div class="content">
-                    <span>₴250 за 1 КГ</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-                <br>
-
-            </div>
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 3</h3>
-                <hr>
-                <br>
-                <div class="content">
-                    <span>₴250</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-                <br>
-
-            </div>
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 4</h3>
-                <hr>
-                <br>
-                <div class="content">
-                    <span>₴250</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-                <br>
-
-            </div>
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 5</h3>
-                <hr>
-                <br>
-                <div class="content">
-                    <span>₴250</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-                <br>
-
-            </div>
-            <div class="box">
-                <img src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-                <h3>Рибка 6</h3>
-                <hr>
-                <br>
-                <div class="content">
-                    <span>UAH 250</span>
-                    <a href="#">Додати в кошик</a>
-                </div>
-                <br>
-
-            </div>
+            <br>
         </div>
-    </section>
+
+        <div class="box">
+            <img class="fish-image" src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
+            <h3>Ставридка велика чорноморська, ставрида</h3>
+            <hr>
+            <h4>Морожена</h4>
+            <br>
+            <div class="content">
+                <span>250 грн/1 Кг</span>
+                <a href="#">Додати в кошик</a>
+            </div>
+            <br>
+        </div>
+
+        <div class="box">
+            <img class="fish-image" src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
+            <h3>Філе сазана (балик-спинка) с/м 2,5кг</h3>
+            <hr>
+            <h4>Морожена</h4>
+            <br>
+            <div class="content">
+                <span>250 грн/1 Шт</span>
+                <a href="#">Додати в кошик</a>
+            </div>
+            <br>
+        </div>
+
+                <div class="box">
+            <img class="fish-image" src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
+            <h3>Атарина Чорноморська</h3>
+            <hr>
+            <h4>Морожена</h4>
+            <br>
+            <div class="content">
+                <span>250грн/100 грам</span>
+                <a href="#">Додати в кошик</a>
+            </div>
+            <br>
+        </div>
+
+        <div class="box">
+            <img class="fish-image" src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
+            <h3>Філе сома кларієвого на шкірі с/м ~2,5 кг</h3>
+            <hr>
+            <h4>Морожена</h4>
+            <br>
+            <div class="content">
+                <span>435 грн/1 Кг</span>
+                <a href="#">Додати в кошик</a>
+            </div>
+            <br>
+        </div>
+
+        <div class="box">
+            <img class="fish-image" src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
+            <h3>Ставридка велика чорноморська, ставрида</h3>
+            <hr>
+            <h4>Морожена</h4>
+            <br>
+            <div class="content">
+                <span>250 грн/1 Кг</span>
+                <a href="#">Додати в кошик</a>
+            </div>
+            <br>
+        </div>
+
+        <div class="box">
+            <img class="fish-image" src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
+            <h3>Філе сазана (балик-спинка) с/м 2,5кг</h3>
+            <hr>
+            <h4>Морожена</h4>
+            <br>
+            <div class="content">
+                <span>250 грн/1 Шт</span>
+                <a href="#">Додати в кошик</a>
+            </div>
+            <br>
+        </div>
+
+        <div id="image-modal" class="modal">
+          <div class="modal-content">
+            <span id="close" class="close">&times;</span>
+            <hr>
+            <p class="modal-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut ultrices lectus, vitae fermentum ex. Phasellus ultrices orci non tincidunt aliquam.</p>
+            <br>
+            <img id="modal-image" class="modal-image" src="" alt="Modal Image">
+          </div>
+        </div>
+
+    </div>
+</section>
+
 
 
 {% endblock %}
