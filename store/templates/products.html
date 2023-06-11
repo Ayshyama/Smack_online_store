@@ -5,150 +5,81 @@
 {% block about %}{% endblock %}
 {% block categories %}{% endblock %}
 {% block customers %}{% endblock %}
-        {% block menu %}
-        <ul class="navbar">
-            <li><a class="scroll-link" href="{% url 'store:index' %}#home">Головна</a></li>
-            <li><a class="scroll-link" href="{% url 'store:index' %}#about">Про Нас</a></li>
-        </ul>
-        {% endblock %}
+{% block menu %}
+    <ul class="navbar">
+        <li><a class="scroll-link" href="{% url 'store:index' %}#home">Головна</a></li>
+        <li><a class="scroll-link" href="{% url 'store:index' %}#about">Про Нас</a></li>
+    </ul>
+{% endblock %}
 {% block content %}
 
-<!--  Categories Selector  -->
-<div class="categories-selector">
-    <div class="categories-box">
-        <h3 style="margin-bottom: 20px;">Оберіть Категорію:</h3>
-        <div class="category-buttons">
-            <button class="category-button" data-value="">Всі категорії</button>
-            <button class="category-button" data-value="морожена">Морожена Риба</button>
-            <button class="category-button" data-value="копчена">Копчена Риба</button>
-            <button class="category-button" data-value="в'ялена">В'ялена Риба</button>
+    <!--  Categories Selector  -->
+    <div class="categories-selector">
+        <div class="categories-box">
+            <h3 style="margin-bottom: 20px;">Оберіть Категорію:</h3>
+            <div class="category-buttons">
+                {% if not cat_obj %}
+                    <button class="category-button chosen">Всі категорії</button>
+                {% else %}
+                    <button class="category-button"><a href="{% url 'store:products' 'all' %}">Всі категорії</a>
+                    </button>
+                {% endif %}
+
+                {% for cat in cats %}
+                    {% if cat == cat_obj %}
+                        <button class="category-button chosen">{{ cat.name }} Риба</button>
+                    {% else %}
+                        <button class="category-button"><a href="{{ cat.get_absolute_url }}">{{ cat.name }} Риба</a>
+                        </button>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
         </div>
     </div>
-</div>
 
-<!--  Products  -->
-<section class="products" id="products">
-    <div class="heading">
-        <h2>Морожена Риба</h2>
-    </div>
-    <!-- Container -->
-    <div class="products-container">
-        <div class="box">
-            <img class="fish-image" src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-            <h3>Атарина Чорноморська</h3>
-            <hr>
-            <h4>Морожена</h4>
-            <br>
-            <div class="content">
-                <span>250грн/100 грам</span>
-                <a href="#">Додати в кошик</a>
-            </div>
-            <br>
+    <!--  Products  -->
+    <section class="products" id="products">
+        <div class="heading">
+            {% if cat_obj %}
+                <h2>{{ cat_obj.name }} Риба</h2>
+            {% else %}
+                <h2>Всі категорії</h2>
+            {% endif %}
+
         </div>
-
-        <div class="box">
-            <img class="fish-image" src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-            <h3>Філе сома кларієвого на шкірі с/м ~2,5 кг</h3>
-            <hr>
-            <h4>Морожена</h4>
-            <br>
-            <div class="content">
-                <span>435 грн/1 Кг</span>
-                <a href="#">Додати в кошик</a>
-            </div>
-            <br>
-        </div>
-
-        <div class="box">
-            <img class="fish-image" src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-            <h3>Ставридка велика чорноморська, ставрида</h3>
-            <hr>
-            <h4>Морожена</h4>
-            <br>
-            <div class="content">
-                <span>250 грн/1 Кг</span>
-                <a href="#">Додати в кошик</a>
-            </div>
-            <br>
-        </div>
-
-        <div class="box">
-            <img class="fish-image" src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-            <h3>Філе сазана (балик-спинка) с/м 2,5кг</h3>
-            <hr>
-            <h4>Морожена</h4>
-            <br>
-            <div class="content">
-                <span>250 грн/1 Шт</span>
-                <a href="#">Додати в кошик</a>
-            </div>
-            <br>
-        </div>
-
+        <!-- Container -->
+        <div class="products-container">
+            {% for product in products %}
                 <div class="box">
-            <img class="fish-image" src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-            <h3>Атарина Чорноморська</h3>
-            <hr>
-            <h4>Морожена</h4>
-            <br>
-            <div class="content">
-                <span>250грн/100 грам</span>
-                <a href="#">Додати в кошик</a>
+                    <img class="fish-image" src="{% if product.image %} {{ product.image.url }}
+                {% else %} {% static 'img/ryb1.png' %} {% endif %}"
+                         alt="Мультяшная рыба Png vectors by Lovepik.com">
+                    <h3>{{ product.name }}</h3>
+                    <hr>
+                    <h4>{{ product.category }}</h4>
+                    <br>
+                    <div class="content">
+                        <span>{{ product.price }}грн/{{ product.measure }}</span>
+                        <a href="#">Додати в кошик</a>
+                    </div>
+                    <br>
+                </div>
+            {% endfor %}
+
+            <div id="image-modal" class="modal">
+                <div class="modal-content">
+                    <span id="close" class="close">&times;</span>
+                    <hr>
+                    <p class="modal-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut
+                        ultrices lectus, vitae fermentum ex. Phasellus ultrices orci non tincidunt aliquam.</p>
+                    <br>
+                    <img id="modal-image" class="modal-image" src="" alt="Modal Image">
+                </div>
             </div>
-            <br>
-        </div>
 
-        <div class="box">
-            <img class="fish-image" src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-            <h3>Філе сома кларієвого на шкірі с/м ~2,5 кг</h3>
-            <hr>
-            <h4>Морожена</h4>
-            <br>
-            <div class="content">
-                <span>435 грн/1 Кг</span>
-                <a href="#">Додати в кошик</a>
-            </div>
-            <br>
         </div>
-
-        <div class="box">
-            <img class="fish-image" src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-            <h3>Ставридка велика чорноморська, ставрида</h3>
-            <hr>
-            <h4>Морожена</h4>
-            <br>
-            <div class="content">
-                <span>250 грн/1 Кг</span>
-                <a href="#">Додати в кошик</a>
-            </div>
-            <br>
-        </div>
-
-        <div class="box">
-            <img class="fish-image" src="{% static 'img/ryb1.png' %}" alt="Мультяшная рыба Png vectors by Lovepik.com">
-            <h3>Філе сазана (балик-спинка) с/м 2,5кг</h3>
-            <hr>
-            <h4>Морожена</h4>
-            <br>
-            <div class="content">
-                <span>250 грн/1 Шт</span>
-                <a href="#">Додати в кошик</a>
-            </div>
-            <br>
-        </div>
-
-        <div id="image-modal" class="modal">
-          <div class="modal-content">
-            <span id="close" class="close">&times;</span>
-            <hr>
-            <p class="modal-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut ultrices lectus, vitae fermentum ex. Phasellus ultrices orci non tincidunt aliquam.</p>
-            <br>
-            <img id="modal-image" class="modal-image" src="" alt="Modal Image">
-          </div>
-        </div>
-
-    </div>
-</section>
+    </section>
 
 
 

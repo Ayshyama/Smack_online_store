@@ -320,6 +320,10 @@ header.shadow {
     transition: 0.2s all linear;
 }
 
+.category-button.chosen {
+    background: var(--main-color);
+    color: red;
+}
 
 
 .products-container {
