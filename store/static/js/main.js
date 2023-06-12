@@ -111,3 +111,18 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+
+// CATEGORIES_BUTTONS //
+  const categoryButtons = document.querySelectorAll('.category-button');
+
+  categoryButtons.forEach(button => {
+      button.addEventListener('click', function() {
+          // Удаляем класс "active" у всех кнопок
+          categoryButtons.forEach(btn => {
+              btn.classList.remove('active');
+          });
+
+          button.classList.add('active');
+      });
+  });
+
