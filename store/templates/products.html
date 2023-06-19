@@ -27,9 +27,9 @@
 
                 {% for cat in cats %}
                     {% if cat == cat_obj %}
-                        <button class="category-button chosen">{{ cat.name }} Риба</button>
+                        <button class="category-button chosen">{{ cat.name }}</button>
                     {% else %}
-                        <button class="category-button"><a href="{{ cat.get_absolute_url }}">{{ cat.name }} Риба</a>
+                        <button class="category-button"><a href="{{ cat.get_absolute_url }}">{{ cat.name }}</a>
                         </button>
                     {% endif %}
                 {% endfor %}
@@ -53,14 +53,19 @@
             {% for product in products %}
                 <div class="box">
                     <img class="fish-image" src="{% if product.image %} {{ product.image.url }}
-                {% else %} {% static 'img/ryb1.png' %} {% endif %}"
+                    {% else %} {% static 'img/ryb1.png' %} {% endif %}"
                          alt="Мультяшная рыба Png vectors by Lovepik.com">
-                    <h3>{{ product.name }}</h3>
-                    <hr>
                     <h4>{{ product.category }}</h4>
+                    <hr>
+                    <h3>{{ product.name }}</h3>
                     <br>
                     <div class="content">
                         <span>{{ product.price }}грн/{{ product.measure }}</span>
+                        <div class="counter">
+                            <button class="counter-btn minus">-</button>
+                            <span class="counter-value">1</span>
+                            <button class="counter-btn plus">+</button>
+                        </div>
                         <a href="#">Додати в кошик</a>
                     </div>
                     <br>

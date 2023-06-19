@@ -6,17 +6,16 @@
         <div class="heading">
             <h2>Асортимент</h2>
         </div>
-        <!-- Container -->
         <div class="categories-container">
             {% for cat in cats %}
                 <a href="{{ cat.get_absolute_url }}">
                 <div class="box">
-                    <img src="{{ cat.image.url }}" alt="{{ cat.name }} Риба">
+                    <img src="{{ cat.image.url }}" alt="{{ cat.name }}">
                     <br>
-                    <h3>{{ cat.name }} Риба</h3>
+                    <h3>{{ cat.name }}</h3>
                 </div>
             </a>
             {% endfor %}
         </div>
-    </section>
+    </section>В
 {% endblock %}
