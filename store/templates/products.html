@@ -55,9 +55,9 @@
                     <img class="fish-image" src="{% if product.image %} {{ product.image.url }}
                 {% else %} {% static 'img/ryb1.png' %} {% endif %}"
                          alt="Мультяшная рыба Png vectors by Lovepik.com">
-                    <h3>{{ product.name }}</h3>
-                    <hr>
                     <h4>{{ product.category }}</h4>
+                    <hr>
+                    <h3>{{ product.name }}</h3>
                     <br>
                     <div class="content">
                         <span>{{ product.price }}грн/{{ product.measure }}</span>
