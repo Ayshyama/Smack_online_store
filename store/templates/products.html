@@ -53,7 +53,7 @@
             {% for product in products %}
                 <div class="box">
                     <img class="fish-image" src="{% if product.image %} {{ product.image.url }}
-                {% else %} {% static 'img/ryb1.png' %} {% endif %}"
+                    {% else %} {% static 'img/ryb1.png' %} {% endif %}"
                          alt="Мультяшная рыба Png vectors by Lovepik.com">
                     <h4>{{ product.category }}</h4>
                     <hr>
@@ -61,6 +61,11 @@
                     <br>
                     <div class="content">
                         <span>{{ product.price }}грн/{{ product.measure }}</span>
+                        <div class="counter">
+                            <button class="counter-btn minus">-</button>
+                            <span class="counter-value">1</span>
+                            <button class="counter-btn plus">+</button>
+                        </div>
                         <a href="#">Додати в кошик</a>
                     </div>
                     <br>
