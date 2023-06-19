@@ -27,9 +27,9 @@
 
                 {% for cat in cats %}
                     {% if cat == cat_obj %}
-                        <button class="category-button chosen">{{ cat.name }} Риба</button>
+                        <button class="category-button chosen">{{ cat.name }}</button>
                     {% else %}
-                        <button class="category-button"><a href="{{ cat.get_absolute_url }}">{{ cat.name }} Риба</a>
+                        <button class="category-button"><a href="{{ cat.get_absolute_url }}">{{ cat.name }}</a>
                         </button>
                     {% endif %}
                 {% endfor %}
