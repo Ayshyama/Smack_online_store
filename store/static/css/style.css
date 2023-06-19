@@ -25,6 +25,10 @@ img {
     width: 100%;
 }
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
     color: var(--text-color);
 }
 header {
@@ -243,6 +247,7 @@ header.shadow {
 
 
 .footer {
+    margin-top: auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, auto));
     gap: 1.5rem;
