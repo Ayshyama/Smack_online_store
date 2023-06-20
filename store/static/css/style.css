@@ -126,6 +126,10 @@ header.shadow {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+.home-text h3 {
+    color: var(--bg-color);
+    margin: 0.5rem 0 1.4rem;
+    }
 .home-text p {
     font-size: 1rem;
     color: var(--bg-color);
