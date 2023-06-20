@@ -64,12 +64,13 @@
                         <div class="counter">
                             <button class="counter-btn minus">-</button>
                             <span class="counter-value">1</span>
-                            <button class="counter-btn plus">+</button>
+                            <button id="{{ product.id }}" class="counter-btn plus">+</button>
                         </div>
-                        <a href="#">Додати в кошик</a>
+                        <a href="{% url 'store:cart' product.id %}">Додати в кошик</a>
                     </div>
                     <br>
                 </div>
+
             {% endfor %}
 
             <div id="image-modal" class="modal">

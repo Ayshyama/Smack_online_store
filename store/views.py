@@ -33,5 +33,9 @@ def products(request, cat_slug):
     return render(request, 'products.html', context)
 
 
-def cart_view(request):
+def cart_view(request, id):
     return render(request, 'cart.html')
+
+
+def add_product(request):
+    print('hello word')
