@@ -52,13 +52,13 @@
         <div class="products-container">
             {% for product in products %}
                 <div class="box">
-                    <img class="fish-image" src="{% if product.image %} {{ product.image.url }}
-                    {% else %} {% static 'img/ryb1.png' %} {% endif %}"
-                         alt="Мультяшная рыба Png vectors by Lovepik.com">
+                    <img class="fish-image" data-description="{{ product.description }}" src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/ryb1.png' %} {% endif %}"
+                        alt="Мультяшная рыба Png vectors by Lovepik.com">
                     <h4>{{ product.category }}</h4>
                     <hr>
                     <h3>{{ product.name }}</h3>
                     <br>
+
                     <div class="content">
                         <span>{{ product.price }}грн/{{ product.measure }}</span>
                         <div class="counter">
@@ -71,27 +71,20 @@
                     <br>
                 </div>
 
+                <div id="image-modal" class="product-modal">
+                  <div class="product-modal-content">
+                    <span id="close" class="close">&times;</span>
+                    <h4>{{ product.category }}</h4>
+                    <h3>{{ product.name }}</h3>
+                    <br>
+                    <img id="product-modal-image" class="product-modal-image" src="" alt="Modal Image">
+                    <p class="product-modal-description"></p>
+                  </div>
+                </div>
+
             {% endfor %}
 
-            <div id="image-modal" class="modal">
-                <div class="modal-content">
-                    <span id="close" class="close">&times;</span>
-                    <hr>
-                    <p class="modal-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut
-                        ultrices lectus, vitae fermentum ex. Phasellus ultrices orci non tincidunt aliquam.</p>
-                    <br>
-                    <img id="modal-image" class="modal-image" src="" alt="Modal Image">
-                </div>
-            </div>
-          
-        <div id="image-modal" class="modal">
-          <div class="modal-content">
-            <span id="close" class="close">&times;</span>
-            <hr>
-            <p class="modal-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut ultrices lectus, vitae fermentum ex. Phasellus ultrices orci non tincidunt aliquot.</p>
-            <br>
-            <img id="modal-image" class="modal-image" src="" alt="Modal Image">
-          </div>
+
 
         </div>
     </section>
