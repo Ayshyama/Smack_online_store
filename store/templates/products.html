@@ -12,7 +12,12 @@
     </ul>
 {% endblock %}
 {% block content %}
-
+    <div class="temp-message">
+        <div class="temp-develop">
+            <h3>Увага!</h3>
+            <h3>Кошик сайту ще у розробці. Ви можете швидко зробити замовлення зателефонувавши за номером: 060 080 880</h3>
+        </div>
+    </div>
     <!--  Categories Selector  -->
     <div class="categories-selector">
         <div class="categories-box">
@@ -21,16 +26,14 @@
                 {% if not cat_obj %}
                     <button class="category-button chosen">Всі категорії</button>
                 {% else %}
-                    <button class="category-button"><a href="{% url 'store:products' 'all' %}">Всі категорії</a>
-                    </button>
+                    <a href="{% url 'store:products' 'all' %}" class="category-button">Всі категорії</a>
                 {% endif %}
 
                 {% for cat in cats %}
                     {% if cat == cat_obj %}
                         <button class="category-button chosen">{{ cat.name }}</button>
                     {% else %}
-                        <button class="category-button"><a href="{{ cat.get_absolute_url }}">{{ cat.name }}</a>
-                        </button>
+                        <a href="{{ cat.get_absolute_url }}" class="category-button">{{ cat.name }}</a>
                     {% endif %}
                 {% endfor %}
 
@@ -61,12 +64,12 @@
 
                     <div class="content">
                         <span>{{ product.price }}грн/{{ product.measure }}</span>
-                        <div class="counter">
-                            <button class="counter-btn minus">-</button>
-                            <span class="counter-value">1</span>
-                            <button id="{{ product.id }}" class="counter-btn plus">+</button>
-                        </div>
-                        <a href="{% url 'store:cart' product.id %}">Додати в кошик</a>
+{#                        <div class="counter">#}
+{#                            <button class="counter-btn minus">-</button>#}
+{#                            <span class="counter-value">1</span>#}
+{#                            <button id="{{ product.id }}" class="counter-btn plus">+</button>#}
+{#                        </div>#}
+{#                        <a href="{% url 'store:cart' product.id %}">Додати в кошик</a>#}
                     </div>
                     <br>
                 </div>
