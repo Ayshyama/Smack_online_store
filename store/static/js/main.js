@@ -84,8 +84,14 @@ document.addEventListener('DOMContentLoaded', function() {
 // FULL_SIZE_IMAGE_MODAL
 const fishImages = document.querySelectorAll('.fish-image');
 const modal = document.getElementById('image-modal');
-const modalImage = document.getElementById('modal-image');
+const modalImage = document.getElementById('product-modal-image');
 const closeButton = document.getElementById('close');
+
+document.querySelectorAll('.fish-image').forEach((img) => {
+  img.addEventListener('click', (e) => {
+    document.querySelector('.product-modal-description').textContent = e.target.getAttribute('data-description');
+  });
+});
 
 fishImages.forEach((fishImage) => {
   fishImage.addEventListener('click', () => {
@@ -113,16 +119,34 @@ document.addEventListener('keydown', (event) => {
 
 
 // CATEGORIES_BUTTONS //
-  const categoryButtons = document.querySelectorAll('.category-button');
+   const categoryButtons = document.querySelectorAll('.category-button');
 
-  categoryButtons.forEach(button => {
-      button.addEventListener('click', function() {
-          // Удаляем класс "active" у всех кнопок
-          categoryButtons.forEach(btn => {
-              btn.classList.remove('active');
-          });
+   categoryButtons.forEach(button => {
+       button.addEventListener('click', function() {
+           // Удаляем класс "active" у всех кнопок
+           categoryButtons.forEach(btn => {
+               btn.classList.remove('active');
+           });
 
-          button.classList.add('active');
-      });
-  });
+           button.classList.add('active');
+       });
+   });
 
+
+
+let buttons=document.querySelectorAll(".counter-btn.plus")
+let amount={}
+buttons.forEach(item=>{
+  let id=item.getAttribute('id')
+  amount[id] = 0
+})
+function add_onclick(id) {
+  console.log("click")
+  amount[id] += 1
+  console.log(amount)
+}
+console.log(amount)
+buttons.forEach(button=>{
+  console.log(button)
+  button.addEventListener("click", ()=>add_onclick(button.getAttribute("id")))
+})
