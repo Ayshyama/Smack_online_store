@@ -447,7 +447,7 @@ header.shadow {
     font-size: 18px;
 }
 
-.products-container .box .content a {
+.products-container .box .content .cart-button {
     padding: 5px 1rem;
     color: var(--text-color);
     border: 2px solid var(--main-color);

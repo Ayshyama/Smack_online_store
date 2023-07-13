@@ -54,22 +54,25 @@
         <!-- Container -->
         <div class="products-container">
             {% for product in products %}
-                <div class="box">
+                <div class="box" data-id="{{ product.id }}">
                     <img class="fish-image" data-description="{{ product.description }}" src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/ryb1.png' %} {% endif %}"
                         alt="Мультяшная рыба Png vectors by Lovepik.com">
                     <h4>{{ product.category }}</h4>
                     <hr>
-                    <h3>{{ product.name }}</h3>
+                    <h3 class="item-title">{{ product.name }}</h3>
                     <br>
 
                     <div class="content">
-                        <span>{{ product.price }}грн/{{ product.measure }}</span>
-{#                        <div class="counter">#}
-{#                            <button class="counter-btn minus">-</button>#}
-{#                            <span class="counter-value">1</span>#}
-{#                            <button id="{{ product.id }}" class="counter-btn plus">+</button>#}
-{#                        </div>#}
-{#                        <a href="{% url 'store:cart' product.id %}">Додати в кошик</a>#}
+                        <span class="price-weight">{{ product.price }}грн/{{ product.measure }}</span>
+                        <div class="counter">
+                            <button class="counter-btn minus" data-action="minus">-</button>
+                            <span class="counter-value" data-counter>1</span>
+                            <button id="{{ product.id }}" class="counter-btn plus" data-action="plus">+</button>
+                        </div>
+{#                        <a href="{% url 'store:cart' product.id %}">+ Додати в кошик</a>#}
+                        <button data-cart type="button" class="btn btn-block cart-button">
+                            Додати в кошик
+                        </button>
                     </div>
                     <br>
                 </div>
@@ -92,7 +95,8 @@
         </div>
     </section>
 
-
+    <script src="{% static 'js/counter.js' %}"></script>
+    <script src="{% static 'js/cart.js' %}"></script>
 
 {% endblock %}
 
