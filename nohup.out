@@ -9958,3 +9958,268 @@ Forbidden (CSRF cookie not set.): /
 [13/Jul/2023 07:55:46] "POST / HTTP/1.1" 403 3108
 Not Found: /.env
 [13/Jul/2023 07:55:47] "GET /.env HTTP/1.1" 404 2932
+[13/Jul/2023 08:27:20] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 08:27:24] "GET /products/richkovastavkovariba HTTP/1.1" 200 15975
+[13/Jul/2023 08:27:27] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 08:27:33] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 08:27:39] "GET /products/frozen HTTP/1.1" 200 5878
+Not Found: /products
+[13/Jul/2023 08:27:45] "GET /products HTTP/1.1" 404 2944
+[13/Jul/2023 08:28:02] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 08:28:08] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 08:28:11] "GET /products/all HTTP/1.1" 200 38031
+Not Found: /products
+[13/Jul/2023 08:28:33] "GET /products HTTP/1.1" 404 2944
+[13/Jul/2023 08:28:47] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 08:28:51] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 08:29:12] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 08:29:19] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 08:29:30] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 08:29:31] "GET /products/smoked HTTP/1.1" 200 14858
+[13/Jul/2023 08:29:34] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 08:29:35] "GET /products/all HTTP/1.1" 200 38031
+Not Found: /products
+[13/Jul/2023 08:29:41] "GET /products HTTP/1.1" 404 2944
+[13/Jul/2023 08:30:46] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 08:34:47] code 400, message Bad request version ("x64|'|'|No|'|'|0.7d|'|'|..|'|'|AA==|'|'|112.inf|'|'|SGFjS2VkDQoxOTIuMTY4LjkyLjIyMjo1NTUyDQpEZXNrdG9wDQpjbGllbnRhLmV4ZQ0KRmFsc2UNCkZhbHNlDQpUcnVlDQpGYWxzZQ==12.act|'|'|AA==")
+[13/Jul/2023 08:34:47] "145.ll|'|'|SGFjS2VkX0Q0OTkwNjI3|'|'|WIN-JNAPIER0859|'|'|JNapier|'|'|19-02-01|'|'||'|'|Win 7 Professional SP1 x64|'|'|No|'|'|0.7d|'|'|..|'|'|AA==|'|'|112.inf|'|'|SGFjS2VkDQoxOTIuMTY4LjkyLjIyMjo1NTUyDQpEZXNrdG9wDQpjbGllbnRhLmV4ZQ0KRmFsc2UNCkZhbHNlDQpUcnVlDQpGYWxzZQ==12.act|'|'|AA==" 400 -
+Forbidden (CSRF cookie not set.): /
+[13/Jul/2023 08:38:53] "POST / HTTP/1.1" 403 3108
+Not Found: /.env
+[13/Jul/2023 08:38:53] "GET /.env HTTP/1.1" 404 2932
+Not Found: /.env
+[13/Jul/2023 08:47:48] "GET /.env HTTP/1.1" 404 2932
+Forbidden (CSRF cookie not set.): /
+[13/Jul/2023 08:47:48] "POST / HTTP/1.1" 403 3108
+Not Found: /files/
+[13/Jul/2023 09:03:01] "GET /files/ HTTP/1.1" 404 2938
+[13/Jul/2023 09:08:48] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 09:08:48,541] - Broken pipe from ('184.105.139.68', 63718)
+Not Found: /favicon.ico
+[13/Jul/2023 09:10:51] "GET /favicon.ico HTTP/1.1" 404 2953
+Not Found: /geoserver/web/
+[13/Jul/2023 09:11:46] "GET /geoserver/web/ HTTP/1.1" 404 2962
+[13/Jul/2023 09:14:38] "GET /products/richkovastavkovariba HTTP/1.1" 200 15975
+Forbidden (CSRF cookie not set.): /
+[13/Jul/2023 09:39:32] "POST / HTTP/1.1" 403 3108
+Not Found: /.env
+[13/Jul/2023 09:39:33] "GET /.env HTTP/1.1" 404 2932
+Not Found: /aaa9
+[13/Jul/2023 09:41:10] "GET /aaa9 HTTP/1.1" 404 2932
+Not Found: /aab8
+[13/Jul/2023 09:41:24] "GET /aab8 HTTP/1.1" 404 2932
+[13/Jul/2023 09:41:43] "GET / HTTP/1.1" 200 13374
+Forbidden (CSRF cookie not set.): /
+[13/Jul/2023 09:54:14] "POST / HTTP/1.1" 403 3108
+Not Found: /.env
+[13/Jul/2023 09:54:14] "GET /.env HTTP/1.1" 404 2932
+[13/Jul/2023 10:32:23] "GET / HTTP/1.1" 200 13374
+Forbidden (CSRF cookie not set.): /
+[13/Jul/2023 10:35:53] "POST / HTTP/1.1" 403 3108
+Not Found: /.env
+[13/Jul/2023 10:35:54] "GET /.env HTTP/1.1" 404 2932
+[13/Jul/2023 11:01:04] code 400, message Bad request version ('À\x14À')
+[13/Jul/2023 11:01:04] You're accessing the development server over HTTPS, but it only supports HTTP.
+Forbidden (CSRF cookie not set.): /
+[13/Jul/2023 11:03:53] "POST / HTTP/1.1" 403 3108
+Not Found: /.env
+[13/Jul/2023 11:03:54] "GET /.env HTTP/1.1" 404 2932
+[13/Jul/2023 11:22:26] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 11:22:55] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 11:22:55,677] - Broken pipe from ('43.129.40.155', 41030)
+[13/Jul/2023 11:30:57] "GET / HTTP/1.1" 200 13374
+Not Found: /favicon.ico
+[13/Jul/2023 11:30:57] "GET /favicon.ico HTTP/1.1" 404 2953
+[13/Jul/2023 11:31:02] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 11:31:05] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 11:31:21] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 11:31:22] "GET /products/smoked HTTP/1.1" 200 14858
+[13/Jul/2023 11:31:23] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 11:31:23] "GET /products/kopchena-ta-vyalena HTTP/1.1" 200 5909
+[13/Jul/2023 11:31:24] "GET /products/ikra HTTP/1.1" 200 5864
+[13/Jul/2023 11:31:25] "GET /products/dried HTTP/1.1" 200 18991
+[13/Jul/2023 11:31:26] "GET /products/ikra HTTP/1.1" 200 5864
+[13/Jul/2023 11:35:18] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 11:35:35] "GET /products/smoked HTTP/1.1" 200 14858
+[13/Jul/2023 11:35:36] "GET /products/dried HTTP/1.1" 200 18991
+[13/Jul/2023 11:35:37] "GET /products/richkova HTTP/1.1" 200 5872
+[13/Jul/2023 11:35:37] "GET /products/morozhena-okeanichna HTTP/1.1" 200 5906
+[13/Jul/2023 11:35:38] "GET /products/chervona HTTP/1.1" 200 5872
+[13/Jul/2023 11:35:39] "GET /products/sneki-do-piva HTTP/1.1" 200 5887
+[13/Jul/2023 11:35:39] "GET /products/ikra HTTP/1.1" 200 5864
+[13/Jul/2023 11:35:40] "GET /products/kopchena-ta-vyalena HTTP/1.1" 200 5909
+[13/Jul/2023 11:35:40] "GET /products/smoked HTTP/1.1" 200 14858
+[13/Jul/2023 11:35:41] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 11:35:42] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 11:35:43] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 11:35:44] "GET /products/smoked HTTP/1.1" 200 14858
+[13/Jul/2023 11:35:45] "GET /products/dried HTTP/1.1" 200 18991
+[13/Jul/2023 11:35:45] "GET /products/richkova HTTP/1.1" 200 5872
+[13/Jul/2023 11:35:46] "GET /products/morozhena-okeanichna HTTP/1.1" 200 5906
+[13/Jul/2023 11:35:47] "GET /products/chervona HTTP/1.1" 200 5872
+[13/Jul/2023 11:35:48] "GET /products/moreprodukti HTTP/1.1" 200 5888
+[13/Jul/2023 11:35:49] "GET /products/kopchena-ta-vyalena HTTP/1.1" 200 5909
+[13/Jul/2023 11:35:49] "GET /products/ikra HTTP/1.1" 200 5864
+[13/Jul/2023 11:35:50] "GET /products/sneki-do-piva HTTP/1.1" 200 5887
+[13/Jul/2023 11:35:50] "GET /products/richkovastavkovariba HTTP/1.1" 200 15975
+[13/Jul/2023 11:35:51] "GET /products/morozhena-okeanichna HTTP/1.1" 200 5906
+[13/Jul/2023 11:35:52] "GET /products/chervona HTTP/1.1" 200 5872
+[13/Jul/2023 11:35:53] "GET /products/richkova HTTP/1.1" 200 5872
+[13/Jul/2023 11:35:53] "GET /products/dried HTTP/1.1" 200 18991
+[13/Jul/2023 11:35:54] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 11:35:54] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 11:35:55] "GET /products/moreprodukti HTTP/1.1" 200 5888
+[13/Jul/2023 11:35:56] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 11:35:57] "GET /products/smoked HTTP/1.1" 200 14858
+[13/Jul/2023 11:35:58] "GET /products/dried HTTP/1.1" 200 18991
+[13/Jul/2023 11:35:58] "GET /products/ikra HTTP/1.1" 200 5864
+[13/Jul/2023 11:35:59] "GET /products/chervona HTTP/1.1" 200 5872
+[13/Jul/2023 11:36:00] "GET /products/morozhena-okeanichna HTTP/1.1" 200 5906
+[13/Jul/2023 11:36:01] "GET /products/moreprodukti HTTP/1.1" 200 5888
+[13/Jul/2023 11:36:01] "GET /products/richkovastavkovariba HTTP/1.1" 200 15975
+[13/Jul/2023 11:36:02] "GET /products/sneki-do-piva HTTP/1.1" 200 5887
+[13/Jul/2023 11:36:03] "GET /products/ikra HTTP/1.1" 200 5864
+[13/Jul/2023 11:36:03] "GET /products/kopchena-ta-vyalena HTTP/1.1" 200 5909
+[13/Jul/2023 11:36:04] "GET /products/richkova HTTP/1.1" 200 5872
+[13/Jul/2023 11:36:05] "GET /products/dried HTTP/1.1" 200 18991
+[13/Jul/2023 11:36:05] "GET /products/smoked HTTP/1.1" 200 14858
+[13/Jul/2023 11:36:06] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 11:36:07] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 11:36:07] "GET /products/kopchena-ta-vyalena HTTP/1.1" 200 5909
+[13/Jul/2023 11:36:08] "GET /products/dried HTTP/1.1" 200 18991
+[13/Jul/2023 11:36:09] "GET /products/kopchena-ta-vyalena HTTP/1.1" 200 5909
+[13/Jul/2023 11:36:10] "GET /products/ikra HTTP/1.1" 200 5864
+[13/Jul/2023 11:36:11] "GET /products/sneki-do-piva HTTP/1.1" 200 5887
+[13/Jul/2023 11:36:11] "GET /products/richkovastavkovariba HTTP/1.1" 200 15975
+[13/Jul/2023 11:36:12] "GET /products/chervona HTTP/1.1" 200 5872
+[13/Jul/2023 11:36:13] "GET /products/richkova HTTP/1.1" 200 5872
+[13/Jul/2023 11:36:13] "GET /products/smoked HTTP/1.1" 200 14858
+[13/Jul/2023 11:36:14] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 11:38:09] "GET /products/chervona HTTP/1.1" 200 5872
+[13/Jul/2023 11:38:09] "GET /products/richkova HTTP/1.1" 200 5872
+[13/Jul/2023 11:38:10] "GET /products/dried HTTP/1.1" 200 18991
+[13/Jul/2023 11:38:11] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 11:38:13] "GET /products/smoked HTTP/1.1" 200 14858
+[13/Jul/2023 11:38:14] "GET /products/dried HTTP/1.1" 200 18991
+[13/Jul/2023 11:38:15] "GET /products/richkova HTTP/1.1" 200 5872
+[13/Jul/2023 11:38:16] "GET /products/chervona HTTP/1.1" 200 5872
+[13/Jul/2023 11:38:16] "GET /products/morozhena-okeanichna HTTP/1.1" 200 5906
+[13/Jul/2023 11:38:17] "GET /products/richkovastavkovariba HTTP/1.1" 200 15975
+[13/Jul/2023 11:38:19] "GET /products/ikra HTTP/1.1" 200 5864
+[13/Jul/2023 11:38:19] "GET /products/kopchena-ta-vyalena HTTP/1.1" 200 5909
+[13/Jul/2023 11:38:20] "GET /products/moreprodukti HTTP/1.1" 200 5888
+[13/Jul/2023 11:38:21] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 11:38:22] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 11:38:22] "GET /products/kopchena-ta-vyalena HTTP/1.1" 200 5909
+[13/Jul/2023 11:38:23] "GET /products/smoked HTTP/1.1" 200 14858
+[13/Jul/2023 11:38:24] "GET /products/ikra HTTP/1.1" 200 5864
+[13/Jul/2023 11:38:24] "GET /products/dried HTTP/1.1" 200 18991
+[13/Jul/2023 11:38:25] "GET /products/sneki-do-piva HTTP/1.1" 200 5887
+[13/Jul/2023 11:38:25] "GET /products/richkova HTTP/1.1" 200 5872
+[13/Jul/2023 11:38:26] "GET /products/richkovastavkovariba HTTP/1.1" 200 15975
+[13/Jul/2023 11:38:27] "GET /products/chervona HTTP/1.1" 200 5872
+[13/Jul/2023 11:38:27] "GET /products/morozhena-okeanichna HTTP/1.1" 200 5906
+Invalid HTTP_HOST header: 'ubuntu-s-1vcpu-1gb-intel-sfo3-01'. You may need to add 'ubuntu-s-1vcpu-1gb-intel-sfo3-01' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/dist-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.10/dist-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/dist-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'ubuntu-s-1vcpu-1gb-intel-sfo3-01'. You may need to add 'ubuntu-s-1vcpu-1gb-intel-sfo3-01' to ALLOWED_HOSTS.
+Bad Request: /
+[13/Jul/2023 11:39:20] "GET / HTTP/1.0" 400 62674
+[13/Jul/2023 11:43:25] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 11:43:28] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 11:43:31] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 11:43:33] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 11:43:34] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 11:43:35] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 11:43:37] "GET /products/smoked HTTP/1.1" 200 14858
+[13/Jul/2023 11:43:38] "GET /products/dried HTTP/1.1" 200 18991
+[13/Jul/2023 11:43:39] "GET /products/richkova HTTP/1.1" 200 5872
+[13/Jul/2023 11:43:40] "GET /products/chervona HTTP/1.1" 200 5872
+[13/Jul/2023 11:43:41] "GET /products/morozhena-okeanichna HTTP/1.1" 200 5906
+[13/Jul/2023 11:43:42] "GET /products/ikra HTTP/1.1" 200 5864
+[13/Jul/2023 11:43:43] "GET /products/kopchena-ta-vyalena HTTP/1.1" 200 5909
+[13/Jul/2023 11:43:44] "GET /products/moreprodukti HTTP/1.1" 200 5888
+[13/Jul/2023 11:43:44] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 11:43:45] "GET /products/dried HTTP/1.1" 200 18991
+[13/Jul/2023 11:43:45] "GET /products/smoked HTTP/1.1" 200 14858
+[13/Jul/2023 11:43:46] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 11:43:47] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 11:43:48] "GET /products/smoked HTTP/1.1" 200 14858
+[13/Jul/2023 11:43:53] "GET /products/ikra HTTP/1.1" 200 5864
+[13/Jul/2023 11:43:53] "GET /products/dried HTTP/1.1" 200 18991
+[13/Jul/2023 11:43:54] "GET /products/sneki-do-piva HTTP/1.1" 200 5887
+[13/Jul/2023 11:43:55] "GET /products/richkova HTTP/1.1" 200 5872
+[13/Jul/2023 11:43:55] "GET /products/chervona HTTP/1.1" 200 5872
+[13/Jul/2023 11:43:56] "GET /products/richkovastavkovariba HTTP/1.1" 200 15975
+[13/Jul/2023 11:43:56] "GET /products/morozhena-okeanichna HTTP/1.1" 200 5906
+[13/Jul/2023 11:43:57] "GET /products/sneki-do-piva HTTP/1.1" 200 5887
+[13/Jul/2023 11:43:57] "GET /products/richkovastavkovariba HTTP/1.1" 200 15975
+[13/Jul/2023 11:43:59] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 11:44:00] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 11:44:00] "GET /products/moreprodukti HTTP/1.1" 200 5888
+[13/Jul/2023 11:44:01] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 11:44:02] "GET /products/kopchena-ta-vyalena HTTP/1.1" 200 5909
+[13/Jul/2023 11:44:02] "GET /products/smoked HTTP/1.1" 200 14858
+[13/Jul/2023 11:44:03] "GET /products/ikra HTTP/1.1" 200 5864
+[13/Jul/2023 11:44:03] "GET /products/dried HTTP/1.1" 200 18991
+[13/Jul/2023 11:44:04] "GET /products/sneki-do-piva HTTP/1.1" 200 5887
+[13/Jul/2023 11:44:04] "GET /products/richkova HTTP/1.1" 200 5872
+[13/Jul/2023 11:44:04] "GET /products/richkovastavkovariba HTTP/1.1" 200 15975
+[13/Jul/2023 11:44:05] "GET /products/chervona HTTP/1.1" 200 5872
+[13/Jul/2023 11:44:05] "GET /products/morozhena-okeanichna HTTP/1.1" 200 5906
+[13/Jul/2023 11:44:06] "GET /products/sneki-do-piva HTTP/1.1" 200 5887
+[13/Jul/2023 11:44:06] "GET /products/richkova HTTP/1.1" 200 5872
+[13/Jul/2023 11:44:07] "GET /products/ikra HTTP/1.1" 200 5864
+[13/Jul/2023 11:44:07] "GET /products/dried HTTP/1.1" 200 18991
+[13/Jul/2023 11:44:07] "GET /products/kopchena-ta-vyalena HTTP/1.1" 200 5909
+[13/Jul/2023 11:44:08] "GET /products/smoked HTTP/1.1" 200 14858
+[13/Jul/2023 11:44:08] "GET /products/moreprodukti HTTP/1.1" 200 5888
+[13/Jul/2023 11:44:09] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 11:44:09] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 11:44:10] "GET /products/kopchena-ta-vyalena HTTP/1.1" 200 5909
+[13/Jul/2023 11:44:16] "GET /products/sneki-do-piva HTTP/1.1" 200 5887
+[13/Jul/2023 11:44:17] "GET /products/richkovastavkovariba HTTP/1.1" 200 15975
+[13/Jul/2023 11:44:54] "GET /products/morozhena-okeanichna HTTP/1.1" 200 5906
+[13/Jul/2023 11:44:54] "GET /products/chervona HTTP/1.1" 200 5872
+[13/Jul/2023 11:44:55] "GET /products/sneki-do-piva HTTP/1.1" 200 5887
+[13/Jul/2023 11:44:55] "GET /products/dried HTTP/1.1" 200 18991
+[13/Jul/2023 11:44:57] "GET /products/kopchena-ta-vyalena HTTP/1.1" 200 5909
+[13/Jul/2023 11:44:58] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 11:44:58] "GET /products/moreprodukti HTTP/1.1" 200 5888
+[13/Jul/2023 11:44:59] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 11:44:59] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 11:45:00] "GET /products/kopchena-ta-vyalena HTTP/1.1" 200 5909
+[13/Jul/2023 11:45:00] "GET /products/dried HTTP/1.1" 200 18991
+[13/Jul/2023 11:45:01] "GET /products/ikra HTTP/1.1" 200 5864
+[13/Jul/2023 11:45:01] "GET /products/sneki-do-piva HTTP/1.1" 200 5887
+[13/Jul/2023 11:45:02] "GET /products/richkova HTTP/1.1" 200 5872
+[13/Jul/2023 11:45:02] "GET /products/chervona HTTP/1.1" 200 5872
+[13/Jul/2023 11:45:03] "GET /products/richkovastavkovariba HTTP/1.1" 200 15975
+[13/Jul/2023 11:45:03] "GET /products/morozhena-okeanichna HTTP/1.1" 200 5906
+[13/Jul/2023 11:45:04] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 11:45:05] "GET /products/moreprodukti HTTP/1.1" 200 5888
+[13/Jul/2023 11:45:05] "GET /products/frozen HTTP/1.1" 200 5878
+[13/Jul/2023 11:45:06] "GET /products/kopchena-ta-vyalena HTTP/1.1" 200 5909
+[13/Jul/2023 11:45:06] "GET /products/smoked HTTP/1.1" 200 14858
+[13/Jul/2023 11:45:07] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 11:45:10] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 11:45:19] "GET /products/smoked HTTP/1.1" 200 14858
+[13/Jul/2023 11:46:42] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 11:46:43] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 11:46:44] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 11:46:51] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 11:47:42] "GET / HTTP/1.1" 200 13374
+[13/Jul/2023 11:47:43] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 11:53:54] "GET /products/all HTTP/1.1" 200 38031
+[13/Jul/2023 11:53:56] "GET /products/richkovastavkovariba HTTP/1.1" 200 15975
+Not Found: /auth/login
+[13/Jul/2023 11:56:21] "GET /auth/login HTTP/1.1" 404 2953
+[13/Jul/2023 11:56:23] code 400, message Bad request version ('À\x13À')
+[13/Jul/2023 11:56:23] You're accessing the development server over HTTPS, but it only supports HTTP.
