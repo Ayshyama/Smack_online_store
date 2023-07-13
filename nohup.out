@@ -9954,3 +9954,7 @@ Forbidden (CSRF cookie not set.): /
 [13/Jul/2023 07:41:34] "POST / HTTP/1.1" 403 3108
 Not Found: /.env
 [13/Jul/2023 07:41:34] "GET /.env HTTP/1.1" 404 2932
+Forbidden (CSRF cookie not set.): /
+[13/Jul/2023 07:55:46] "POST / HTTP/1.1" 403 3108
+Not Found: /.env
+[13/Jul/2023 07:55:47] "GET /.env HTTP/1.1" 404 2932
