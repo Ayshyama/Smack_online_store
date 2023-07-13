@@ -9950,3 +9950,7 @@ Not Found: /favicon.ico
 [13/Jul/2023 07:33:20] "GET /media/products/IMG_20230703_201124_648.jpg HTTP/1.1" 304 0
 [13/Jul/2023 07:33:20] "GET /media/products/2636387974_w640_h640_karas-kopchyonyj.jpg HTTP/1.1" 304 0
 [13/Jul/2023 07:33:31] "GET / HTTP/1.1" 200 13374
+Forbidden (CSRF cookie not set.): /
+[13/Jul/2023 07:41:34] "POST / HTTP/1.1" 403 3108
+Not Found: /.env
+[13/Jul/2023 07:41:34] "GET /.env HTTP/1.1" 404 2932
