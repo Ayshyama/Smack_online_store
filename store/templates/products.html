@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
+<head lang="uk">
+    <meta charset="UTF-8">
+    <title>Асортимент</title>
+</head>
 
 {% block home %}{% endblock %}
 {% block about %}{% endblock %}
@@ -64,15 +68,17 @@
 
                     <div class="content">
                         <span class="price-weight">{{ product.price }}грн/{{ product.measure }}</span>
+
                         <div class="counter">
-                            <button class="counter-btn minus" data-action="minus">-</button>
-                            <span class="counter-value" data-counter>1</span>
-                            <button id="{{ product.id }}" class="counter-btn plus" data-action="plus">+</button>
+                            <div class="counter_control" data-action="minus">-</div>
+                            <div class="counter_amount" data-counter>1</div>
+                            <div class="counter_control" data-action="plus">+</div>
                         </div>
-{#                        <a href="{% url 'store:cart' product.id %}">+ Додати в кошик</a>#}
-                        <button data-cart type="button" class="btn btn-block cart-button">
-                            Додати в кошик
-                        </button>
+
+                        <div data-cart>
+                            <a data-cart class="category-button">Додати в кошик</a>
+                        </div>
+
                     </div>
                     <br>
                 </div>
@@ -89,12 +95,68 @@
                 </div>
 
             {% endfor %}
-
-
-
         </div>
+
+
+        <div id="cart-modal" class="product-modal">
+          <div class="product-modal-content">
+            <span id="close-cart-modal" class="close">&times;</span>
+					<div class="modal-body">
+						<h4 class="card-title">Ваше замовлення</h4>
+                        <br>
+						<div data-cart-empty class="alert alert-secondary" role="alert">
+							Кошик пустий
+						</div>
+						<!-- cart-wrapper -->
+						<div class="cart-wrapper">
+
+							<!-- Cart item -->
+
+
+						</div>
+						<!-- // cart-wrapper -->
+
+						<!-- Стоимость заказа -->
+						<div class="cart-total">
+							<p><span class="h5">Доставка:</span> <span class="delivery-cost">100</span> </p>
+							<p><span class="h5">Загалом:</span> <span class="total-price">0</span> <span class="hryvna">₴</span></p>
+						</div>
+                        <br>
+						<!-- // Стоимость заказа -->
+
+					</div>
+
+            <!-- Оформить заказ -->
+            <div id="order-form" class="card-body border-top none">
+                <h4 class="card-title">Оформити замовлення</h4>
+                <form>
+                    <div class="form-group">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Ваш номер телефону">
+                        </label>
+                        <label>
+                            <input type="text" class="form-control" placeholder="Ваш E-mail">
+                        </label>
+                    </div>
+                    <br>
+{#                    <button type="submit" class="btn-container">Замовити</button>#}
+                    <div class="btn-container">
+                        <a href="" class="btn">Замовити</a>
+                    </div>
+                    <br>
+                </form>
+            </div>
+            <!-- // Оформить заказ -->
+
+
+          </div>
+        </div>
+
     </section>
 
+    <script src="{% static 'js/calcCartPrice.js' %}"></script>
+    <script src="{% static 'js/toggleCartStatus.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/counter.js' %}"></script>
     <script src="{% static 'js/cart.js' %}"></script>
 

@@ -134,19 +134,31 @@ document.addEventListener('keydown', (event) => {
 
 
 
-let buttons=document.querySelectorAll(".counter-btn.plus")
-let amount={}
-buttons.forEach(item=>{
-  let id=item.getAttribute('id')
-  amount[id] = 0
-})
-function add_onclick(id) {
-  console.log("click")
-  amount[id] += 1
-  console.log(amount)
-}
-console.log(amount)
-buttons.forEach(button=>{
-  console.log(button)
-  button.addEventListener("click", ()=>add_onclick(button.getAttribute("id")))
-})
+// CART MODAL OPEN WINDOW SCRIPT //
+
+const openCartModalButton = document.getElementById('open-cart-modal');
+const cartModal = document.getElementById('cart-modal');
+const closeCartModalButton = document.getElementById('close-cart-modal');
+
+openCartModalButton.addEventListener('click', () => {
+  cartModal.style.display = 'block';
+});
+
+closeCartModalButton.addEventListener('click', () => {
+  cartModal.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+  if (event.target === cartModal) {
+    cartModal.style.display = 'none';
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    cartModal.style.display = 'none';
+  }
+});
+
+
+

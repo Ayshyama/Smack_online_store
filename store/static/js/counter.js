@@ -22,7 +22,21 @@ window.addEventListener('click', function (event) {
         // проверяем чтобы счетчик был больше 1
         if ( parseInt(amount.innerText) > 1 ) {
             amount.innerText = --amount.innerText;
-      }
+        } else if (event.target.closest('.cart-wrapper') && parseInt(amount.innerText) === 1) {
+			// Удаляем товар из корзины
+			event.target.closest('.cart-item').remove();
+
+		    toggleCartStatus();
+
+            calcCartPriceAndDelivery();
+		}
+
+    }
+
+    // проверяем клик на + или - внутри корзины
+    if (event.target.hasAttribute('data-action') && event.target.closest('.cart-wrapper')) {
+        // пересчет общей стоимости товаров в корзине
+        calcCartPriceAndDelivery();
     }
 
 });
