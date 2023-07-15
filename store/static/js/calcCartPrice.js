@@ -17,7 +17,7 @@ function calcCartPriceAndDelivery() {
 
 
 
-    let deliveryPrice = 100;
+    let deliveryPrice = 50;
     if (totalPrice > 0) {
         cartTotalEl.classList.remove('none');
     } else {

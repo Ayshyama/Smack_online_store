@@ -252,19 +252,20 @@ select.form-control:focus::-ms-value {
 }
 
 .cart-item__img img {
-	max-width: 100px;
-	height: auto;
+	max-width: 210px;
+	height: 210px;
+  border-radius: 0.5rem;
 }
 
 .cart-item__desc {
 	padding-top: 15px;
 	padding-left: 15px;
-	max-width: 220px;
+	max-width: 235px;
 }
 
 .cart-item__title {
 	font-family: 'Merriweather', serif;
-	font-size: 16px;
+	font-size: 20px;
     line-height: 1.2;
 	font-weight: 600;
 	margin-bottom: 5px;
@@ -308,4 +309,18 @@ select.form-control:focus::-ms-value {
 
 .hryvna {
 	color: #EB5A1E;
+}
+
+@media (max-width: 768px) {
+  .cart-item__img img {
+      max-width: 110px;
+      height: 110px;
+  }
+  .cart-item__title {
+	font-family: 'Merriweather', serif;
+	font-size: 16px;
+    line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 5px;
+}
 }
