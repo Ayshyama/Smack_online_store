@@ -16,12 +16,12 @@
     </ul>
 {% endblock %}
 {% block content %}
-    <div class="temp-message">
-        <div class="temp-develop">
-            <h3>Увага!</h3>
-            <h3>Кошик сайту ще у розробці. Ви можете швидко зробити замовлення зателефонувавши за номером: 060 080 880</h3>
-        </div>
-    </div>
+{#    <div class="temp-message">#}
+{#        <div class="temp-develop">#}
+{#            <h3>Увага!</h3>#}
+{#            <h3>Кошик сайту ще у розробці. Ви можете швидко зробити замовлення зателефонувавши за номером: 060 080 880</h3>#}
+{#        </div>#}
+{#    </div>#}
     <!--  Categories Selector  -->
     <div class="categories-selector">
         <div class="categories-box">
@@ -74,9 +74,10 @@
                             <div class="counter_amount" data-counter>1</div>
                             <div class="counter_control" data-action="plus">+</div>
                         </div>
-
-                        <div data-cart>
-                            <a data-cart class="category-button">Додати в кошик</a>
+                        <div class="cart-button-container">
+                            <div data-cart>
+                                <a data-cart class="category-button">Додати в кошик</a>
+                            </div>
                         </div>
 
                     </div>
