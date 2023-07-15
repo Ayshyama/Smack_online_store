@@ -24,13 +24,13 @@ function calcCartPriceAndDelivery() {
         cartTotalEl.classList.add('none');
     }
 
-    if (totalPrice >= 600) {
+    if (totalPrice >= 1000) {
         deliveryCost.classList.add('free');
         deliveryCost.innerText = 'Безкоштовно';
     } else {
         totalPrice += deliveryPrice;
         deliveryCost.classList.remove('free');
-        deliveryCost.innerText = '100 ₴ (безкоштовно - при замовленні від 500 ₴)';
+        deliveryCost.innerText = '50 ₴ (безкоштовно - при замовленні від 500 ₴)';
     }
 
     totalPriceEl.innerText = totalPrice;
