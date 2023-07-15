@@ -67,7 +67,7 @@
                     <br>
 
                     <div class="content">
-                        <span class="price-weight">{{ product.price }}грн/{{ product.measure }}</span>
+                        <span class="price-weight">{{ product.price|floatformat:"-2" }} грн/{{ product.measure }}</span>
 
                         <div class="counter">
                             <div class="counter_control" data-action="minus">-</div>
