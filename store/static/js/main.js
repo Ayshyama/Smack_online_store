@@ -79,45 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
-
-// FULL_SIZE_IMAGE_MODAL
-const fishImages = document.querySelectorAll('.fish-image');
-const modal = document.getElementById('image-modal');
-const modalImage = document.getElementById('product-modal-image');
-const closeButton = document.getElementById('close');
-
-document.querySelectorAll('.fish-image').forEach((img) => {
-  img.addEventListener('click', (e) => {
-    document.querySelector('.product-modal-description').textContent = e.target.getAttribute('data-description');
-  });
-});
-
-fishImages.forEach((fishImage) => {
-  fishImage.addEventListener('click', () => {
-    modalImage.src = fishImage.src;
-    modal.style.display = 'block';
-  });
-});
-
-closeButton.addEventListener('click', (event) => {
-  event.stopPropagation();
-  modal.style.display = 'none';
-});
-
-modal.addEventListener('click', (event) => {
-  if (event.target === modal) {
-    modal.style.display = 'none';
-  }
-});
-
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    modal.style.display = 'none';
-  }
-});
-
-
 // CATEGORIES_BUTTONS //
    const categoryButtons = document.querySelectorAll('.category-button');
 
@@ -157,6 +118,43 @@ window.addEventListener('click', (event) => {
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     cartModal.style.display = 'none';
+  }
+});
+
+
+
+// FULL_SIZE_IMAGE_MODAL
+const fishImages = document.querySelectorAll('.fish-image');
+const modal = document.getElementById('image-modal');
+const modalImage = document.getElementById('product-modal-image');
+const closeButton = document.getElementById('close');
+const modalTitle = document.querySelector('.product-modal-content h3');
+const modalCategory = document.querySelector('.product-modal-content h4');
+
+fishImages.forEach((fishImage) => {
+  fishImage.addEventListener('click', (e) => {
+    modalImage.src = fishImage.src;
+    modal.style.display = 'block';
+    modalTitle.textContent = fishImage.parentElement.querySelector('.item-title').textContent;
+    modalCategory.textContent = fishImage.parentElement.querySelector('h4').textContent;
+    document.querySelector('.product-modal-description').textContent = e.target.getAttribute('data-description');
+  });
+});
+
+closeButton.addEventListener('click', (event) => {
+  event.stopPropagation();
+  modal.style.display = 'none';
+});
+
+modal.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    modal.style.display = 'none';
   }
 });
 
