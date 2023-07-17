@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% load static %}
+<head lang="uk">
+    <meta charset="UTF-8">
+    <title>Асортимент</title>
+</head>
+
+{% block home %}{% endblock %}
+{% block about %}{% endblock %}
+{% block categories %}{% endblock %}
+{% block customers %}{% endblock %}
+{% block menu %}
+    <ul class="navbar">
+        <li><a class="scroll-link" href="{% url 'store:index' %}#home">Головна</a></li>
+        <li><a class="scroll-link" href="{% url 'store:index' %}#about">Про Нас</a></li>
+    </ul>
+{% endblock %}
+{% block content %}
+{#    <div class="temp-message">#}
+{#        <div class="temp-develop">#}
+{#            <h3>Увага!</h3>#}
+{#            <h3>Кошик сайту ще у розробці. Ви можете швидко зробити замовлення зателефонувавши за номером: 060 080 880</h3>#}
+{#        </div>#}
+{#    </div>#}
+    <!--  Categories Selector  -->
+    <div class="categories-selector">
+        <div class="categories-box">
+            <h3 style="margin-bottom: 20px;">Оберіть Категорію:</h3>
+            <div class="category-buttons">
+                {% if not cat_obj %}
+                    <button class="category-button chosen">Всі категорії</button>
+                {% else %}
+                    <a href="{% url 'store:products' 'all' %}" class="category-button">Всі категорії</a>
+                {% endif %}
+
+                {% for cat in cats %}
+                    {% if cat == cat_obj %}
+                        <button class="category-button chosen">{{ cat.name }}</button>
+                    {% else %}
+                        <a href="{{ cat.get_absolute_url }}" class="category-button">{{ cat.name }}</a>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+    <!--  Products  -->
+    <section class="products" id="products">
+        <div class="heading">
+            {% if cat_obj %}
+                <h2>{{ cat_obj.name }} Риба</h2>
+            {% else %}
+                <h2>Всі категорії</h2>
+            {% endif %}
+
+        </div>
+        <!-- Container -->
+        <div class="products-container">
+            {% for product in products %}
+                <div class="box" data-id="{{ product.id }}">
+                    <img class="fish-image" data-description="{{ product.description }}" src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/ryb1.png' %} {% endif %}"
+                        alt="Мультяшная рыба Png vectors by Lovepik.com">
+                    <h4>{{ product.category }}</h4>
+                    <hr>
+                    <h3 class="item-title">{{ product.name }}</h3>
+                    <br>
+
+                    <div class="content">
+                        <span class="price-weight">{{ product.price|floatformat:"-2" }} грн/{{ product.measure }}</span>
+
+                        <div class="counter">
+                            <button class="counter_control" data-action="minus" ontouchstart="">-</button>
+                            <div class="counter_amount" data-counter>1</div>
+                            <button class="counter_control" data-action="plus" ontouchstart="">+</button>
+                        </div>
+                        <div class="cart-button-container">
+                            <div data-cart>
+                                <a data-cart class="add-cart-button">Додати в кошик</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br>
+                </div>
+
+                <div id="image-modal" class="product-modal">
+                  <div class="product-modal-content">
+                    <span id="close" class="close">&times;</span>
+                    <h4>{{ product.category }}</h4>
+                    <h3>{{ product.name }}</h3>
+                    <br>
+                    <img id="product-modal-image" class="product-modal-image" src="" alt="Modal Image">
+                    <p class="product-modal-description"></p>
+                  </div>
+                </div>
+
+            {% endfor %}
+        </div>
+
+
+        <div id="cart-modal" class="product-modal">
+          <div class="product-modal-content">
+            <span id="close-cart-modal" class="close">&times;</span>
+					<div class="modal-body">
+						<h4 class="card-title">Ваше замовлення</h4>
+                        <br>
+						<div data-cart-empty class="alert alert-secondary" role="alert">
+							Кошик пустий
+						</div>
+						<!-- cart-wrapper -->
+						<div class="cart-wrapper">
+
+							<!-- Cart item -->
+
+
+						</div>
+						<!-- // cart-wrapper -->
+
+
+
+					</div>
+
+            <!-- Оформить заказ -->
+            <div id="order-form" class="card-body border-top none">
+
+                <!-- Стоимость заказа -->
+                <div class="cart-total">
+                    <p><span class="h5">Доставка:</span> <span class="delivery-cost">50 ₴ (безкоштовно по Київу - при замовленні від 1000 ₴)</span> </p>
+                    <p><span class="cart-item__weight">Безкоштовно по Київу - при замовленні від 1000 ₴). Доставка по Україні згідно тарифам Нової Пошти.</span> </p>
+                    <br>
+                    <p><span class="h5">Загалом до сплати:</span> <span class="total-price">0</span> <span class="hryvna">₴</span></p>
+                </div>
+                <br>
+                <!-- // Стоимость заказа -->
+
+                <h4 class="card-title">Оформити замовлення</h4>
+                <form>
+                    <div class="form-group">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Ваш номер телефону">
+                        </label>
+                        <label>
+                            <input type="text" class="form-control" placeholder="Місто">
+                        </label>
+                        <label>
+                            <input type="text" class="form-control" placeholder="Адреса">
+                        </label>
+                    </div>
+                    <br>
+{#                    <button type="submit" class="btn-container">Замовити</button>#}
+                    <div class="btn-container">
+                        <a href="" class="btn">Замовити</a>
+                    </div>
+                    <br>
+                </form>
+            </div>
+            <!-- // Оформить заказ -->
+
+
+          </div>
+        </div>
+
+    </section>
+
+    <script src="{% static 'js/calcCartPrice.js' %}"></script>
+    <script src="{% static 'js/toggleCartStatus.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/counter.js' %}"></script>
+    <script src="{% static 'js/cart.js' %}"></script>
+
+{% endblock %}
+
+

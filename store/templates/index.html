@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block categories %}
+    <!--  Categories  -->
+    <section class="categories" id="products">
+        <div class="heading">
+            <h2>Асортимент</h2>
+        </div>
+        <div class="categories-container">
+            {% for cat in cats %}
+                <a href="{{ cat.get_absolute_url }}">
+                <div class="box">
+                    <img src="{{ cat.image.url }}" alt="{{ cat.name }}">
+                    <br>
+                    <h3>{{ cat.name }}</h3>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
