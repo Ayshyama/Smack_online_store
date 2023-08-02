@@ -576,6 +576,7 @@ header.shadow {
     -webkit-user-select: none;
     user-select: none;
     font-size: 20px;
+    color: black;
     touch-action: manipulation;
 }
 
