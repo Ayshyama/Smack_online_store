@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Замовлення</title>
+</head>
+<body>
+<script>
+    // При нажатии кнопки "Замовити"
+    document.querySelector('#orderButton').addEventListener('click', function (event) {
+        event.preventDefault();
+        // Собираем данные из формы
+        const phone = document.querySelector('#userPhone').value;
+        const email = document.querySelector('#userEmail').value;
+        const city = document.querySelector('#userCity').value;
+        const address = document.querySelector('#userAddress').value;
+
+        // Отправляем данные на сервер
+        fetch('{% url "store:handle_order" %}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded', // Set the content type to form data
+            },
+            body: new URLSearchParams({ phone, email, city, address }).toString() // Convert data to URL-encoded form data
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Обработка ответа с сервера, если необходимо
+                console.log(data);
+                alert(data.message);
+            })
+            .catch(error => {
+                // Обработка ошибок, если необходимо
+                console.error(error);
+            });
+    });
+</script>
+</body>
+</html>

@@ -138,19 +138,22 @@
                 <form>
                     <div class="form-group">
                         <label>
-                            <input type="text" class="form-control" placeholder="Ваш номер телефону">
+                            <input type="number" name="phone" id="userPhone" class="form-control" placeholder="Номер телефону">
                         </label>
                         <label>
-                            <input type="text" class="form-control" placeholder="Місто">
+                            <input type="text" name="email" id="userEmail" class="form-control" placeholder="E-mail">
                         </label>
                         <label>
-                            <input type="text" class="form-control" placeholder="Адреса">
+                            <input type="text" id="userCity" class="form-control" placeholder="Місто">
+                        </label>
+                        <label>
+                            <input type="text" id="userAddress" class="form-control" placeholder="Адреса">
                         </label>
                     </div>
                     <br>
 
                     <div class="btn-container">
-                        <a href="" class="btn">Замовити</a>
+                        <button class="btn" id="orderButton">Замовити</button>
                     </div>
                     <br>
                 </form>
@@ -159,6 +162,8 @@
         </div>
 
     </section>
+
+    {% include 'order_script.html' %}
 
     <script src="{% static 'js/calcCartPrice.js' %}"></script>
     <script src="{% static 'js/toggleCartStatus.js' %}"></script>

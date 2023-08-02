@@ -74,3 +74,9 @@ window.addEventListener('click', function (event) {
 window.addEventListener('beforeunload', function () {
     saveCartToLocalStorage();
 });
+
+
+
+
+
+
