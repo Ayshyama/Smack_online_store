@@ -33,15 +33,15 @@ function loadCartFromLocalStorage() {
                                   <div class="cart-item__title">${item.title}</div>
                                   <div class="cart-item__details">
                                     <div class="counter">
-                                      <div class="counter_control" data-action="minus">-</div>
+                                      <button class="counter_control" data-action="minus">-</button>
                                       <div class="counter_amount" data-counter>${item.counter}</div>
-                                      <div class="counter_control" data-action="plus">+</div>
+                                      <button class="counter_control" data-action="plus">+</button>
                                     </div>
                                     <div class="price">
                                       <div class="price__currency">${item.price}грн/${item.weight}</div>
                                     </div>
                                   </div>
-<!--                                  <span class="remove-item" data-action="remove">&times; Видалити з кошика &times; </span>-->
+                                  <span class="remove-item" data-action="remove">&times; Видалити з кошика &times; </span>
                                 </div>
                               </div>
                             </div>`;

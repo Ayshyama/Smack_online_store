@@ -49,7 +49,7 @@ window.addEventListener('click', function (event) {
                                                     <div class="price__currency">${productInfo.price}грн/${productInfo.weight}</div>
                                                 </div>
                                             </div>
-<!--                                            <span class="remove-item" data-action="remove">&times; Видалити з кошика &times; </span>-->
+                                            <span class="remove-item" data-action="remove">&times; Видалити з кошика &times; </span>
                                         </div>
                                     </div>
                                 </div>`;
