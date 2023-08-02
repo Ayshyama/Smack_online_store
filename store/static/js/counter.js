@@ -38,4 +38,18 @@ function handleCounterClick(event) {
         // пересчет общей стоимости товаров в корзине
         calcCartPriceAndDelivery();
     }
+
+    // проверяем клик на кнопку "Remove" внутри корзины
+    if (event.target.dataset.action === 'remove' && event.target.closest('.cart-wrapper')) {
+        // Находим родительский элемент с классом "cart-item"
+        const cartItem = event.target.closest('.cart-item');
+        // Удаляем товар из корзины
+        cartItem.remove();
+        // Обновляем корзину
+        updateCart();
+        // Отображение статуса корзины Пустая / Полная
+        toggleCartStatus();
+        // Пересчет общей стоимости товаров в корзине
+        calcCartPriceAndDelivery();
+    }
 }

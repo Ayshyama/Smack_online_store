@@ -35,44 +35,27 @@ window.addEventListener('click', function (event) {
                                     <div class="cart-item__top">
                                         <div class="cart-item__img">
                                             <img src="${productInfo.imgSrc}" alt="${productInfo.title}">
-                                        </div>
+                                        </div>                                      
                                         <div class="cart-item__desc">
                                             <div class="cart-item__title">${productInfo.title}</div>
-                                            <!-- <div class="cart-item__weight">${productInfo.price}грн/${productInfo.weight}</div> -->
-    
                                             <!-- cart-item__details -->
                                             <div class="cart-item__details">
-    
-      
                                                 <div class="counter">
                                                     <button class="counter_control" data-action="minus">-</button>
                                                     <div class="counter_amount" data-counter>${productInfo.counter}</div>
                                                     <button class="counter_control" data-action="plus">+</button>
                                                 </div>
-    
                                                 <div class="price">
                                                     <div class="price__currency">${productInfo.price}грн/${productInfo.weight}</div>
                                                 </div>
-                                                
-                                                <div class="remove-item" data-action="remove">
-                                                Remove
-                                                </div>
-    
                                             </div>
-                                            <!-- // cart-item__details -->
-    
+<!--                                            <span class="remove-item" data-action="remove">&times; Видалити з кошика &times; </span>-->
                                         </div>
                                     </div>
                                 </div>`;
 
 
-            // Добавьте обработку для кнопки удаления
-            if (event.target.getAttribute('data-action') === 'remove') {
-                const cartItem = event.target.closest('.cart-item');
-                cartItem.remove();
-                updateCart(); // Вызовите функцию для обновления корзины после удаления товара
-                return; // Выход из обработчика, чтобы не выполнять остальной код ниже
-            }
+
             // Update cart after adding the product
             updateCart();
 

@@ -614,6 +614,14 @@ header.shadow {
 	width: 30px;
 }
 
+.remove-item {
+    cursor: pointer;
+    color: black;
+    text-align: left;
+    align-items: flex-start;
+    text-decoration: none;
+}
+
 
 
 /* ---------- PRODUCT IMAGE MODAL FULL_SIZE ---------- */
@@ -666,6 +674,22 @@ header.shadow {
 
 .close:hover,
 .close:focus {
+  color: #8a6f4d;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.remove-item {
+    margin-top: 12px;
+  color: var(--main-color);
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.remove-item:hover,
+.remove-item:focus {
   color: #8a6f4d;
   text-decoration: none;
   cursor: pointer;
