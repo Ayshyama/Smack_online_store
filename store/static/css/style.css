@@ -856,6 +856,7 @@ header.shadow {
 }
 
 button {
+    background-color: white;
   outline: none;
   border: none;
 }

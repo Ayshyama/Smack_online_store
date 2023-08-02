@@ -41,7 +41,7 @@ function loadCartFromLocalStorage() {
                                       <div class="price__currency">${item.price}грн/${item.weight}</div>
                                     </div>
                                   </div>
-                                  <span class="remove-item" data-action="remove">&times; Видалити з кошика &times; </span>
+                                  <button class="remove-item" data-action="remove">&times; Видалити з кошика &times; </button>
                                 </div>
                               </div>
                             </div>`;
