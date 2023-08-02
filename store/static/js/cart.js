@@ -45,13 +45,17 @@ window.addEventListener('click', function (event) {
     
       
                                                 <div class="counter">
-                                                    <div class="counter_control" data-action="minus">-</div>
+                                                    <button class="counter_control" data-action="minus">-</button>
                                                     <div class="counter_amount" data-counter>${productInfo.counter}</div>
-                                                    <div class="counter_control" data-action="plus">+</div>
+                                                    <button class="counter_control" data-action="plus">+</button>
                                                 </div>
     
                                                 <div class="price">
                                                     <div class="price__currency">${productInfo.price}грн/${productInfo.weight}</div>
+                                                </div>
+                                                
+                                                <div class="remove-item" data-action="remove">
+                                                Remove
                                                 </div>
     
                                             </div>
@@ -60,6 +64,17 @@ window.addEventListener('click', function (event) {
                                         </div>
                                     </div>
                                 </div>`;
+
+
+            // Добавьте обработку для кнопки удаления
+            if (event.target.getAttribute('data-action') === 'remove') {
+                const cartItem = event.target.closest('.cart-item');
+                cartItem.remove();
+                updateCart(); // Вызовите функцию для обновления корзины после удаления товара
+                return; // Выход из обработчика, чтобы не выполнять остальной код ниже
+            }
+            // Update cart after adding the product
+            updateCart();
 
             // Отобразим товар в корзине
             cartWrapper.insertAdjacentHTML('beforeend', cartItemHTML);

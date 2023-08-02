@@ -70,9 +70,9 @@
                         <span class="price-weight">{{ product.price|floatformat:"-2" }} грн/{{ product.measure }}</span>
 
                         <div class="counter">
-                            <button class="counter_control" data-action="minus" ontouchstart="">-</button>
+                            <button class="counter_control" data-action="minus">-</button>
                             <div class="counter_amount" data-counter>1</div>
-                            <button class="counter_control" data-action="plus" ontouchstart="">+</button>
+                            <button class="counter_control" data-action="plus">+</button>
                         </div>
                         <div class="cart-button-container">
                             <div data-cart>
@@ -106,7 +106,7 @@
 						<h4 class="card-title">Ваше замовлення</h4>
                         <br>
 						<div data-cart-empty class="alert alert-secondary" role="alert">
-							Кошик пустий
+							Кошик порожній
 						</div>
 						<!-- cart-wrapper -->
 						<div class="cart-wrapper">
@@ -126,8 +126,8 @@
 
                 <!-- Стоимость заказа -->
                 <div class="cart-total">
-                    <p><span class="h5">Доставка:</span> <span class="delivery-cost">50 ₴ (безкоштовно по Київу - при замовленні від 1000 ₴)</span> </p>
-                    <p><span class="cart-item__weight">Безкоштовно по Київу - при замовленні від 1000 ₴). Доставка по Україні згідно тарифам Нової Пошти.</span> </p>
+                    <p><span class="h5">Доставка:</span> <span class="delivery-cost">50 ₴ (безкоштовно по Києву - при замовленні від 1000 ₴)</span> </p>
+                    <p><span class="cart-item__weight">Безкоштовно по Києву - при замовленні від 1000 ₴). Доставка по Україні згідно з тарифом Нової Пошти.</span> </p>
                     <br>
                     <p><span class="h5">Загалом до сплати:</span> <span class="total-price">0</span> <span class="hryvna">₴</span></p>
                 </div>
@@ -148,16 +148,13 @@
                         </label>
                     </div>
                     <br>
-{#                    <button type="submit" class="btn-container">Замовити</button>#}
+
                     <div class="btn-container">
                         <a href="" class="btn">Замовити</a>
                     </div>
                     <br>
                 </form>
             </div>
-            <!-- // Оформить заказ -->
-
-
           </div>
         </div>
 
@@ -167,6 +164,7 @@
     <script src="{% static 'js/toggleCartStatus.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/counter.js' %}"></script>
+    <script src="{% static 'js/localStorage.js' %}"></script>
     <script src="{% static 'js/cart.js' %}"></script>
 
 {% endblock %}
