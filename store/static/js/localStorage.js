@@ -68,3 +68,8 @@ window.addEventListener('click', function (event) {
   // Update cart after adding the product
   updateCart();
 });
+
+// Save cart items to localStorage before unloading the page
+window.addEventListener('beforeunload', function () {
+    saveCartToLocalStorage();
+});
