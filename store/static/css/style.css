@@ -394,6 +394,7 @@ header.shadow {
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+    touch-action: manipulation;
 }
 
 .add-cart-button:hover {
@@ -506,6 +507,9 @@ header.shadow {
     background: #f1f1f1;
     border-radius: 0.4rem;
     cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 .products-container .box h3 {
     text-align: center;
