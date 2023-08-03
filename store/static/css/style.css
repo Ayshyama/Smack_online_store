@@ -16,7 +16,7 @@
     --second-color: #edeae3;
     --text-color: #1b1b1b;
     --bg-color: #fff;
-    --box-shadow: 2px 2px 10px 4px rgb(14 55 54 / 20%);
+    --box-shadow: 2px 2px 5px 1px rgb(14 55 54 / 20%);
 }
 section {
     padding: 50px 100px;
@@ -30,6 +30,7 @@ body {
     min-height: 100vh;
     margin: 0;
     color: var(--text-color);
+    background-color: rgba(55, 87, 98, 0.015);
 }
 header {
     position: fixed;
@@ -485,8 +486,9 @@ header.shadow {
     grid-template-columns: repeat(auto-fit, minmax(280px, auto));
     gap: 1.5rem;
     margin-top: 2rem;
-
 }
+
+
 .products-container .box {
     position: relative;
     padding: 10px;
@@ -497,7 +499,10 @@ header.shadow {
     box-shadow: var(--box-shadow);
     align-items: stretch;
     height: 100%;
+    border: black;
+    background: rgba(255, 255, 255, 0.8) !important;
 }
+
 .products-container img {
     width: 100%;
     height: 300px;
@@ -655,9 +660,10 @@ header.shadow {
     width: 100vw;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(55, 87, 98, 0.5);
     border-radius: 0.4rem;
     margin: 0;
+    backdrop-filter: blur(10px);
 }
 
 .product-modal img {
