@@ -98,16 +98,21 @@
             {% endfor %}
         </div>
 
-        <div id="customModal" class="product-modal">
-          <div class="product-modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <p>Замовлення успішно оформлено!</p>
-              <br>
-            <p>Перевірте, будь ласка, ваш E-mail для отримання підтвердження.</p>
-              <br>
-            <p>Дякуємо за покупку та бажаємо вам прекрасного дня!</p>
-          </div>
+        <div id="successModal" class="product-modal">
+            <div class="product-modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p>Замовлення успішно оформлено!</p>
+                <br>
+                <p>Перевірте, будь ласка, ваш E-mail для отримання підтвердження.</p>
+                <br>
+                <p>Дякуємо за покупку та бажаємо вам прекрасного дня!</p>
+                <br>
+                <img src="{% static 'img/logo.png' %}" alt="Рибний смак" style="width: 200px;">
+                <br>
+            </div>
         </div>
+
+
 
         <div id="cart-modal" class="product-modal">
           <div class="product-modal-content">
@@ -141,16 +146,16 @@
                 <form>
                     <div class="form-group">
                         <label>
-                            <input type="number" name="phone" id="userPhone" class="form-control" placeholder="Номер телефону">
+                            <input type="number" name="phone" id="userPhone" class="form-control" placeholder="Номер телефону" required>
                         </label>
                         <label>
-                            <input type="text" name="email" id="userEmail" class="form-control" placeholder="E-mail">
+                            <input type="email" name="email" id="userEmail" class="form-control" placeholder="E-mail" required>
                         </label>
                         <label>
-                            <input type="text" id="userCity" class="form-control" placeholder="Місто">
+                            <input type="text" id="userCity" class="form-control" placeholder="Місто" required>
                         </label>
                         <label>
-                            <input type="text" id="userAddress" class="form-control" placeholder="Адреса">
+                            <input type="text" id="userAddress" class="form-control" placeholder="Адреса" required>
                         </label>
                     </div>
 

@@ -3,99 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <title>Замовлення</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 <body>
-
+<div id="loadingAnimation" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; background-color: rgba(255, 255, 255, 0.8);">
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <i class="fas fa-spinner fa-spin fa-3x"></i>
+  </div>
+</div>
 <script>
-  // Function to close the cart modal
-  function closeCartModal() {
-    const cartModal = document.getElementById('cart-modal');
-    cartModal.style.display = 'none';
-  }
-
-  // Function to close the custom modal
-  function closeCustomModal() {
-    const customModal = document.getElementById('customModal');
-    customModal.style.display = 'none';
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }
-
-  // Function to handle successful order
-  function handleSuccessfulOrder() {
-    // Clear the cart from local storage
-    localStorage.removeItem('shoppingCart');
-
-    // Remove cart items from the frontend
-    const cartWrapper = document.querySelector('.cart-wrapper');
-    cartWrapper.innerHTML = ''; // This will remove all cart items from the cartWrapper element
-
-    // Close the cart modal
-    closeCartModal();
-
-    // Show custom modal dialog
-    const customModal = document.getElementById('customModal');
-    customModal.style.display = 'block';
-    // Disable the default scroll behavior when the custom modal is open
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    // Hide the custom modal dialog
-    const customModal = document.getElementById('customModal');
-    customModal.style.display = 'none';
-    // Restore the default scroll behavior when the custom modal is closed
-    document.body.style.overflow = 'auto';
-    closeCustomModal();
-  }
-
-  // При нажатии кнопки "Замовити"
-  document.querySelector('#orderButton').addEventListener('click', function (event) {
-    event.preventDefault();
-    this.disabled = true;
-    setTimeout(() => {
-      this.disabled = false;
-    }, 5000);
-
-    // Собираем данные из формы
-    const phone = document.querySelector('#userPhone').value;
-    const email = document.querySelector('#userEmail').value;
-    const city = document.querySelector('#userCity').value;
-    const address = document.querySelector('#userAddress').value;
-    const total_price = document.querySelector('#totalPrice').textContent;
-
-    // Получаем данные из localStorage
-    const cartData = JSON.parse(localStorage.getItem('shoppingCart'));
-
-    // Формируем данные для отправки на сервер
-    const formData = new FormData();
-    formData.append('phone', phone);
-    formData.append('email', email);
-    formData.append('city', city);
-    formData.append('address', address);
-    formData.append('total_price', total_price);
-    formData.append('cartData', JSON.stringify(cartData)); // Add cart data as a JSON string
-
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
+    // Function to close the cart modal
+    function closeCartModal() {
+        const cartModal = document.getElementById('cart-modal');
+        cartModal.style.display = 'none';
     }
 
-    // Отправляем данные на сервер
-    fetch('{% url "store:handle_order" %}', {
-      method: 'POST',
-      body: formData
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        handleSuccessfulOrder();
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  });
+    // Function to close the custom modal
+    function closeSuccessModal() {
+        const successModal = document.getElementById('successModal');
+        successModal.style.display = 'none';
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    // Function to show the loading animation
+    function showLoadingAnimation() {
+        document.getElementById('loadingAnimation').style.display = 'block';
+    }
+
+    // Function to hide the loading animation
+    function hideLoadingAnimation() {
+        document.getElementById('loadingAnimation').style.display = 'none';
+    }
+
+    function handleSuccessfulOrder() {
+        // Simulate a delay to make the loading animation visible
+        setTimeout(() => {
+            localStorage.removeItem('shoppingCart');
+            const cartWrapper = document.querySelector('.cart-wrapper');
+            cartWrapper.innerHTML = '';
+            closeCartModal();
+
+            hideLoadingAnimation();
+
+            const successModal = document.getElementById('successModal');
+            successModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }, 100);
+    }
+
+    function closeModal() {
+        // Hide the custom modal dialog
+        const successModal = document.getElementById('successModal');
+        successModal.style.display = 'none';
+        // Restore the default scroll behavior when the custom modal is closed
+        document.body.style.overflow = 'auto';
+        closeSuccessModal();
+    }
+
+    // При нажатии кнопки "Замовити"
+    document.querySelector('#orderButton').addEventListener('click', function (event) {
+        event.preventDefault();
+
+        // Собираем данные из формы
+        const phone = document.querySelector('#userPhone').value;
+        const email = document.querySelector('#userEmail').value;
+        const city = document.querySelector('#userCity').value;
+        const address = document.querySelector('#userAddress').value;
+        const total_price = document.querySelector('#totalPrice').textContent;
+
+        // Validate phone format
+        const ukrainianPhoneNumberPattern = /^(\+38\s?)?(\(\d{2}\)|\d{2}|\d{3})[-\s]?(\d{3}[-\s]?|\d{2}[-\s]?)\d{2}[-\s]?\d{2}$/;
+        if (!phone.match(ukrainianPhoneNumberPattern)) {
+            alert('Введіть правильний номер телефону (10 цифр). Наприклад: 0501234567');
+            return;
+        }
+
+        // Validate email format
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!email.match(emailPattern)) {
+            alert('Введіть правильний e-mail: example@gmail.com');
+            return;
+        }
+
+
+        if (!phone || !email || !city || !address) {
+            alert('Будь ласка, заповніть усі поля');
+            return;
+        }
+        showLoadingAnimation();
+
+        // Получаем данные из localStorage
+        const cartData = JSON.parse(localStorage.getItem('shoppingCart'));
+
+        // Формируем данные для отправки на сервер
+        const formData = new FormData();
+        formData.append('phone', phone);
+        formData.append('email', email);
+        formData.append('city', city);
+        formData.append('address', address);
+        formData.append('total_price', total_price);
+        formData.append('cartData', JSON.stringify(cartData)); // Add cart data as a JSON string
+
+        for (let [key, value] of formData.entries()) {
+            console.log(`${key}: ${value}`);
+        }
+
+        // Отправляем данные на сервер
+        fetch('{% url "store:handle_order" %}', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            handleSuccessfulOrder();
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    });
 </script>
 
 </body>

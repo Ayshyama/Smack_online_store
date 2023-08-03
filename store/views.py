@@ -97,7 +97,7 @@ def handle_order(request):
 
         client_message = f'Доброго дня!\nДякуємо Вам за замовлення.\n\n' \
                          f'Номер замовлення: {email_id}\n'\
-                         f'Ващ кошик на суму {total_price} грн:\n'
+                         f'Ваш кошик на суму {total_price} грн:\n'
         item_number = 1
         for item in cart_items:
             client_message += f'{item_number}. {item["title"]} - {item["price"]}грн/{item["weight"]}\n'
