@@ -1,11 +1,12 @@
+import json
+from django.http import JsonResponse
+from django.core.mail import send_mail
+
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import Http404
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-
 from store.models import Product, Category
-from django.core.mail import send_mail
-from django.http import JsonResponse
 
 
 def index(request):
@@ -50,25 +51,20 @@ def handle_order(request):
         city = request.POST.get('city')
         address = request.POST.get('address')
 
-        # и другие данные из формы, если есть
-
-        # Ваши данные о товарах в корзине
-        cart_items = [
-            {'name': 'Product 1', 'price': 100},
-            {'name': 'Product 2', 'price': 200},
-            # и другие данные о товарах
-        ]
+        # Получаем данные о товарах из формы
+        cart_data_str = request.POST.get('cartData')
+        cart_items = json.loads(cart_data_str) if cart_data_str else []
 
         # Отправка письма клиенту
         client_message = f'Добрый день, {phone}!\nСпасибо за ваш заказ!\n\nВаш заказ:\n'
         for item in cart_items:
-            client_message += f'{item["name"]} - {item["price"]} грн\n'
+            client_message += f'{item["title"]} - {item["price"]} грн\n'
         send_mail('Ваш заказ', client_message, 'rybniismak@gmail.com', [email])
 
         # Отправка письма владельцу магазина
         owner_message = f'Новый заказ от {phone} {email} {city} {address}:\n'
         for item in cart_items:
-            owner_message += f'{item["name"]} - {item["price"]} грн\n'
+            owner_message += f'{item["title"]} - {item["price"]} грн\n'
         send_mail('Новый заказ', owner_message, 'rybniismak@gmail.com', ['rybniismak@gmail.com'])
 
         # Возвращаем JSON-ответ об успешной отправке

@@ -15,13 +15,21 @@
         const city = document.querySelector('#userCity').value;
         const address = document.querySelector('#userAddress').value;
 
+        // Получаем данные из localStorage
+        const cartData = JSON.parse(localStorage.getItem('shoppingCart'));
+
+        // Формируем данные для отправки на сервер
+        const formData = new FormData();
+        formData.append('phone', phone);
+        formData.append('email', email);
+        formData.append('city', city);
+        formData.append('address', address);
+        formData.append('cartData', JSON.stringify(cartData)); // Add cart data as a JSON string
+
         // Отправляем данные на сервер
         fetch('{% url "store:handle_order" %}', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded', // Set the content type to form data
-            },
-            body: new URLSearchParams({ phone, email, city, address }).toString() // Convert data to URL-encoded form data
+            body: formData
         })
             .then(response => response.json())
             .then(data => {
