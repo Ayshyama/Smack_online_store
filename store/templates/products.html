@@ -98,6 +98,16 @@
             {% endfor %}
         </div>
 
+        <div id="customModal" class="product-modal">
+          <div class="product-modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Замовлення успішно оформлено!</p>
+              <br>
+            <p>Перевірте, будь ласка, ваш E-mail для отримання підтвердження.</p>
+              <br>
+            <p>Дякуємо за покупку та бажаємо вам прекрасного дня!</p>
+          </div>
+        </div>
 
         <div id="cart-modal" class="product-modal">
           <div class="product-modal-content">
@@ -110,15 +120,8 @@
 						</div>
 						<!-- cart-wrapper -->
 						<div class="cart-wrapper">
-
-							<!-- Cart item -->
-
-
 						</div>
 						<!-- // cart-wrapper -->
-
-
-
 					</div>
 
             <!-- Оформить заказ -->
@@ -150,7 +153,6 @@
                             <input type="text" id="userAddress" class="form-control" placeholder="Адреса">
                         </label>
                     </div>
-                    <br>
 
                     <div class="btn-container">
                         <button class="btn" id="orderButton">Замовити</button>

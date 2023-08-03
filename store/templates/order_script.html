@@ -5,62 +5,98 @@
     <title>Замовлення</title>
 </head>
 <body>
+
 <script>
-    // Function to handle successful order
-    function handleSuccessfulOrder() {
-        // Clear the cart from local storage
-        localStorage.removeItem('shoppingCart');
+  // Function to close the cart modal
+  function closeCartModal() {
+    const cartModal = document.getElementById('cart-modal');
+    cartModal.style.display = 'none';
+  }
 
-        // Remove cart items from the frontend
-        cartWrapper.innerHTML = ''; // This will remove all cart items from the cartWrapper element
-
-        // Show success message
-        alert('Замовлення успішно оформлено\n\n' +
-            '! Перевірте, будь ласка, ваш E-mail для отримання підтвердження.\n\n' +
-            'Дякуємо за покупку та бажаємо вам прекрасного дня!');
-
-        window.location.reload();
-    }
-    // При нажатии кнопки "Замовити"
-    document.querySelector('#orderButton').addEventListener('click', function (event) {
-        event.preventDefault();
-        // Собираем данные из формы
-        const phone = document.querySelector('#userPhone').value;
-        const email = document.querySelector('#userEmail').value;
-        const city = document.querySelector('#userCity').value;
-        const address = document.querySelector('#userAddress').value;
-        const total_price = document.querySelector('#totalPrice').textContent;
-
-        // Получаем данные из localStorage
-        const cartData = JSON.parse(localStorage.getItem('shoppingCart'));
-
-        // Формируем данные для отправки на сервер
-        const formData = new FormData();
-        formData.append('phone', phone);
-        formData.append('email', email);
-        formData.append('city', city);
-        formData.append('address', address);
-        formData.append('total_price', total_price);
-        formData.append('cartData', JSON.stringify(cartData)); // Add cart data as a JSON string
-
-        for (let [key, value] of formData.entries()) {
-            console.log(`${key}: ${value}`);
-        }
-
-        // Отправляем данные на сервер
-        fetch('{% url "store:handle_order" %}', {
-            method: 'POST',
-            body: formData
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                handleSuccessfulOrder();
-            })
-            .catch(error => {
-                console.error(error);
-            });
+  // Function to close the custom modal
+  function closeCustomModal() {
+    const customModal = document.getElementById('customModal');
+    customModal.style.display = 'none';
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
+  }
+
+  // Function to handle successful order
+  function handleSuccessfulOrder() {
+    // Clear the cart from local storage
+    localStorage.removeItem('shoppingCart');
+
+    // Remove cart items from the frontend
+    const cartWrapper = document.querySelector('.cart-wrapper');
+    cartWrapper.innerHTML = ''; // This will remove all cart items from the cartWrapper element
+
+    // Close the cart modal
+    closeCartModal();
+
+    // Show custom modal dialog
+    const customModal = document.getElementById('customModal');
+    customModal.style.display = 'block';
+    // Disable the default scroll behavior when the custom modal is open
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    // Hide the custom modal dialog
+    const customModal = document.getElementById('customModal');
+    customModal.style.display = 'none';
+    // Restore the default scroll behavior when the custom modal is closed
+    document.body.style.overflow = 'auto';
+    closeCustomModal();
+  }
+
+  // При нажатии кнопки "Замовити"
+  document.querySelector('#orderButton').addEventListener('click', function (event) {
+    event.preventDefault();
+    this.disabled = true;
+    setTimeout(() => {
+      this.disabled = false;
+    }, 5000);
+
+    // Собираем данные из формы
+    const phone = document.querySelector('#userPhone').value;
+    const email = document.querySelector('#userEmail').value;
+    const city = document.querySelector('#userCity').value;
+    const address = document.querySelector('#userAddress').value;
+    const total_price = document.querySelector('#totalPrice').textContent;
+
+    // Получаем данные из localStorage
+    const cartData = JSON.parse(localStorage.getItem('shoppingCart'));
+
+    // Формируем данные для отправки на сервер
+    const formData = new FormData();
+    formData.append('phone', phone);
+    formData.append('email', email);
+    formData.append('city', city);
+    formData.append('address', address);
+    formData.append('total_price', total_price);
+    formData.append('cartData', JSON.stringify(cartData)); // Add cart data as a JSON string
+
+    for (let [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
+
+    // Отправляем данные на сервер
+    fetch('{% url "store:handle_order" %}', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        handleSuccessfulOrder();
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  });
 </script>
+
 </body>
 </html>

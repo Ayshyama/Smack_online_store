@@ -95,31 +95,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// CART MODAL OPEN WINDOW SCRIPT //
-
+/// CART MODAL OPEN WINDOW SCRIPT
 const openCartModalButton = document.getElementById('open-cart-modal');
 const cartModal = document.getElementById('cart-modal');
 const closeCartModalButton = document.getElementById('close-cart-modal');
 
 openCartModalButton.addEventListener('click', () => {
   cartModal.style.display = 'block';
+  // Disable the default scroll behavior when the cart modal is open
+  document.body.style.overflow = 'hidden';
 });
 
 closeCartModalButton.addEventListener('click', () => {
   cartModal.style.display = 'none';
+  // Restore the default scroll behavior when the cart modal is closed
+  document.body.style.overflow = 'auto';
 });
 
 window.addEventListener('click', (event) => {
   if (event.target === cartModal) {
     cartModal.style.display = 'none';
+    // Restore the default scroll behavior when the cart modal is closed
+    document.body.style.overflow = 'auto';
   }
 });
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     cartModal.style.display = 'none';
+    // Restore the default scroll behavior when the cart modal is closed
+    document.body.style.overflow = 'auto';
   }
 });
+
 
 
 
@@ -138,23 +146,35 @@ fishImages.forEach((fishImage) => {
     modalTitle.textContent = fishImage.parentElement.querySelector('.item-title').textContent;
     modalCategory.textContent = fishImage.parentElement.querySelector('h4').textContent;
     document.querySelector('.product-modal-description').textContent = e.target.getAttribute('data-description');
+
+    // Disable the default scroll behavior when the modal is open
+    document.body.style.overflow = 'hidden';
   });
 });
 
 closeButton.addEventListener('click', (event) => {
   event.stopPropagation();
   modal.style.display = 'none';
+
+  // Restore the default scroll behavior when the modal is closed
+  document.body.style.overflow = 'auto';
 });
 
 modal.addEventListener('click', (event) => {
   if (event.target === modal) {
     modal.style.display = 'none';
+
+    // Restore the default scroll behavior when the modal is closed
+    document.body.style.overflow = 'auto';
   }
 });
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     modal.style.display = 'none';
+
+    // Restore the default scroll behavior when the modal is closed
+    document.body.style.overflow = 'auto';
   }
 });
 
