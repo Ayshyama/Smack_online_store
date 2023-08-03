@@ -14,6 +14,7 @@
         const email = document.querySelector('#userEmail').value;
         const city = document.querySelector('#userCity').value;
         const address = document.querySelector('#userAddress').value;
+        const total_price = document.querySelector('#totalPrice').textContent;
 
         // Получаем данные из localStorage
         const cartData = JSON.parse(localStorage.getItem('shoppingCart'));
@@ -24,7 +25,12 @@
         formData.append('email', email);
         formData.append('city', city);
         formData.append('address', address);
+        formData.append('total_price', total_price);
         formData.append('cartData', JSON.stringify(cartData)); // Add cart data as a JSON string
+
+        for (let [key, value] of formData.entries()) {
+            console.log(`${key}: ${value}`);
+        }
 
         // Отправляем данные на сервер
         fetch('{% url "store:handle_order" %}', {
