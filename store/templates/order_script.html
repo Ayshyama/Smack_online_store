@@ -6,6 +6,20 @@
 </head>
 <body>
 <script>
+    // Function to handle successful order
+    function handleSuccessfulOrder() {
+        // Clear the cart from local storage
+        localStorage.removeItem('shoppingCart');
+
+        // Remove cart items from the frontend
+        cartWrapper.innerHTML = ''; // This will remove all cart items from the cartWrapper element
+
+        // Show success message
+        alert('Замовлення успішно оформлено! Перевірте, будь ласка, ваш E-mail для отримання підтвердження.\n' +
+            'Дякуємо за покупку та бажаємо вам прекрасного дня!');
+
+        window.location.reload();
+    }
     // При нажатии кнопки "Замовити"
     document.querySelector('#orderButton').addEventListener('click', function (event) {
         event.preventDefault();
@@ -39,12 +53,10 @@
         })
             .then(response => response.json())
             .then(data => {
-                // Обработка ответа с сервера, если необходимо
                 console.log(data);
-                alert(data.message);
+                handleSuccessfulOrder();
             })
             .catch(error => {
-                // Обработка ошибок, если необходимо
                 console.error(error);
             });
     });
