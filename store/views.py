@@ -12,6 +12,15 @@ from django.views.generic.detail import SingleObjectMixin
 
 from store.models import Product, Category
 
+from django.http import HttpResponse
+from django.views import View
+
+
+class SearchView(View):
+    @staticmethod
+    def get(request, *args, **kwargs):
+        return HttpResponse('Search results')
+
 
 class IndexView(ListView):
     template_name = 'index.html'

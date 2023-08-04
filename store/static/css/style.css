@@ -284,6 +284,7 @@ header.shadow {
 .footer-box p {
     font-size: 1rem;
     margin-bottom: 10px;
+    max-width: 500px;
 }
 .social {
     display: flex;
@@ -706,7 +707,7 @@ header.shadow {
 }
 
 .product-modal-description {
-    margin: 20px 20px 20px 22px;
+    margin: 20px 20px 5px 22px;
     font-size: 18px;
   color: var(--text-color);
   text-align: left;
@@ -728,14 +729,6 @@ header.shadow {
     color: var(--text-color);
     text-align: center;
 }
-
-
-
-
-
-
-
-
 
 @media (max-width: 1058px){
     header {

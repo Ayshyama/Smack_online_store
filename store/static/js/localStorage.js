@@ -30,6 +30,7 @@ function loadCartFromLocalStorage() {
                                   <img src="${item.imgSrc}" alt="${item.title}">
                                 </div>
                                 <div class="cart-item__desc">
+                                  <span class="remove-item" data-action="remove">&times;</span>
                                   <div class="cart-item__title">${item.title}</div>
                                   <div class="cart-item__details">
                                   

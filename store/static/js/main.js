@@ -5,6 +5,14 @@ document.querySelector('#search-icon').onclick = () => {
     navbar.classList.remove('active');
 }
 
+let searchInput = document.querySelector('#search-input');
+
+searchInput.addEventListener('keyup', function(e){
+    if (e.key === 'Enter'){
+        window.location.href = '/search?search=' + e.target.value;
+    }
+});
+
 let navbar = document.querySelector('.navbar');
 
 document.querySelector('#menu-icon').onclick = () => {
