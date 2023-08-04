@@ -402,7 +402,7 @@ header.shadow {
     user-select: none;
     touch-action: manipulation;
     height: 30px;
-    margin-top: 1px;
+    margin-top: 2px;
 }
 
 .add-cart-button:hover {
@@ -418,7 +418,7 @@ header.shadow {
 
 .add-cart-button:after {
     content: "";
-    background: rgba(149, 255, 186);
+    background: rgba(102, 210, 130);
     display: block;
     position: absolute;
     padding-top: 350%;
@@ -426,7 +426,7 @@ header.shadow {
     margin-left: -200px!important;
     margin-top: -120%;
     opacity: 0;
-    transition: all 0.8s
+    transition: all 1s
 }
 
 .add-cart-button:active:after {
@@ -555,10 +555,8 @@ header.shadow {
     font-size: 18px;
     width: 200px;
     text-align: center;
-    height: 32px;
+    height: 30px;
 }
-
-
 
 .products-container .box .content a:hover {
     background: var(--main-color);
@@ -582,7 +580,7 @@ header.shadow {
 
 .counter_control {
     display: flex;
-    background: var(--main-color);
+    background: #e5e1d7;
 	width: 66px;
 	cursor: pointer;
 	transition: 0.2s ease-in;
@@ -602,7 +600,7 @@ header.shadow {
 
 .counter_control:hover {
     background: var(--main-color);
-    color: #ebebeb;
+    color: #ffffff;
 }
 
 .counter_amount {
