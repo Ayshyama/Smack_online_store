@@ -13,7 +13,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('store:products', kwargs={'cat_slug': self.slug})
+        return reverse('store:products', args=(self.slug,))
 
     class Meta:
         verbose_name = 'категорію'
