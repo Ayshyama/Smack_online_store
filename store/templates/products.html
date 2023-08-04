@@ -27,14 +27,14 @@
         <div class="categories-box">
             <h3 style="margin-bottom: 20px;">Оберіть Категорію:</h3>
             <div class="category-buttons">
-                {% if not cat_obj %}
+                {% if not category %}
                     <button class="category-button chosen">Всі категорії</button>
                 {% else %}
                     <a href="{% url 'store:products' 'all' %}" class="category-button">Всі категорії</a>
                 {% endif %}
 
                 {% for cat in cats %}
-                    {% if cat == cat_obj %}
+                    {% if cat == category %}
                         <button class="category-button chosen">{{ cat.name }}</button>
                     {% else %}
                         <a href="{{ cat.get_absolute_url }}" class="category-button">{{ cat.name }}</a>
@@ -48,8 +48,8 @@
     <!--  Products  -->
     <section class="products" id="products">
         <div class="heading">
-            {% if cat_obj %}
-                <h2>{{ cat_obj.name }} Риба</h2>
+            {% if category %}
+                <h2>{{ category.name }} Риба</h2>
             {% else %}
                 <h2>Всі категорії</h2>
             {% endif %}
@@ -57,7 +57,7 @@
         </div>
         <!-- Container -->
         <div class="products-container">
-            {% for product in products %}
+            {% for product in object_list %}
                 <div class="box" data-id="{{ product.id }}">
                     <img class="fish-image" data-description="{{ product.description }}" src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/ryb1.png' %} {% endif %}"
                         alt="Мультяшная рыба Png vectors by Lovepik.com">

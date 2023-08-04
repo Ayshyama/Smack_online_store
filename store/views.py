@@ -4,45 +4,44 @@ from datetime import datetime
 from django.http import JsonResponse
 from django.core.mail import send_mail
 
-from django.core.exceptions import ObjectDoesNotExist
 from django.http import Http404
-from django.shortcuts import render
 from django.utils.encoding import smart_str
 from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import ListView
+from django.views.generic.detail import SingleObjectMixin
+
 from store.models import Product, Category
 
 
-def index(request):
-    context = {
-        'cats': Category.objects.filter(is_published=True),
-        'title': 'Рибний Смак',
-    }
-    return render(request, 'index.html', context)
+class IndexView(ListView):
+    template_name = 'index.html'
+    queryset = Category.objects.filter(is_published=True)
+    context_object_name = 'cats'
+    extra_context = {'title': 'Рибний Смак'}
 
 
-def products(request, cat_slug):
-    prod_objects = Product.objects.filter(category__is_published=True, is_published=True)
-    title = 'Асортимент'
-    cat_obj = None
-    if cat_slug != 'all':
-        prod_objects = prod_objects.filter(category__slug=cat_slug)
+class ProductsView(SingleObjectMixin, ListView):
+    template_name = 'products.html'
+    cats = Category.objects.filter(is_published=True)
+
+    def get(self, request, *args, **kwargs):
         try:
-            cat_obj = Category.objects.get(slug=cat_slug)
-        except ObjectDoesNotExist:
-            raise Http404()
-        title = cat_obj.name + ' Риба'
-    context = {
-        'products': prod_objects,
-        'title': title,
-        'cat_obj': cat_obj,
-        'cats': Category.objects.filter(is_published=True)
-    }
+            self.object = self.get_object(self.cats)
+        except Http404:
+            self.object = None
+        return super().get(request, *args, **kwargs)
 
-    return render(request, 'products.html', context)
+    def get_queryset(self):
+        if self.object:
+            return self.object.product_set.filter(is_published=True)
+        return Product.objects.filter(is_published=True)
 
-
-def add_product(request):
-    print('hello word')
+    def get_context_data(self, **kwargs):
+        context = {
+            "title": self.object.name if self.object else "Асортимент",
+            "cats": self.cats,
+        }
+        return super().get_context_data(**kwargs, **context)
 
 
 def get_last_order_data():
@@ -96,7 +95,7 @@ def handle_order(request):
         cart_items = json.loads(cart_data_str) if cart_data_str else []
 
         client_message = f'Доброго дня!\nДякуємо Вам за замовлення.\n\n' \
-                         f'Номер замовлення: {email_id}\n'\
+                         f'Номер замовлення: {email_id}\n' \
                          f'Ваш кошик на суму {total_price} грн:\n'
         item_number = 1
         for item in cart_items:
