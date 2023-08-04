@@ -62,13 +62,8 @@
                 <h3>Особлива гордість нашого магазину - це самостійно копчена та в'ялена риба.
                     Завдяки багатому досвіду та натхненню нашого власника, кожна порція готується з особливою любов'ю і турботою.
                 </h3>
-                <br>
-                <br>
-
 
                     <a href="{% url 'store:products' 'all' %}" class="add-cart-button">Замовити</a>
-
-
                 <br>
             </div>
         </div>
@@ -188,6 +183,60 @@
     {% block content %}{% endblock %}
 </main>
 
+<div id="cart-modal" class="product-modal">
+  <div class="product-modal-content">
+    <span id="close-cart-modal" class="close">&times;</span>
+            <div class="modal-body">
+                <h4 class="card-title">Ваше замовлення</h4>
+                <br>
+                <div data-cart-empty class="alert alert-secondary" role="alert">
+                    Кошик порожній
+                </div>
+                <!-- cart-wrapper -->
+                <div class="cart-wrapper">
+                </div>
+                <!-- // cart-wrapper -->
+            </div>
+
+    <!-- Оформить заказ -->
+    <div id="order-form" class="card-body border-top none">
+
+        <!-- Стоимость заказа -->
+        <div class="cart-total">
+            <p><span class="h5">Доставка:</span> <span class="delivery-cost">50 ₴</span> </p>
+            <p><span class="cart-item__weight">Безкоштовно по Києву - при замовленні від 1000 ₴). Доставка по Україні згідно з тарифом Нової Пошти.</span> </p>
+
+            <p><span class="h5">Загалом до сплати:</span> <span id="totalPrice" class="total-price">0</span> <span class="hryvna">₴</span></p>
+        </div>
+        <br>
+        <!-- // Стоимость заказа -->
+
+        <h4 class="card-title">Оформити замовлення</h4>
+        <form>
+            <div class="form-group">
+                <label>
+                    <input type="number" name="phone" id="userPhone" class="form-control" placeholder="Номер телефону" required>
+                </label>
+                <label>
+                    <input type="email" name="email" id="userEmail" class="form-control" placeholder="E-mail" required>
+                </label>
+                <label>
+                    <input type="text" id="userCity" class="form-control" placeholder="Місто" required>
+                </label>
+                <label>
+                    <input type="text" id="userAddress" class="form-control" placeholder="Адреса" required>
+                </label>
+            </div>
+        </form>
+        <div class="order-button-container" style="display: grid; justify-content: center; align-content: center;">
+            <button class="add-cart-button" id="orderButton">Замовити</button>
+            <br>
+        </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- Footer  -->
 <section class="footer">
     <div class="footer-box">
@@ -195,11 +244,6 @@
         <p> Ваш надійний постачальник широкого асортименту свіжих морепродуктів та риби.
             Замовляйте у нас, щоб насолоджуватися неперевершеним смаком моря та кулінарними радощами,
             що приносять радість у ваші страви.</p>
-        <div class="social">
-            <a href="#"><i class='bx bxl-facebook'></i></a>
-            <a href="#"><i class='bx bxl-instagram'></i></a>
-            <a href="#"><i class='bx bxl-tiktok'></i></a>
-        </div>
     </div>
     <div class="footer-box">
         <h3>Підтримка</h3>
@@ -218,9 +262,14 @@
         <li><span><i class="bx bxs-phone"></i> +380 68 726 41 01 </span></li>
         <li><span><i class="bx bxs-envelope"></i> Rybniismak@gmail.com</span></li>
     </div>
-</section>
 
+</section>
 <!--    Copyright-->
+    <div class="social">
+        <a href="#"><i class='bx bxl-facebook'></i></a>
+        <a href="#"><i class='bx bxl-instagram'></i></a>
+        <a href="#"><i class='bx bxl-tiktok'></i></a>
+    </div>
 <div class="copyright">
     <a style="color: black; text-decoration: underline" href="https://github.com/Ayshyama"><p>&copy; Рибний Смак 2023</p></a>
 </div>
@@ -229,4 +278,13 @@
 <script src="{% static 'js/main.js' %}"></script>
 
 </body>
+
+    {% include 'order_script.html' %}
+
+    <script src="{% static 'js/calcCartPrice.js' %}"></script>
+    <script src="{% static 'js/toggleCartStatus.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/counter.js' %}"></script>
+    <script src="{% static 'js/localStorage.js' %}"></script>
+    <script src="{% static 'js/cart.js' %}"></script>
 </html>

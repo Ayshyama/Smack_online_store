@@ -259,7 +259,7 @@ select.form-control:focus::-ms-value {
   .cart-item__top {
     display: grid;
     grid-template-columns: 1fr max-content;
-    grid-gap: 10px;
+      max-width: 348px;
   }
 }
 .cart-item__img {
@@ -282,6 +282,7 @@ select.form-control:focus::-ms-value {
     text-align: center;
     justify-content: center;
     margin-left: 10px;
+    margin-right: 10px;
 }
 
 .cart-item__title {
@@ -289,6 +290,7 @@ select.form-control:focus::-ms-value {
     line-height: 1.2;
 	font-weight: 600;
 	margin-bottom: 5px;
+    max-width: 200px;
 }
 .remove-item {
 

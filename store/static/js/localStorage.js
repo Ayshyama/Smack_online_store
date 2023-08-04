@@ -20,6 +20,7 @@ function saveCartToLocalStorage() {
 
 // Function to load cart items from localStorage
 function loadCartFromLocalStorage() {
+  cartWrapper.innerHTML = '';
   const cartData = localStorage.getItem('shoppingCart');
   if (cartData) {
     const cartItems = JSON.parse(cartData);
@@ -78,9 +79,6 @@ window.addEventListener('click', function (event) {
 window.addEventListener('beforeunload', function () {
     saveCartToLocalStorage();
 });
-
-
-
 
 
 

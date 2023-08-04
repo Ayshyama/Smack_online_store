@@ -268,6 +268,26 @@ header.shadow {
     transition: 0.2s all linear;
 }
 
+@media (min-width: 992px) {
+    .footer {
+        margin-top: auto;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* 5 столбцов равного размера */
+        gap: 1.5rem;
+        background: var(--second-color);
+    }
+}
+
+/* Определение стиля для маленьких экранов */
+@media (max-width: 991px) {
+    .footer {
+        display: grid;
+        grid-template-columns: 1fr; /* Одноколоночный вид */
+        gap: 1.5rem;
+        background: var(--second-color);
+    }
+}
+
 
 .footer {
     margin-top: auto;
@@ -277,6 +297,7 @@ header.shadow {
     background: var(--second-color);
 }
 .footer-box h2 {
+
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 10px;
@@ -288,8 +309,10 @@ header.shadow {
 }
 .social {
     display: flex;
+    justify-content: center;
     align-items: center;
-    column-gap: 0.5rem;
+    gap: 1rem;
+    background: var(--second-color);
 }
 .social a .bx {
     font-size: 24px;
@@ -541,7 +564,6 @@ header.shadow {
 
 /* PRODUCT - COUNTER */
 .counter {
-    font-family: 'Merriweather', serif;
     background: #f2ede7;
     border-radius: 4px;
     width: 200px;
@@ -845,6 +867,10 @@ header.shadow {
     max-width: none;
     height: 100vh;
   }
+
+    .heading h2 {
+        font-size: 1.4rem;
+    }
 
   .modal img {
     height: 100%;
