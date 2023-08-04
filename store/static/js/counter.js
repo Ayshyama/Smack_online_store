@@ -16,6 +16,9 @@ function handleCounterClick(event) {
     // проверяем является ли элемент по которому кликнули кнопкой плюс
     if (event.target.dataset.action === 'plus') {
         amount.innerText = ++amount.innerText;
+        if (event.target.closest('.cart-wrapper')) {
+        updateCart();
+    }
     }
 
     // проверяем является ли элемент по которому кликнули кнопкой минус
@@ -23,6 +26,9 @@ function handleCounterClick(event) {
         // проверяем чтобы счетчик был больше 1
         if (parseInt(amount.innerText) > 1) {
             amount.innerText = --amount.innerText;
+            if (event.target.closest('.cart-wrapper')) {
+            updateCart();
+            }
         } else if (event.target.closest('.cart-wrapper') && parseInt(amount.innerText) === 1) {
             // Удаляем товар из корзины
             event.target.closest('.cart-item').remove();

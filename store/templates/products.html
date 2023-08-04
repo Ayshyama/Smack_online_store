@@ -16,13 +16,6 @@
     </ul>
 {% endblock %}
 {% block content %}
-{#    <div class="temp-message">#}
-{#        <div class="temp-develop">#}
-{#            <h3>Увага!</h3>#}
-{#            <h3>Кошик сайту ще у розробці. Ви можете швидко зробити замовлення зателефонувавши за номером: 060 080 880</h3>#}
-{#        </div>#}
-{#    </div>#}
-    <!--  Categories Selector  -->
     <div class="categories-selector">
         <div class="categories-box">
             <h3 style="margin-bottom: 20px;">Оберіть Категорію:</h3>
@@ -134,9 +127,9 @@
 
                 <!-- Стоимость заказа -->
                 <div class="cart-total">
-                    <p><span class="h5">Доставка:</span> <span class="delivery-cost">50 ₴ (безкоштовно по Києву - при замовленні від 1000 ₴)</span> </p>
+                    <p><span class="h5">Доставка:</span> <span class="delivery-cost">50 ₴</span> </p>
                     <p><span class="cart-item__weight">Безкоштовно по Києву - при замовленні від 1000 ₴). Доставка по Україні згідно з тарифом Нової Пошти.</span> </p>
-                    <br>
+
                     <p><span class="h5">Загалом до сплати:</span> <span id="totalPrice" class="total-price">0</span> <span class="hryvna">₴</span></p>
                 </div>
                 <br>
@@ -158,12 +151,11 @@
                             <input type="text" id="userAddress" class="form-control" placeholder="Адреса" required>
                         </label>
                     </div>
-
-                    <div class="btn-container">
-                        <button class="btn" id="orderButton">Замовити</button>
-                    </div>
-                    <br>
                 </form>
+                <div class="order-button-container" style="display: grid; justify-content: center; align-content: center;">
+                    <button class="add-cart-button" id="orderButton">Замовити</button>
+                    <br>
+                </div>
             </div>
           </div>
         </div>

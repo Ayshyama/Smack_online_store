@@ -20,7 +20,7 @@ window.addEventListener('click', function (event) {
         };
 
         console.log(productInfo);
-
+        updateCart();
         // Проверять если ли уже такой товар в корзине
 		const itemInCart = cartWrapper.querySelector(`[data-id="${productInfo.id}"]`);
 
@@ -37,22 +37,19 @@ window.addEventListener('click', function (event) {
                                             <img src="${productInfo.imgSrc}" alt="${productInfo.title}">
                                         </div>                                      
                                         <div class="cart-item__desc">
+                                            <span class="remove-item" data-action="remove">&times;</span>
                                             <div class="cart-item__title">${productInfo.title}</div>
-                                            <!-- cart-item__details -->
                                             <div class="cart-item__details">
+                                                <div class="price__currency">${productInfo.price}грн/${productInfo.weight}</div>
                                                 <div class="counter">
                                                     <button class="counter_control" data-action="minus">-</button>
                                                     <div class="counter_amount" data-counter>${productInfo.counter}</div>
                                                     <button class="counter_control" data-action="plus">+</button>
-                                                </div>
-                                                <div class="price">
-                                                    <div class="price__currency">${productInfo.price}грн/${productInfo.weight}</div>
-                                                </div>
+                                                </div>          
                                             </div>
-                                            <button class="remove-item" data-action="remove">&times; Видалити з кошика &times; </button>
                                         </div>
                                     </div>
-                                </div>`;
+                                  </div>`;
 
 
 

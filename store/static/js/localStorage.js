@@ -32,20 +32,21 @@ function loadCartFromLocalStorage() {
                                 <div class="cart-item__desc">
                                   <div class="cart-item__title">${item.title}</div>
                                   <div class="cart-item__details">
+                                  
+                                    <div class="price__currency">${item.price}грн/${item.weight}</div>
+                                    
                                     <div class="counter">
                                       <button class="counter_control" data-action="minus">-</button>
                                       <div class="counter_amount" data-counter>${item.counter}</div>
                                       <button class="counter_control" data-action="plus">+</button>
                                     </div>
-                                    <div class="price">
-                                      <div class="price__currency">${item.price}грн/${item.weight}</div>
-                                    </div>
-                                  </div>
-                                  <button class="remove-item" data-action="remove">&times; Видалити з кошика &times; </button>
+                                    
+                                  </div>    
                                 </div>
                               </div>
                             </div>`;
       cartWrapper.insertAdjacentHTML('beforeend', cartItemHTML);
+      updateCart();
     });
   }
 }
@@ -57,9 +58,11 @@ window.addEventListener('load', function () {
 
 // Save cart items to localStorage after updating the cart
 function updateCart() {
-  saveCartToLocalStorage();
-  toggleCartStatus();
-  calcCartPriceAndDelivery();
+    if (cartWrapper.children.length > 0) {
+        saveCartToLocalStorage();
+    }
+    toggleCartStatus();
+    calcCartPriceAndDelivery();
 }
 
 // Modify the existing code to update the cart

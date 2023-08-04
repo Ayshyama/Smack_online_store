@@ -30,7 +30,7 @@ function calcCartPriceAndDelivery() {
     } else {
         totalPrice += deliveryPrice;
         deliveryCost.classList.remove('free');
-        deliveryCost.innerText = '50 ₴ (безкоштовно - при замовленні від 500 ₴)';
+        deliveryCost.innerText = '50 ₴';
     }
 
     totalPriceEl.innerText = totalPrice;
