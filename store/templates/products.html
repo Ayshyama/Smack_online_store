@@ -20,18 +20,13 @@
         <div class="categories-box">
             <h3 style="margin-bottom: 20px;">Оберіть Категорію:</h3>
             <div class="category-buttons">
-                {% if not category %}
-                    <button class="category-button chosen">Всі категорії</button>
-                {% else %}
-                    <a href="{% url 'store:products' 'all' %}" class="category-button">Всі категорії</a>
-                {% endif %}
+
+                <a href="{% url 'store:products' 'all' %}"
+                   class="category-button{% if not category %} chosen{% endif %}">Всі категорії</a>
 
                 {% for cat in cats %}
-                    {% if cat == category %}
-                        <button class="category-button chosen">{{ cat.name }}</button>
-                    {% else %}
-                        <a href="{{ cat.get_absolute_url }}" class="category-button">{{ cat.name }}</a>
-                    {% endif %}
+                    <a href="{{ cat.get_absolute_url }}"
+                       class="category-button{% if cat == category %} chosen{% endif %}">{{ cat.name }}</a>
                 {% endfor %}
 
             </div>
@@ -42,7 +37,9 @@
     <section class="products" id="products">
         <div class="heading">
             {% if category %}
-                <h2>{{ category.name }} Риба</h2>
+                <h2>{{ category.name }}</h2>
+            {% elif request.GET %}
+                <h2>Результати пошуку</h2>
             {% else %}
                 <h2>Всі категорії</h2>
             {% endif %}
@@ -52,8 +49,9 @@
         <div class="products-container">
             {% for product in object_list %}
                 <div class="box" data-id="{{ product.id }}">
-                    <img class="fish-image" data-description="{{ product.description }}" src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/ryb1.png' %} {% endif %}"
-                        alt="Мультяшная рыба Png vectors by Lovepik.com">
+                    <img class="fish-image" data-description="{{ product.description }}"
+                         src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/ryb1.png' %} {% endif %}"
+                         alt="Мультяшная рыба Png vectors by Lovepik.com">
                     <h4>{{ product.category }}</h4>
                     <hr>
                     <h3 class="item-title">{{ product.name }}</h3>
@@ -78,20 +76,21 @@
                 </div>
 
                 <div id="image-modal" class="product-modal">
-                  <div class="product-modal-content">
-                    <span id="close" class="close">&times;</span>
-                    <h4>{{ product.category }}</h4>
-                    <h3>{{ product.name }}</h3>
-                    <p class="product-modal-description"></p>
-                    <img id="product-modal-image" class="product-modal-image" src="" alt="Modal Image">
-                  </div>
+                    <div class="product-modal-content">
+                        <span id="close" class="close">&times;</span>
+                        <h4>{{ product.category }}</h4>
+                        <h3>{{ product.name }}</h3>
+                        <p class="product-modal-description"></p>
+                        <img id="product-modal-image" class="product-modal-image" src="" alt="Modal Image">
+                    </div>
                 </div>
 
             {% endfor %}
         </div>
 
         <div id="successModal" class="product-modal">
-            <div class="product-modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div class="product-modal-content"
+                 style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
                 <span class="close" onclick="closeModal()">&times;</span>
                 <p>Замовлення успішно оформлено!</p>
                 <br>
@@ -105,58 +104,62 @@
         </div>
 
 
-
         <div id="cart-modal" class="product-modal">
-          <div class="product-modal-content">
-            <span id="close-cart-modal" class="close">&times;</span>
-					<div class="modal-body">
-						<h4 class="card-title">Ваше замовлення</h4>
-                        <br>
-						<div data-cart-empty class="alert alert-secondary" role="alert">
-							Кошик порожній
-						</div>
-						<!-- cart-wrapper -->
-						<div class="cart-wrapper">
-						</div>
-						<!-- // cart-wrapper -->
-					</div>
-
-            <!-- Оформить заказ -->
-            <div id="order-form" class="card-body border-top none">
-
-                <!-- Стоимость заказа -->
-                <div class="cart-total">
-                    <p><span class="h5">Доставка:</span> <span class="delivery-cost">50 ₴</span> </p>
-                    <p><span class="cart-item__weight">Безкоштовно по Києву - при замовленні від 1000 ₴). Доставка по Україні згідно з тарифом Нової Пошти.</span> </p>
-
-                    <p><span class="h5">Загалом до сплати:</span> <span id="totalPrice" class="total-price">0</span> <span class="hryvna">₴</span></p>
-                </div>
-                <br>
-                <!-- // Стоимость заказа -->
-
-                <h4 class="card-title">Оформити замовлення</h4>
-                <form>
-                    <div class="form-group">
-                        <label>
-                            <input type="number" name="phone" id="userPhone" class="form-control" placeholder="Номер телефону" required>
-                        </label>
-                        <label>
-                            <input type="email" name="email" id="userEmail" class="form-control" placeholder="E-mail" required>
-                        </label>
-                        <label>
-                            <input type="text" id="userCity" class="form-control" placeholder="Місто" required>
-                        </label>
-                        <label>
-                            <input type="text" id="userAddress" class="form-control" placeholder="Адреса" required>
-                        </label>
-                    </div>
-                </form>
-                <div class="order-button-container" style="display: grid; justify-content: center; align-content: center;">
-                    <button class="add-cart-button" id="orderButton">Замовити</button>
+            <div class="product-modal-content">
+                <span id="close-cart-modal" class="close">&times;</span>
+                <div class="modal-body">
+                    <h4 class="card-title">Ваше замовлення</h4>
                     <br>
+                    <div data-cart-empty class="alert alert-secondary" role="alert">
+                        Кошик порожній
+                    </div>
+                    <!-- cart-wrapper -->
+                    <div class="cart-wrapper">
+                    </div>
+                    <!-- // cart-wrapper -->
+                </div>
+
+                <!-- Оформить заказ -->
+                <div id="order-form" class="card-body border-top none">
+
+                    <!-- Стоимость заказа -->
+                    <div class="cart-total">
+                        <p><span class="h5">Доставка:</span> <span class="delivery-cost">50 ₴</span></p>
+                        <p><span class="cart-item__weight">Безкоштовно по Києву - при замовленні від 1000 ₴). Доставка по Україні згідно з тарифом Нової Пошти.</span>
+                        </p>
+
+                        <p><span class="h5">Загалом до сплати:</span> <span id="totalPrice" class="total-price">0</span>
+                            <span class="hryvna">₴</span></p>
+                    </div>
+                    <br>
+                    <!-- // Стоимость заказа -->
+
+                    <h4 class="card-title">Оформити замовлення</h4>
+                    <form>
+                        <div class="form-group">
+                            <label>
+                                <input type="number" name="phone" id="userPhone" class="form-control"
+                                       placeholder="Номер телефону" required>
+                            </label>
+                            <label>
+                                <input type="email" name="email" id="userEmail" class="form-control"
+                                       placeholder="E-mail" required>
+                            </label>
+                            <label>
+                                <input type="text" id="userCity" class="form-control" placeholder="Місто" required>
+                            </label>
+                            <label>
+                                <input type="text" id="userAddress" class="form-control" placeholder="Адреса" required>
+                            </label>
+                        </div>
+                    </form>
+                    <div class="order-button-container"
+                         style="display: grid; justify-content: center; align-content: center;">
+                        <button class="add-cart-button" id="orderButton">Замовити</button>
+                        <br>
+                    </div>
                 </div>
             </div>
-          </div>
         </div>
 
     </section>

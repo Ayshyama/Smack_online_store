@@ -1,13 +1,15 @@
 import json
 from datetime import datetime
 
+from django.db.models import Q
 from django.http import JsonResponse
 from django.core.mail import send_mail
 
 from django.http import Http404
+from django.urls import reverse_lazy
 from django.utils.encoding import smart_str
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import ListView
+from django.views.generic import ListView, RedirectView
 from django.views.generic.detail import SingleObjectMixin
 
 from store.models import Product, Category
@@ -16,10 +18,9 @@ from django.http import HttpResponse
 from django.views import View
 
 
-class SearchView(View):
-    @staticmethod
-    def get(request, *args, **kwargs):
-        return HttpResponse('Search results')
+class SearchView(RedirectView):
+    url = reverse_lazy('store:products', args=('all',))
+    query_string = True
 
 
 class IndexView(ListView):
@@ -43,7 +44,17 @@ class ProductsView(SingleObjectMixin, ListView):
     def get_queryset(self):
         if self.object:
             return self.object.product_set.filter(is_published=True)
-        return Product.objects.filter(is_published=True)
+        search_list = [word for word in self.request.GET.get('search', '').split() if len(word.lower().rstrip('аьиі')) > 2]
+        queryset = Product.objects.filter(is_published=True)
+        if search_list:
+            res_search_list = []
+            for word in search_list:
+                word = word.lower().rstrip('аьиі')
+                res_search_list.append(f'Q(name__contains="{word}")')
+                res_search_list.append(f'Q(name__contains="{word.title()}")')
+            queryset = queryset.filter(eval(' | '.join(res_search_list)))
+
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = {
