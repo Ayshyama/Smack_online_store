@@ -986,6 +986,7 @@ button.counter_control {
 .pagination a.active {
     background-color: var(--main-color);
     color: var(--bg-color);
+    cursor: default;
 }
 
 .pagination a:hover:not(.active) {
@@ -1048,4 +1049,6 @@ button.counter_control {
 }
 
 
-
+.default-cursor {
+    pointer-events: none;
+}

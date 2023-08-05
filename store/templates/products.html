@@ -110,16 +110,54 @@
         </div>
 
     </section>
+    {% if page_obj.has_other_pages %}
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}" class="large-text tooltip-last"
+                   data-tooltip="Попередня сторінка">&laquo;</a>
+            {% else %}
+                <a href="" class="large-text tooltip disabled"
+                   data-tooltip="Попередня сторінка">&laquo;</a>
+            {% endif %}
 
-<div class="pagination">
-    <a href="#" class="tooltip disabled large-text" data-tooltip="Перша сторінка">&laquo;</a>
-    <a href="#" class="active tooltip" data-tooltip="Поточна сторінка">1</a>
-    <a href="#" class="tooltip">2</a>
-    <a href="#" class="tooltip">3</a>
-    <a href="#" class="tooltip">...</a>
-    <a href="#" class="tooltip">10</a>
-    <a href="#" class="tooltip-last large-text" data-tooltip="Остання сторінка">&raquo;</a>
-</div>
+            {% if page_obj.number == 1 %}
+                <a href="" class="active tooltip" data-tooltip="Поточна сторінка">1</a>
+            {% else %}
+                <a href="?page=1" class="tooltip">1</a>
+            {% endif %}
 
+            {% if page_obj.number > 3 %}
+                <a href="" class="tooltip default-cursor">...</a>
+            {% endif %}
+
+            {% for p in paginator.page_range %}
+                {% if p > 1 and p < paginator.num_pages %}
+                    {% if p == page_obj.number %}
+                        <a href="" class="active tooltip" data-tooltip="Поточна сторінка">{{ p }}</a>
+                    {% elif p > page_obj.number|add:-2 and p < page_obj.number|add:2 %}
+                        <a href="?page={{ p }}" class="tooltip">{{ p }}</a>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.number < paginator.num_pages|add:-2 %}
+                <a href="#" class="tooltip default-cursor">...</a>
+            {% endif %}
+
+            {% if page_obj.number == paginator.num_pages %}
+                <a href="#" class="active tooltip" data-tooltip="Поточна сторінка">{{ paginator.num_pages }}</a>
+            {% else %}
+                <a href="?page={{ paginator.num_pages }}" class="tooltip">{{ paginator.num_pages }}</a>
+            {% endif %}
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="large-text tooltip-last"
+                   data-tooltip="Наступна сторінка">&raquo;</a>
+            {% else %}
+                <a href="" class="large-text tooltip disabled"
+                   data-tooltip="Наступна сторінка">&raquo;</a>
+            {% endif %}
+        </div>
+    {% endif %}
 
 {% endblock %}
