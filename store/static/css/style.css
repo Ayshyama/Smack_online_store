@@ -1029,16 +1029,9 @@ button.counter_control {
     font-size: 16px;
 }
 
-.disabled {
-    color: #777;
-    cursor: not-allowed;
-    text-decoration: none;
-}
-
 .large-text {
     font-size: 30px !important;
 }
-
 
 .tooltip.disabled:hover::after,
 .tooltip-last.disabled:hover::after {
