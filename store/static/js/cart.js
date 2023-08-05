@@ -37,8 +37,9 @@ window.addEventListener('click', function (event) {
                                             <img src="${productInfo.imgSrc}" alt="${productInfo.title}">
                                         </div>                                      
                                         <div class="cart-item__desc">
-                                            <span class="remove-item" data-action="remove">&times;</span>
-                                            <div class="cart-item__title">${productInfo.title}</div>
+                                            <button class="remove-item" data-action="remove">&times;</button>
+                                            <div class="cart-item__title">${productInfo.title}
+                                            </div>
                                             <div class="cart-item__details">
                                                 <div class="price__currency">${productInfo.price}грн/${productInfo.weight}</div>
                                                 <div class="counter">

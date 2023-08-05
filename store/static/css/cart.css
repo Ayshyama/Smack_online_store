@@ -279,11 +279,14 @@ select.form-control:focus::-ms-value {
 .cart-item__desc {
 	padding-top: 10px;
 	max-width: 235px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-left: 10px;
     margin-right: 10px;
 }
+
 
 .cart-item__title {
 	font-size: 20px;
