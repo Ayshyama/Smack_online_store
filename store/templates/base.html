@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
-
 <html lang="uk">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +14,9 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
+
 {% block navbar %}
     <!-- Navbar -->
     <header>
@@ -53,7 +55,7 @@
     <section class="home" id="home">
         <div class="intro-container">
             <div class="home-text">
-                <h1>Рибний смак </h1>
+                <h1 style="color: var(--bg-color) !important;">Рибний смак </h1>
                 <br>
                 <h3>Ми пропонуємо широкий асортимент свіжих морепродуктів і риби.
                     Незалежно від того, де ви знаходитесь в Україні, "Рибний смак" забезпечує швидку доставку,
@@ -63,7 +65,7 @@
                     Завдяки багатому досвіду та натхненню нашого власника, кожна порція готується з особливою любов'ю і турботою.
                 </h3>
 
-                    <a href="{% url 'store:products' 'all' %}" class="add-cart-button" style="width: 220px; height: 36px">Замовити Онлайн</a>
+                    <a href="{% url 'store:products' 'all' %}" class="add-cart-button" style="width: 220px; height: 34px;">Замовити Онлайн</a>
                 <br>
             </div>
         </div>
@@ -99,7 +101,7 @@
                 eligendi esse et expedita officiis suscipit!</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad in ipsa minima rerum voluptatum!</p>
             <br>
-            <a href="#" class="btn">Дізнатися Більше</a>
+            <a href="#" class="add-cart-button" style="width: 220px; height: 34px">Дізнатися Більше</a>
         </div>
     </section>
 {% endblock %}
@@ -121,11 +123,13 @@
                     <i class='bx bxs-star' ></i>
                     <i class='bx bxs-star' ></i>
                     <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star-half' ></i>
+                    <i class='bx bxs-star' ></i>
                 </div>
                 <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias aliquid commodi ea et,
-                    laboriosam nostrum placeat tempore ut veniam.</p>
+                <p>Тяжко в неволі птиці пірнатій, але з рибою від 'Рибного Смаку'
+                    навіть вдома можна відчути простори моря.
+                    Їхній асортимент здатен задовольнити навіть самого вибагливого гурмана.
+                    Та що там говорити, краще один раз спробувати!</p>
             </div>
             <div class="box">
                 <h2>Сковорода Григорович</h2>
@@ -139,7 +143,11 @@
                     <i class='bx bxs-star-half' ></i>
                 </div>
                 <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nulla omnis quas saepe ullam!</p>
+                <p>Світ складається з різноманітних смаків, де "Рибний Смак" відграє непересічну роль.
+                    Їхня продукція піднімає відчуття єдності з природою та розкриває глибини смаку.
+                    Але жодна вершина не існує без своєї тіні -
+                    в досконалості завжди є місце для пошуку й вдосконалення.
+                    Справжній смак життя - це неупинний рух вперед.</p>
             </div>
             <div class="box">
                 <h2>Бандера Степанович</h2>
@@ -153,9 +161,9 @@
                     <i class='bx bxs-star-half' ></i>
                 </div>
                 <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet aperiam autem delectus dolorem
-                    ea earum fuga, fugiat hic impedit ipsa ipsam iusto maxime minus nulla officia quibusdam quidem
-                    quisquam quod ratione reprehenderit tempore veniam!</p>
+                <p>'Рибний Смак' - це не просто магазин, це символ якості та незламної відданості своїй справі.
+                    Свіжість морепродуктів, професіоналізм персоналу та своєчасна доставка -
+                    все це робить мою віру в їхню справу незламною.</p>
             </div>
             <div class="box">
                 <h2>Володимир Олександрович</h2>
@@ -166,12 +174,15 @@
                     <i class='bx bxs-star' ></i>
                     <i class='bx bxs-star' ></i>
                     <i class='bx bxs-star' ></i>
-                    <i class='bx bxs-star-half' ></i>
+                    <i class='bx bxs-star' ></i>
                 </div>
                 <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet aperiam autem delectus dolorem
-                    ea earum fuga, fugiat hic impedit ipsa ipsam iusto maxime minus nulla officia quibusdam quidem
-                    quisquam quod ratione reprehenderit tempore veniam!</p>
+                <p>Вражаючий асортимент і справжній смак моря в кожному замовленні!
+                    Це не жарт, це справжній "Рибний Смак".
+                    Незалежно від того, скільки важких рішень я приймаю протягом дня, завжди знаю,
+                    що в кінці важкого дня мене чекає справжнє кулінарне задоволення.
+                    Копчена і в'ялена риба - це щось неймовірне.
+                    Дякую вам, "Рибний Смак", за надзвичайний сервіс і якість. Раджу всім!</p>
             </div>
         </div>
     </section>
@@ -205,8 +216,7 @@
         <div class="cart-total">
             <p><span class="h5">Доставка:</span> <span class="delivery-cost">50 ₴</span> </p>
             <p><span class="cart-item__weight">Безкоштовно по Києву - при замовленні від 1000 ₴). Доставка по Україні згідно з тарифом Нової Пошти.</span> </p>
-
-            <p><span class="h5">Загалом до сплати:</span> <span id="totalPrice" class="total-price">0</span> <span class="hryvna">₴</span></p>
+            <p style="margin-top: 5px"><span class="h5">Загалом до сплати:</span> <span id="totalPrice" class="total-price">0</span> <span class="hryvna">₴</span></p>
         </div>
         <br>
         <!-- // Стоимость заказа -->
@@ -229,21 +239,19 @@
             </div>
         </form>
         <div class="order-button-container" style="display: grid; justify-content: center; align-content: center;">
-            <button class="add-cart-button" id="orderButton">Замовити</button>
+            <button class="add-cart-button" id="orderButton" style="width: 190px; height: 34px; margin-bottom: 10px; margin-top: 5px">Замовити</button>
             <br>
         </div>
     </div>
   </div>
 </div>
 
-
 <!-- Footer  -->
 <section class="footer">
     <div class="footer-box">
         <h2>Рибний Смак</h2>
         <p> Ваш надійний постачальник широкого асортименту свіжих морепродуктів та риби.
-            Замовляйте у нас, щоб насолоджуватися неперевершеним смаком моря та кулінарними радощами,
-            що приносять радість у ваші страви.</p>
+            Замовляйте у нас, щоб насолоджуватися неперевершеним смаком моря та кулінарними радощами.</p>
     </div>
     <div class="footer-box">
         <h3>Підтримка</h3>

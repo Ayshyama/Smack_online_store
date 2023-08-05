@@ -150,11 +150,10 @@ const modalCategory = document.querySelector('.product-modal-content h4');
 fishImages.forEach((fishImage) => {
   fishImage.addEventListener('click', (e) => {
     modalImage.src = fishImage.src;
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
     modalTitle.textContent = fishImage.parentElement.querySelector('.item-title').textContent;
     modalCategory.textContent = fishImage.parentElement.querySelector('h4').textContent;
     document.querySelector('.product-modal-description').textContent = e.target.getAttribute('data-description');
-
     // Disable the default scroll behavior when the modal is open
     document.body.style.overflow = 'hidden';
   });
@@ -163,16 +162,12 @@ fishImages.forEach((fishImage) => {
 closeButton.addEventListener('click', (event) => {
   event.stopPropagation();
   modal.style.display = 'none';
-
-  // Restore the default scroll behavior when the modal is closed
   document.body.style.overflow = 'auto';
 });
 
 modal.addEventListener('click', (event) => {
   if (event.target === modal) {
     modal.style.display = 'none';
-
-    // Restore the default scroll behavior when the modal is closed
     document.body.style.overflow = 'auto';
   }
 });
@@ -180,11 +175,13 @@ modal.addEventListener('click', (event) => {
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     modal.style.display = 'none';
-
-    // Restore the default scroll behavior when the modal is closed
     document.body.style.overflow = 'auto';
   }
 });
+
+
+
+
 
 
 

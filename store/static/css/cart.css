@@ -50,7 +50,7 @@
   background-color: #fff;
   border-color: #80bdff;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 0.1rem var(--main-color-border);
 }
 
 .form-control::-webkit-input-placeholder {
@@ -252,7 +252,8 @@ select.form-control:focus::-ms-value {
 	align-items: center;
 	flex-wrap: wrap;
 	padding-bottom: 15px;
-    box-shadow: 0 0.5px 0 rgba(40, 32, 22, 0.9);
+    /*box-shadow: 0 0.5px 0 rgba(40, 32, 22, 0.9);*/
+    box-shadow: 0 0.1rem 0  var(--main-color-border);
     max-height: 400px;
 }
 @media (max-width: 600px) {
@@ -333,7 +334,7 @@ select.form-control:focus::-ms-value {
     margin-top: 10px;
 }
 .delivery-cost {
-    color: #856946;
+    color: var(--main-color);
 }
 
 .free {
@@ -341,11 +342,11 @@ select.form-control:focus::-ms-value {
 }
 
 .total-price {
-	color: #856946;
+	color: var(--main-color);
 }
 
 .hryvna {
-	color: #856946;
+	color: var(--main-color);
 }
 
 @media (max-width: 768px) {

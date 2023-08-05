@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+
 <head lang="uk">
     <meta charset="UTF-8">
     <title>Асортимент</title>
@@ -9,16 +10,19 @@
 {% block about %}{% endblock %}
 {% block categories %}{% endblock %}
 {% block customers %}{% endblock %}
+
+
 {% block menu %}
     <ul class="navbar">
         <li><a class="scroll-link" href="{% url 'store:index' %}#home">Головна</a></li>
         <li><a class="scroll-link" href="{% url 'store:index' %}#about">Про Нас</a></li>
     </ul>
 {% endblock %}
+
 {% block content %}
     <div class="categories-selector">
         <div class="categories-box">
-            <h3 style="margin-bottom: 20px;">Оберіть Категорію:</h3>
+            <h3 style="margin-bottom: 10px;">Оберіть Категорію:</h3>
             <div class="category-buttons">
 
                 <a href="{% url 'store:products' 'all' %}"
@@ -53,7 +57,7 @@
                 <div class="box" data-id="{{ product.id }}">
                     <img class="fish-image" data-description="{{ product.description }}"
                          src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/ryb1.png' %} {% endif %}"
-                         alt="Мультяшная рыба Png vectors by Lovepik.com">
+                         alt="Рибний Смак">
                     <h4>{{ product.category }}</h4>
                     <hr>
                     <h3 class="item-title">{{ product.name }}</h3>
@@ -105,68 +109,17 @@
             </div>
         </div>
 
-
-        <div id="cart-modal" class="product-modal">
-            <div class="product-modal-content">
-                <span id="close-cart-modal" class="close">&times;</span>
-                <div class="modal-body">
-                    <h4 class="card-title">Ваше замовлення</h4>
-                    <br>
-                    <div data-cart-empty class="alert alert-secondary" role="alert">
-                        Кошик порожній
-                    </div>
-                    <!-- cart-wrapper -->
-                    <div class="cart-wrapper">
-                    </div>
-                    <!-- // cart-wrapper -->
-                </div>
-
-                <!-- Оформить заказ -->
-                <div id="order-form" class="card-body border-top none">
-
-                    <!-- Стоимость заказа -->
-                    <div class="cart-total">
-                        <p><span class="h5">Доставка:</span> <span class="delivery-cost">50 ₴</span></p>
-                        <p><span class="cart-item__weight">Безкоштовно по Києву - при замовленні від 1000 ₴). Доставка по Україні згідно з тарифом Нової Пошти.</span>
-                        </p>
-
-                        <p><span class="h5">Загалом до сплати:</span> <span id="totalPrice" class="total-price">0</span>
-                            <span class="hryvna">₴</span></p>
-                    </div>
-                    <br>
-                    <!-- // Стоимость заказа -->
-
-                    <h4 class="card-title">Оформити замовлення</h4>
-                    <form>
-                        <div class="form-group">
-                            <label>
-                                <input type="number" name="phone" id="userPhone" class="form-control"
-                                       placeholder="Номер телефону" required>
-                            </label>
-                            <label>
-                                <input type="email" name="email" id="userEmail" class="form-control"
-                                       placeholder="E-mail" required>
-                            </label>
-                            <label>
-                                <input type="text" id="userCity" class="form-control" placeholder="Місто" required>
-                            </label>
-                            <label>
-                                <input type="text" id="userAddress" class="form-control" placeholder="Адреса" required>
-                            </label>
-                        </div>
-                    </form>
-                    <div class="order-button-container"
-                         style="display: grid; justify-content: center; align-content: center;">
-                        <button class="add-cart-button" id="orderButton">Замовити</button>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </section>
+
+<div class="pagination">
+    <a href="#" class="tooltip disabled large-text" data-tooltip="Перша сторінка">&laquo;</a>
+    <a href="#" class="active tooltip" data-tooltip="Поточна сторінка">1</a>
+    <a href="#" class="tooltip">2</a>
+    <a href="#" class="tooltip">3</a>
+    <a href="#" class="tooltip">...</a>
+    <a href="#" class="tooltip">10</a>
+    <a href="#" class="tooltip-last large-text" data-tooltip="Остання сторінка">&raquo;</a>
+</div>
 
 
 {% endblock %}
-
-
