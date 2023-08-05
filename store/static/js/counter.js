@@ -17,7 +17,7 @@ function handleCounterClick(event) {
     if (event.target.dataset.action === 'plus') {
         amount.innerText = ++amount.innerText;
         if (event.target.closest('.cart-wrapper')) {
-        updateCart();
+
     }
     }
 
@@ -27,7 +27,7 @@ function handleCounterClick(event) {
         if (parseInt(amount.innerText) > 1) {
             amount.innerText = --amount.innerText;
             if (event.target.closest('.cart-wrapper')) {
-            updateCart();
+
             }
         } else if (event.target.closest('.cart-wrapper') && parseInt(amount.innerText) === 1) {
             // Удаляем товар из корзины
