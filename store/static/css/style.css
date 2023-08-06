@@ -112,7 +112,7 @@ body {
     background: url(../img/bg.jpg) no-repeat center;
     background-size: cover;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(17rem,auto));
+    grid-template-columns: repeat(auto-fit, minmax(22rem,auto));
     align-items: center;
     gap: 1.5rem;
 }
@@ -849,9 +849,6 @@ body {
     .about {
         align-items: center;
     }
-    .intro-container {
-        margin-top: 100px;
-    }
     .categories-box {
         margin-left: 20px;
         margin-right: 20px;
@@ -862,9 +859,53 @@ body {
     .categories-selector {
         margin-top: 160px;
     }
+}
+@media (max-width: 791px) {
+    .intro-container {
+        margin-top: 180px;
+    }
+}
 
+@media (max-width: 768px) {
+    .intro-container {
+        margin-top: 160px;
+    }
+}
+@media (max-width: 480px) {
+    .intro-container {
+        margin-top: 150px;
+    }
+    .home{
+        min-height: 70vh;
+    }
+}
+
+@media (max-width: 400px) {
+    .intro-container {
+        margin-top: 120px;
+    }
+}
+@media (max-width: 380px) {
+    .intro-container {
+        margin-top: 150px;
+        max-width: 330px;
+        margin-left: 1px;
+    }
+    .home-img {
+        max-width: 330px;
+    }
+    .home{
+        min-height: 70vh;
+    }
+}
+
+@media (max-width: 360px) {
+    .intro-container {
+        margin-top: 90px;
+    }
 
 }
+
 
 @media (max-width: 360px) {
     header.show {
