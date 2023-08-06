@@ -55,6 +55,9 @@ class ProductsView(SingleObjectMixin, ListView):
             for word in search_list:
                 res_search_list.append(f'Q(name__contains="{word}")')
                 res_search_list.append(f'Q(name__contains="{word.title()}")')
+                res_search_list.append(f'Q(category__name__contains="{word}")')
+                res_search_list.append(f'Q(category__name__contains="{word.title()}")')
+
             queryset = queryset.filter(eval(' | '.join(res_search_list)))
 
         return queryset
