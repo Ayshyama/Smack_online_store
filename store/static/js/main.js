@@ -12,7 +12,7 @@ window.onload = () => {
 };
 
 function initializeElements(header, heading, productsContainer, animationItems, introContainers) {
-  introContainers.forEach((item, index) => {
+  introContainers.forEach((item) => {
     item.classList.add('animation-item-second');
     setTimeout(() => item.classList.add('show-item'), 100);
   });
@@ -114,14 +114,14 @@ function scrollToElement(elementId) {
 
 // JavaScript код для плавной прокрутки с учетом отступа
 document.addEventListener('DOMContentLoaded', function() {
-  var scrollLinks = document.querySelectorAll('.scroll-link');
+  const scrollLinks = document.querySelectorAll('.scroll-link');
 
   scrollLinks.forEach(function(link) {
     link.addEventListener('click', function(event) {
       event.preventDefault();
-      var target = document.querySelector(link.getAttribute('href'));
-      var headerHeight = document.querySelector('header').offsetHeight; // Получаем высоту заголовка
-      var targetPosition = target.offsetTop - headerHeight;
+      const target = document.querySelector(link.getAttribute('href'));
+      const headerHeight = document.querySelector('header').offsetHeight;
+      const targetPosition = target.offsetTop - headerHeight;
 
       window.scrollTo({
         top: targetPosition,
