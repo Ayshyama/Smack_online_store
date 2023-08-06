@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+{#TEMP STORAGE FOR CODE#}
+
+<body>
+{% block customers %}
+    <!--  Customers  -->
+    <section class="section customers" id="customers">
+        <div class="heading">
+            <h2>Відгуки про нас</h2>
+        </div>
+        <!--  Container  -->
+        <div class="customers-container">
+            <div class="box">
+                <h2>Григорій Тарасович</h2>
+                <br>
+                <img src="{% static 'img/rev1.jpg' %}" alt="review_1">
+                <div class="stars">
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star' ></i>
+                </div>
+                <br>
+                <p>Тяжко в неволі птиці пірнатій, але з рибою від 'Рибного Смаку'
+                    навіть вдома можна відчути простори моря.
+                    Їхній асортимент здатен задовольнити навіть самого вибагливого гурмана.
+                    Та що там говорити, краще один раз спробувати!</p>
+            </div>
+            <div class="box">
+                <h2>Сковорода Григорович</h2>
+                <br>
+                <img src="{% static 'img/rev2.png' %}" alt="review_2">
+                <div class="stars">
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star-half' ></i>
+                </div>
+                <br>
+                <p>Світ складається з різноманітних смаків, де "Рибний Смак" відграє непересічну роль.
+                    Їхня продукція піднімає відчуття єдності з природою та розкриває глибини смаку.
+                    Але жодна вершина не існує без своєї тіні -
+                    в досконалості завжди є місце для пошуку й вдосконалення.
+                    Справжній смак життя - це неупинний рух вперед.</p>
+            </div>
+            <div class="box">
+                <h2>Бандера Степанович</h2>
+                <br>
+                <img src="{% static 'img/rev3.jpg' %}" alt="review_3">
+                <div class="stars">
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star-half' ></i>
+                </div>
+                <br>
+                <p>'Рибний Смак' - це не просто магазин, це символ якості та незламної відданості своїй справі.
+                    Свіжість морепродуктів, професіоналізм персоналу та своєчасна доставка -
+                    все це робить мою віру в їхню справу незламною.</p>
+            </div>
+            <div class="box">
+                <h2>Володимир Олександрович</h2>
+                <br>
+                <img src="{% static 'img/rev4.jpg' %}" alt="review_3">
+                <div class="stars">
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star' ></i>
+                    <i class='bx bxs-star' ></i>
+                </div>
+                <br>
+                <p>Вражаючий асортимент і справжній смак моря в кожному замовленні!
+                    Це не жарт, це справжній "Рибний Смак".
+                    Незалежно від того, скільки важких рішень я приймаю протягом дня, завжди знаю,
+                    що в кінці важкого дня мене чекає справжнє кулінарне задоволення.
+                    Копчена і в'ялена риба - це щось неймовірне.
+                    Дякую вам, "Рибний Смак", за надзвичайний сервіс і якість. Раджу всім!</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+</body>
+</html>

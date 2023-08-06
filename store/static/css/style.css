@@ -1038,18 +1038,31 @@ button.counter_control {
     pointer-events: none;
 }
 
-#siteLogo {
+
+
+.animation-item {
     transition: all 0.5s ease;
     transform: translateY(-100%);
     opacity: 0;
 }
 
-#siteLogo.show-logo {
+.animation-item.show-item {
     transform: translateY(0);
     opacity: 1;
 }
 
+.animation-item-second {
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animation-item-second.show-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 header {
+    background-color: var(--text-color);
     position: fixed;
     width: 100%;
     top: 0;
@@ -1059,12 +1072,12 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 18px 100px;
-    transition: opacity 0.4s ease, transform 0.3s ease; /* Добавили transform здесь */
-    opacity: 0; /* Первоначальная непрозрачность */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0;
 }
 
 header.show {
-    opacity: 1; /* Полная прозрачность при добавлении класса "show" */
+    opacity: 1;
 }
 
 header.hide {
@@ -1072,14 +1085,13 @@ header.hide {
 }
 
 header.shadow {
-    background: var(--text-color);
     box-shadow: var(--box-shadow);
 }
 
 .products .heading,
 .products .products-container {
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.5s ease;
 }
 
 .products .heading.show,

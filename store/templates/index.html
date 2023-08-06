@@ -2,11 +2,11 @@
 {% load static %}
 {% block categories %}
     <!--  Categories  -->
-    <section class="categories" id="products">
+    <section class="categories animation-item-second" id="products">
         <div class="heading">
             <h2>Асортимент</h2>
         </div>
-        <div class="categories-container">
+        <div class="categories-container ">
             {% for cat in cats %}
                 <a href="{{ cat.get_absolute_url }}">
                 <div class="box">

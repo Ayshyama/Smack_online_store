@@ -1,59 +1,74 @@
+// Animations
 window.onload = () => {
-  let header = document.querySelector('header');
-  header.classList.add('show');
-  setTimeout(() => {
-    header.classList.add('show');
-  }, 10);
-  let heading = document.querySelector('.products .heading');
-  let productsContainer = document.querySelector('.products .products-container');
-  setTimeout(() => {
-      heading.classList.add('show');
-      productsContainer.classList.add('show');
-  }, 10);
-  let siteLogo = document.getElementById('siteLogo');
-  setTimeout(() => {
-    siteLogo.classList.add('show-logo');
-  }, 10);
+  initializeElements();
+  setupEventListeners();
+  handleScrollEvents();
+};
 
-  let search = document.querySelector('.search-box');
-  let navbar = document.querySelector('.navbar');
-  document.querySelector('#search-icon').onclick = () => {
-    search.classList.toggle('active');
-    navbar.classList.remove('active');
-  };
+function initializeElements() {
+  const header = document.querySelector('header');
+  const heading = document.querySelector('.products .heading');
+  const productsContainer = document.querySelector('.products .products-container');
+  const animationItems = document.querySelectorAll('.animation-item'); // Изменено здесь
+  const introContainers = document.querySelectorAll('.animation-item-second');
+  setTimeout(() => {
+    introContainers.forEach((item, index) => {
+      item.classList.add('animation-item-second');
+      setTimeout(() => item.classList.add('show-item'), index * 200); // Adding a delay for each item
+    });
+  }, 100);
 
-  let searchInput = document.querySelector('#search-input');
+  setTimeout(() => header.classList.add('show'), 10);
+  setTimeout(() => {
+    heading.classList.add('show');
+    productsContainer.classList.add('show');
+  }, 100);
+  setTimeout(() => {
+    animationItems.forEach(item => item.classList.add('show-item')); // Изменено здесь
+  }, 100);
+}
 
-  searchInput.addEventListener('keyup', function(e) {
+function setupEventListeners() {
+  const search = document.querySelector('.search-box');
+  const navbar = document.querySelector('.navbar');
+  const searchInput = document.querySelector('#search-input');
+
+  document.querySelector('#search-icon').onclick = () => toggleSearchAndNavbar(search, navbar);
+  document.querySelector('#menu-icon').onclick = () => toggleMenuAndSearch(navbar, search);
+
+  searchInput.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
       window.location.href = '/search?search=' + e.target.value;
     }
   });
 
-  document.querySelector('#menu-icon').onclick = () => {
-    navbar.classList.toggle('active');
-    search.classList.remove('active');
-  };
-
   window.onscroll = () => {
     navbar.classList.remove('active');
     search.classList.remove('active');
   };
+}
 
-  if (window.location.pathname !== '/') {
-    header.style.backgroundColor = '#1b1b1b';
-  }
+function toggleSearchAndNavbar(search, navbar) {
+  search.classList.toggle('active');
+  navbar.classList.remove('active');
+}
 
+function toggleMenuAndSearch(navbar, search) {
+  navbar.classList.toggle('active');
+  search.classList.remove('active');
+}
+
+function handleScrollEvents() {
+  const header = document.querySelector('header');
   let lastScrollTop = 0;
+
   window.addEventListener('scroll', () => {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     if (scrollTop > lastScrollTop) {
-      header.classList.add('hide');
-      header.classList.add('shadow');
+      header.classList.add('hide', 'shadow');
     } else {
-      header.classList.remove('hide');
-      header.classList.remove('shadow');
+      header.classList.remove('hide', 'shadow');
     }
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
@@ -62,7 +77,14 @@ window.onload = () => {
       header.classList.toggle('shadow', window.scrollY > 0);
     }
   });
-};
+}
+
+// Animations
+
+
+
+
+
 
 // HOME LINK
 // Get the scroll-link element
