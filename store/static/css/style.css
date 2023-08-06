@@ -273,17 +273,16 @@ body {
     .footer {
         margin-top: auto;
         display: grid;
-        grid-template-columns: repeat(5, 1fr); /* 5 столбцов равного размера */
+        grid-template-columns: repeat(5, 1fr);
         gap: 1.5rem;
         background: var(--second-color);
     }
 }
 
-/* Определение стиля для маленьких экранов */
 @media (max-width: 991px) {
     .footer {
         display: grid;
-        grid-template-columns: 1fr; /* Одноколоночный вид */
+        grid-template-columns: 1fr;
         gap: 1.5rem;
         background: var(--second-color);
     }
@@ -793,6 +792,9 @@ body {
 }
 
 @media (max-width: 991px){
+    header.show {
+        padding: 40px;
+    }
     header {
         padding: 16px 4%;
     }
@@ -805,9 +807,10 @@ body {
 }
 
 @media (max-width: 768px) {
-    header {
-        padding: 12px 4%;
+    header.show {
+        padding: 30px;
     }
+
     #menu-icon {
         display: initial;
         font-size: 40px;
@@ -855,6 +858,9 @@ body {
 }
 
 @media (max-width: 360px) {
+    header.show {
+        padding: 20px;
+    }
     .category-button {
         max-width: 140px;
     }
@@ -1053,7 +1059,7 @@ button.counter_control {
 
 .animation-item-second {
   opacity: 0;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .animation-item-second.show-item {
@@ -1078,6 +1084,7 @@ header {
 
 header.show {
     opacity: 1;
+
 }
 
 header.hide {

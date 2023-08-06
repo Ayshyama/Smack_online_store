@@ -1,30 +1,29 @@
 // Animations
 window.onload = () => {
-  initializeElements();
-  setupEventListeners();
-  handleScrollEvents();
-};
-
-function initializeElements() {
   const header = document.querySelector('header');
   const heading = document.querySelector('.products .heading');
   const productsContainer = document.querySelector('.products .products-container');
-  const animationItems = document.querySelectorAll('.animation-item'); // Изменено здесь
+  const animationItems = document.querySelectorAll('.animation-item');
   const introContainers = document.querySelectorAll('.animation-item-second');
-  setTimeout(() => {
-    introContainers.forEach((item, index) => {
-      item.classList.add('animation-item-second');
-      setTimeout(() => item.classList.add('show-item'), index * 200); // Adding a delay for each item
-    });
-  }, 100);
 
-  setTimeout(() => header.classList.add('show'), 10);
+  initializeElements(header, heading, productsContainer, animationItems, introContainers);
+  setupEventListeners();
+  handleScrollEvents(header);
+};
+
+function initializeElements(header, heading, productsContainer, animationItems, introContainers) {
+  introContainers.forEach((item, index) => {
+    item.classList.add('animation-item-second');
+    setTimeout(() => item.classList.add('show-item'), 100);
+  });
+
+  setTimeout(() => header.classList.add('show'), 100);
   setTimeout(() => {
     heading.classList.add('show');
     productsContainer.classList.add('show');
   }, 100);
   setTimeout(() => {
-    animationItems.forEach(item => item.classList.add('show-item')); // Изменено здесь
+    animationItems.forEach(item => item.classList.add('show-item'));
   }, 100);
 }
 
@@ -58,11 +57,10 @@ function toggleMenuAndSearch(navbar, search) {
   search.classList.remove('active');
 }
 
-function handleScrollEvents() {
-  const header = document.querySelector('header');
+function handleScrollEvents(header) {
   let lastScrollTop = 0;
 
-  window.addEventListener('scroll', () => {
+  function scrollHandler() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     if (scrollTop > lastScrollTop) {
@@ -76,14 +74,13 @@ function handleScrollEvents() {
     if (window.location.pathname === '/') {
       header.classList.toggle('shadow', window.scrollY > 0);
     }
+  }
+
+  window.addEventListener('scroll', () => {
+    requestAnimationFrame(scrollHandler);
   });
 }
-
 // Animations
-
-
-
-
 
 
 // HOME LINK
