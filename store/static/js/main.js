@@ -1,9 +1,15 @@
 window.onload = () => {
   let header = document.querySelector('header');
+  header.classList.add('show');
   setTimeout(() => {
     header.classList.add('show');
   }, 10);
-
+  let heading = document.querySelector('.products .heading');
+  let productsContainer = document.querySelector('.products .products-container');
+  setTimeout(() => {
+      heading.classList.add('show');
+      productsContainer.classList.add('show');
+  }, 10);
   let siteLogo = document.getElementById('siteLogo');
   setTimeout(() => {
     siteLogo.classList.add('show-logo');
@@ -12,21 +18,21 @@ window.onload = () => {
   let search = document.querySelector('.search-box');
   let navbar = document.querySelector('.navbar');
   document.querySelector('#search-icon').onclick = () => {
-      search.classList.toggle('active');
-      navbar.classList.remove('active');
+    search.classList.toggle('active');
+    navbar.classList.remove('active');
   };
 
   let searchInput = document.querySelector('#search-input');
 
-  searchInput.addEventListener('keyup', function(e){
-      if (e.key === 'Enter'){
-          window.location.href = '/search?search=' + e.target.value;
-      }
+  searchInput.addEventListener('keyup', function(e) {
+    if (e.key === 'Enter') {
+      window.location.href = '/search?search=' + e.target.value;
+    }
   });
 
   document.querySelector('#menu-icon').onclick = () => {
-      navbar.classList.toggle('active');
-      search.classList.remove('active');
+    navbar.classList.toggle('active');
+    search.classList.remove('active');
   };
 
   window.onscroll = () => {
@@ -43,13 +49,14 @@ window.onload = () => {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     if (scrollTop > lastScrollTop) {
-        header.classList.add('hide');
-        header.classList.add('shadow');
+      header.classList.add('hide');
+      header.classList.add('shadow');
     } else {
-        header.classList.remove('hide');
+      header.classList.remove('hide');
+      header.classList.remove('shadow');
     }
 
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Запомнить текущую позицию прокрутки
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 
     if (window.location.pathname === '/') {
       header.classList.toggle('shadow', window.scrollY > 0);

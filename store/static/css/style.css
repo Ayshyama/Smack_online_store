@@ -41,22 +41,7 @@ body {
     -ms-user-select: none;
     user-select: none;
 }
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    right: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 100px;
-    transition: 0.5s all ease;
-}
-header.shadow {
-    background: var(--text-color);
-    box-shadow: var(--box-shadow);
-}
+
 .logo img {
     width: 80px;
 }
@@ -1053,27 +1038,52 @@ button.counter_control {
     pointer-events: none;
 }
 
-header {
-    opacity: 1;
+#siteLogo {
+    transition: all 0.5s ease;
     transform: translateY(-100%);
-    transition: transform 0.3s ease;
+    opacity: 0;
+}
+
+#siteLogo.show-logo {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 100px;
+    transition: opacity 0.4s ease, transform 0.3s ease; /* Добавили transform здесь */
+    opacity: 0; /* Первоначальная непрозрачность */
 }
 
 header.show {
-    transform: translateY(0);
+    opacity: 1; /* Полная прозрачность при добавлении класса "show" */
 }
 
 header.hide {
     transform: translateY(-100%);
 }
 
-#siteLogo {
-  transition: all 0.5s ease;
-  transform: translateY(-100%);
-  opacity: 0;
+header.shadow {
+    background: var(--text-color);
+    box-shadow: var(--box-shadow);
 }
 
-#siteLogo.show-logo {
-  transform: translateY(0);
-  opacity: 1;
+.products .heading,
+.products .products-container {
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
+
+.products .heading.show,
+.products .products-container.show {
+    opacity: 1;
+}
+
