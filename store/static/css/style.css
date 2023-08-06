@@ -13,7 +13,7 @@
 /* Variables */
 :root {
     --main-color: rgba(60, 78, 92, 1);
-    --main-color-border: rgba(60, 78, 92, 0.3);
+    --main-color-border: rgba(60, 78, 92, 0.7);
     --second-color: #edeae3;
     --text-color: #1b1b1b;
     --bg-color: #fff;
