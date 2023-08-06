@@ -1,4 +1,5 @@
 import json
+import re
 from datetime import datetime
 
 from django.db.models import Q
@@ -45,12 +46,13 @@ class ProductsView(SingleObjectMixin, ListView):
     def get_queryset(self):
         if self.object:
             return self.object.product_set.filter(is_published=True)
-        search_list = [word for word in self.request.GET.get('search', '').split() if len(word.lower().rstrip('аьиі')) > 2]
+        pattern = re.compile(r'^[a-zа-яґєії\s]+$')
+        search_list = [word.lower().rstrip('аьиі') for word in self.request.GET.get('search', '').split()]
+        search_list = [word for word in search_list if pattern.match(word) and len(word) > 2]
         queryset = Product.objects.filter(is_published=True)
         if search_list:
             res_search_list = []
             for word in search_list:
-                word = word.lower().rstrip('аьиі')
                 res_search_list.append(f'Q(name__contains="{word}")')
                 res_search_list.append(f'Q(name__contains="{word.title()}")')
             queryset = queryset.filter(eval(' | '.join(res_search_list)))

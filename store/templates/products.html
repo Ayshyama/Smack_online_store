@@ -21,7 +21,7 @@
 {% block content %}
     <div class="categories-selector">
         <div class="categories-box">
-            <h3 style="margin-bottom: 10px;">Оберіть Категорію:</h3>
+{#            <h3 style="margin-bottom: 10px;">Оберіть Категорію:</h3>#}
             <div class="category-buttons">
 
                 <a href="{% url 'store:products' 'all' %}"
@@ -42,7 +42,7 @@
             {% if category %}
                 <h2>{{ category.name }}</h2>
 
-            {% elif request.GET %}
+            {% elif request.GET.search %}
                 <h2>Результати пошуку</h2>
 
             {% else %}
@@ -112,7 +112,8 @@
     {% if page_obj.has_other_pages %}
         <div class="pagination">
             {% if page_obj.has_previous %}
-                <a href="?page={{ page_obj.previous_page_number }}" class="large-text tooltip-last"
+                <a href="?{% if request.GET.search %}search={{ request.GET.search }}&{% endif %}page={{ page_obj.previous_page_number }}"
+                   class="large-text tooltip-last"
                    data-tooltip="Попередня сторінка">&laquo;</a>
             {% else %}
                 <a href="" class="large-text tooltip disabled"
@@ -122,7 +123,7 @@
             {% if page_obj.number == 1 %}
                 <a href="" class="active tooltip" data-tooltip="Поточна сторінка">1</a>
             {% else %}
-                <a href="?page=1" class="tooltip">1</a>
+                <a href="?{% if request.GET.search %}search={{ request.GET.search }}&{% endif %}page=1" class="tooltip">1</a>
             {% endif %}
 
             {% if page_obj.number > 3 %}
@@ -134,7 +135,8 @@
                     {% if p == page_obj.number %}
                         <a href="" class="active tooltip" data-tooltip="Поточна сторінка">{{ p }}</a>
                     {% elif p > page_obj.number|add:-2 and p < page_obj.number|add:2 %}
-                        <a href="?page={{ p }}" class="tooltip">{{ p }}</a>
+                        <a href="?{% if request.GET.search %}search={{ request.GET.search }}&{% endif %}page={{ p }}"
+                           class="tooltip">{{ p }}</a>
                     {% endif %}
                 {% endif %}
             {% endfor %}
@@ -146,11 +148,13 @@
             {% if page_obj.number == paginator.num_pages %}
                 <a href="#" class="active tooltip" data-tooltip="Поточна сторінка">{{ paginator.num_pages }}</a>
             {% else %}
-                <a href="?page={{ paginator.num_pages }}" class="tooltip">{{ paginator.num_pages }}</a>
+                <a href="?{% if request.GET.search %}search={{ request.GET.search }}&{% endif %}page={{ paginator.num_pages }}"
+                   class="tooltip">{{ paginator.num_pages }}</a>
             {% endif %}
 
             {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}" class="large-text tooltip-last"
+                <a href="?{% if request.GET.search %}search={{ request.GET.search }}&{% endif %}page={{ page_obj.next_page_number }}"
+                   class="large-text tooltip-last"
                    data-tooltip="Наступна сторінка">&raquo;</a>
             {% else %}
                 <a href="" class="large-text tooltip disabled"
