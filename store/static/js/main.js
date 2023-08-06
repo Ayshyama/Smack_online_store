@@ -1,41 +1,61 @@
-let search = document.querySelector('.search-box');
+window.onload = () => {
+  let header = document.querySelector('header');
+  setTimeout(() => {
+    header.classList.add('show');
+  }, 10);
 
-document.querySelector('#search-icon').onclick = () => {
-    search.classList.toggle('active');
-    navbar.classList.remove('active');
-}
+  let siteLogo = document.getElementById('siteLogo');
+  setTimeout(() => {
+    siteLogo.classList.add('show-logo');
+  }, 10);
 
-let searchInput = document.querySelector('#search-input');
+  let search = document.querySelector('.search-box');
+  let navbar = document.querySelector('.navbar');
+  document.querySelector('#search-icon').onclick = () => {
+      search.classList.toggle('active');
+      navbar.classList.remove('active');
+  };
 
-searchInput.addEventListener('keyup', function(e){
-    if (e.key === 'Enter'){
-        window.location.href = '/search?search=' + e.target.value;
-    }
-});
+  let searchInput = document.querySelector('#search-input');
 
-let navbar = document.querySelector('.navbar');
-
-document.querySelector('#menu-icon').onclick = () => {
-    navbar.classList.toggle('active');
-    search.classList.remove('active');
-}
-
-window.onscroll = () => {
-  navbar.classList.remove('active');
-  search.classList.remove('active');
-
-}
-
-let header = document.querySelector('header');
-
-if (window.location.pathname === '/') {
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('shadow', window.scrollY > 0);
+  searchInput.addEventListener('keyup', function(e){
+      if (e.key === 'Enter'){
+          window.location.href = '/search?search=' + e.target.value;
+      }
   });
-} else {
-  header.style.backgroundColor = '#1B1B1B';
-}
 
+  document.querySelector('#menu-icon').onclick = () => {
+      navbar.classList.toggle('active');
+      search.classList.remove('active');
+  };
+
+  window.onscroll = () => {
+    navbar.classList.remove('active');
+    search.classList.remove('active');
+  };
+
+  if (window.location.pathname !== '/') {
+    header.style.backgroundColor = '#1b1b1b';
+  }
+
+  let lastScrollTop = 0;
+  window.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        header.classList.add('hide');
+        header.classList.add('shadow');
+    } else {
+        header.classList.remove('hide');
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Запомнить текущую позицию прокрутки
+
+    if (window.location.pathname === '/') {
+      header.classList.toggle('shadow', window.scrollY > 0);
+    }
+  });
+};
 
 // HOME LINK
 // Get the scroll-link element

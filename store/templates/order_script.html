@@ -13,13 +13,11 @@
     </div>
 
 <script>
-    // Function to close the cart modal
     function closeCartModal() {
         const cartModal = document.getElementById('cart-modal');
         cartModal.style.display = 'none';
     }
 
-    // Function to close the custom modal
     function closeSuccessModal() {
         const successModal = document.getElementById('successModal');
         successModal.style.display = 'none';
@@ -29,18 +27,15 @@
         });
     }
 
-    // Function to show the loading animation
     function showLoadingAnimation() {
         document.getElementById('loadingAnimation').style.display = 'flex';
     }
 
-    // Function to hide the loading animation
     function hideLoadingAnimation() {
         document.getElementById('loadingAnimation').style.display = 'none';
     }
 
     function handleSuccessfulOrder() {
-        // Simulate a delay to make the loading animation visible
         setTimeout(() => {
             localStorage.removeItem('shoppingCart');
             const cartWrapper = document.querySelector('.cart-wrapper');
@@ -57,10 +52,8 @@
     }
 
     function closeModal() {
-        // Hide the custom modal dialog
         const successModal = document.getElementById('successModal');
         successModal.style.display = 'none';
-        // Restore the default scroll behavior when the custom modal is closed
         document.body.style.overflow = 'auto';
         closeSuccessModal();
     }

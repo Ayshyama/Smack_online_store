@@ -51,7 +51,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 18px 100px;
-    transition: 0.5s all linear;
+    transition: 0.5s all ease;
 }
 header.shadow {
     background: var(--text-color);
@@ -1051,4 +1051,29 @@ button.counter_control {
 
 .default-cursor {
     pointer-events: none;
+}
+
+header {
+    opacity: 1;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
+
+header.show {
+    transform: translateY(0);
+}
+
+header.hide {
+    transform: translateY(-100%);
+}
+
+#siteLogo {
+  transition: all 0.5s ease;
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+#siteLogo.show-logo {
+  transform: translateY(0);
+  opacity: 1;
 }
