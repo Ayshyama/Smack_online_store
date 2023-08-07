@@ -10,7 +10,7 @@
             {% for cat in cats %}
                 <a href="{{ cat.get_absolute_url }}">
                 <div class="box">
-                    <img src="{{ cat.image.url }}" alt="{{ cat.name }}">
+                    <img src="{{ cat.image.url }}" alt="{{ cat.alt }}">
                     <br>
                     <h3>{{ cat.name }}</h3>
                 </div>

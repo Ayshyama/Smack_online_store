@@ -57,7 +57,7 @@
                 <div class="box" data-id="{{ product.id }}">
                     <img class="fish-image" data-description="{{ product.description }}"
                          src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/ryb1.png' %} {% endif %}"
-                         alt="Рибний Смак">
+                         alt="{{ product.alt }}">
                     <h4>{{ product.category }}</h4>
                     <hr>
                     <h3 class="item-title">{{ product.name }}</h3>
@@ -87,14 +87,14 @@
                         <h4>{{ product.category }}</h4>
                         <h3>{{ product.name }}</h3>
                         <p class="product-modal-description"></p>
-                        <img id="product-modal-image" class="product-modal-image" src="" alt="Modal Image">
+                        <img id="product-modal-image" class="product-modal-image" src="" alt="{{ product.alt }}">
                     </div>
                 </div>
 
             {% endfor %}
         </div>
         {% else %}
-            <div>Not found</div>
+            <div>Товарів не знайдено</div>
         {% endif %}
 
         <div id="successModal" class="product-modal">
