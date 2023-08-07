@@ -12,7 +12,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ('category', 'price', 'measure', 'is_published', 'dt_update')
     fields = (
         'name', 'description', 'category', 'image', 'get_html_image', 'price', 'measure', 'is_published', 'dt_create',
-        'dt_update',)
+        'dt_update', 'alt')
     readonly_fields = ('dt_create', 'dt_update', 'get_html_image')
     save_on_top = True
 
@@ -27,7 +27,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'get_html_image', 'dt_update', 'is_published')
     list_display_links = ('name',)
     list_editable = ('is_published',)
-    fields = ('name', 'slug', 'image', 'get_html_image', 'is_published', 'dt_update',)
+    fields = ('name', 'slug', 'image', 'get_html_image', 'is_published', 'dt_update', 'alt')
     readonly_fields = ('dt_update', 'get_html_image')
     prepopulated_fields = {'slug': ('name',)}
 

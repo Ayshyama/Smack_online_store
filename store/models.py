@@ -8,6 +8,7 @@ class Category(models.Model):
     image = models.ImageField(upload_to='categories/', verbose_name='Зображення')
     is_published = models.BooleanField(default=True, verbose_name='На сайті')
     dt_update = models.DateTimeField(auto_now=True, verbose_name='Змінено')
+    alt = models.CharField(max_length=150, default='fish store', verbose_name='alt tag')
 
     def __str__(self):
         return self.name
@@ -35,6 +36,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='Ціна')
     measure = models.CharField(max_length=10, choices=MEASURES, verbose_name='Вимір')
     is_published = models.BooleanField(default=True, verbose_name='На сайті')
+    alt = models.CharField(max_length=150, default='fish store', verbose_name='alt tag')
     category = models.ForeignKey(to=Category, on_delete=models.PROTECT, verbose_name='Категорія')
 
     def __str__(self):

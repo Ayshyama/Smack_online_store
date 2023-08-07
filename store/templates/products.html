@@ -51,6 +51,7 @@
 
         </div>
         <!-- Container -->
+        {% if object_list %}
         <div class="products-container">
             {% for product in object_list %}
                 <div class="box" data-id="{{ product.id }}">
@@ -92,6 +93,9 @@
 
             {% endfor %}
         </div>
+        {% else %}
+            <div>Not found</div>
+        {% endif %}
 
         <div id="successModal" class="product-modal">
             <div class="product-modal-content"
