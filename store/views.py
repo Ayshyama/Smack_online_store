@@ -30,7 +30,7 @@ class IndexView(ListView):
 class ProductsView(SingleObjectMixin, ListView):
     template_name = 'products.html'
     cats = Category.objects.filter(is_published=True)
-    paginate_by = 10
+    paginate_by = 12
 
     def get(self, request, *args, **kwargs):
         try:
