@@ -15,10 +15,6 @@ from django.views.generic.detail import SingleObjectMixin
 
 from store.models import Product, Category
 
-from django.http import HttpResponse
-from django.views import View
-
-
 class SearchView(RedirectView):
     url = reverse_lazy('store:products', args=('all',))
     query_string = True
@@ -34,7 +30,7 @@ class IndexView(ListView):
 class ProductsView(SingleObjectMixin, ListView):
     template_name = 'products.html'
     cats = Category.objects.filter(is_published=True)
-    paginate_by = 5
+    paginate_by = 10
 
     def get(self, request, *args, **kwargs):
         try:

@@ -13,10 +13,10 @@
 /* Variables */
 :root {
     --main-color: rgba(60, 78, 92, 1);
-    --main-color-border: rgba(60, 78, 92, 0.7);
+    --main-color-border: rgba(60, 78, 92, 0.6);
     --second-color: #edeae3;
     --text-color: #1b1b1b;
-    --bg-color: #fff;
+    --bg-color: #edeae3;
     --main-blue-color: rgba(56, 90, 100, 0.08);
     --box-shadow: 2px 2px 10px 4px rgb(14 55 54 / 15%);
 }
@@ -33,6 +33,7 @@ body {
     margin: 0;
     color: var(--text-color);
     background-color: rgba(254, 254, 254);
+    transition: background-color 0.1s ease;
     height: 100%;
     width: 100%;
     overflow: auto;
@@ -1154,7 +1155,7 @@ button.counter_control {
 }
 
 
-
+/*Animations*/
 .animation-item {
     transition: all 0.5s ease;
     transform: translateY(-100%);
@@ -1203,8 +1204,7 @@ header.shadow {
     box-shadow: var(--box-shadow);
 }
 
-.products .heading,
-.products .products-container {
+.heading{
     opacity: 0;
     transition: opacity 0.4s ease;
 }
@@ -1213,4 +1213,16 @@ header.shadow {
 .products .products-container.show {
     opacity: 1;
 }
+
+.box {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.box.show-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 

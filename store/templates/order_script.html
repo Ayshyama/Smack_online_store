@@ -58,25 +58,23 @@
         closeSuccessModal();
     }
 
-    // При нажатии кнопки "Замовити"
+
     document.querySelector('#orderButton').addEventListener('click', function (event) {
         event.preventDefault();
 
-        // Собираем данные из формы
+
         const phone = document.querySelector('#userPhone').value;
         const email = document.querySelector('#userEmail').value;
         const city = document.querySelector('#userCity').value;
         const address = document.querySelector('#userAddress').value;
         const total_price = document.querySelector('#totalPrice').textContent;
 
-        // Validate phone format
         const ukrainianPhoneNumberPattern = /^(\+38\s?)?(\(\d{2}\)|\d{2}|\d{3})[-\s]?(\d{3}[-\s]?|\d{2}[-\s]?)\d{2}[-\s]?\d{2}$/;
         if (!phone.match(ukrainianPhoneNumberPattern)) {
             alert('Введіть правильний номер телефону (10 цифр). Наприклад: 0501234567');
             return;
         }
 
-        // Validate email format
         const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (!email.match(emailPattern)) {
             alert('Введіть правильний e-mail: example@gmail.com');

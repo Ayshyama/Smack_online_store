@@ -9,22 +9,23 @@ window.onload = () => {
   initializeElements(header, heading, productsContainer, animationItems, introContainers);
   setupEventListeners();
   handleScrollEvents(header);
+  handleScrollEventsForBoxes();
 };
 
 function initializeElements(header, heading, productsContainer, animationItems, introContainers) {
   introContainers.forEach((item) => {
     item.classList.add('animation-item-second');
-    setTimeout(() => item.classList.add('show-item'), 10);
+    setTimeout(() => item.classList.add('show-item'), 100);
   });
 
-  setTimeout(() => header.classList.add('show'), 10);
+  setTimeout(() => header.classList.add('show'), 100);
   setTimeout(() => {
     heading.classList.add('show');
     productsContainer.classList.add('show');
-  }, 10);
+  }, 100);
   setTimeout(() => {
     animationItems.forEach(item => item.classList.add('show-item'));
-  }, 10);
+  }, 100);
 }
 
 function setupEventListeners() {
@@ -80,7 +81,35 @@ function handleScrollEvents(header) {
     requestAnimationFrame(scrollHandler);
   });
 }
+
+function handleScrollEventsForBoxes() {
+  const boxes = document.querySelectorAll('.box');
+
+  boxes.forEach(box => {
+    if (isElementInViewport(box)) {
+      box.classList.add('show-item');
+    }
+  });
+
+  window.addEventListener('scroll', () => {
+    boxes.forEach(box => {
+      if (isElementInViewport(box)) {
+        box.classList.add('show-item');
+      }
+    });
+  });
+}
+
+function isElementInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) - rect.height/4 &&
+      rect.bottom >= 0
+  );
+}
+
 // Animations
+
 
 
 // HOME LINK
