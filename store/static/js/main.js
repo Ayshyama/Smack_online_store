@@ -17,6 +17,7 @@ function initializeElements(header, heading, productsContainer, animationItems, 
     setTimeout(() => item.classList.add('show-item'), 10);
   });
 
+  setTimeout(() => header.classList.add('show'), 10);
   setTimeout(() => {
     heading.classList.add('show');
     productsContainer.classList.add('show');
@@ -222,7 +223,6 @@ document.addEventListener('keydown', (event) => {
     document.body.style.overflow = 'auto';
   }
 });
-
 
 
 
