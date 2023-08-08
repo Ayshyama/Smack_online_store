@@ -55,9 +55,10 @@
         <div class="products-container">
             {% for product in object_list %}
                 <div class="box" data-id="{{ product.id }}">
+                    <div class="image-container">
                     <img class="fish-image" data-description="{{ product.description }}"
                          src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/ryb1.png' %} {% endif %}"
-                         alt="{{ product.alt }}">
+                         alt="{{ product.alt }}"></div>
                     <h4>{{ product.category }}</h4>
                     <hr>
                     <h3 class="item-title">{{ product.name }}</h3>

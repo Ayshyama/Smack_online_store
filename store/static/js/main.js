@@ -1,7 +1,10 @@
 // Animations
 window.onload = () => {
+  if ('ontouchstart' in document.documentElement) {
+    document.body.classList.add('mobile-device');
+  }
   const header = document.querySelector('header');
-  const heading = document.querySelector('.products .heading');
+  const heading = document.querySelector('#products .heading');
   const productsContainer = document.querySelector('.products .products-container');
   const animationItems = document.querySelectorAll('.animation-item');
   const introContainers = document.querySelectorAll('.animation-item-second');
@@ -13,19 +16,29 @@ window.onload = () => {
 };
 
 function initializeElements(header, heading, productsContainer, animationItems, introContainers) {
-  introContainers.forEach((item) => {
-    item.classList.add('animation-item-second');
-    setTimeout(() => item.classList.add('show-item'), 100);
-  });
+  if (introContainers) {
+    introContainers.forEach((item) => {
+      item.classList.add('animation-item-second');
+      setTimeout(() => item.classList.add('show-item'), 100);
+    });
+  }
 
-  setTimeout(() => header.classList.add('show'), 100);
-  setTimeout(() => {
-    heading.classList.add('show');
-    productsContainer.classList.add('show');
-  }, 100);
-  setTimeout(() => {
-    animationItems.forEach(item => item.classList.add('show-item'));
-  }, 100);
+  if (header) {
+    setTimeout(() => header.classList.add('show'), 100);
+  }
+
+  if (heading && productsContainer) {
+    setTimeout(() => {
+      heading.classList.add('show');
+      productsContainer.classList.add('show');
+    }, 100);
+  }
+
+  if (animationItems) {
+    setTimeout(() => {
+      animationItems.forEach(item => item.classList.add('show-item'));
+    }, 100);
+  }
 }
 
 function setupEventListeners() {
@@ -132,16 +145,6 @@ if (scrollLink) {
 }
 
 // Function to scroll to an element
-function scrollToElement(elementId) {
-  const element = document.getElementById(elementId);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-}
-
-
-
-// JavaScript код для плавной прокрутки с учетом отступа
 document.addEventListener('DOMContentLoaded', function() {
   const scrollLinks = document.querySelectorAll('.scroll-link');
 
@@ -149,13 +152,13 @@ document.addEventListener('DOMContentLoaded', function() {
     link.addEventListener('click', function(event) {
       event.preventDefault();
       const target = document.querySelector(link.getAttribute('href'));
-      const headerHeight = document.querySelector('header').offsetHeight;
-      const targetPosition = target.offsetTop - headerHeight;
-
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
+      if (target) { // Проверьте, существует ли элемент
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
     });
   });
 });
@@ -211,8 +214,6 @@ document.addEventListener('keydown', (event) => {
 });
 
 
-
-
 // FULL_SIZE_IMAGE_MODAL
 const fishImages = document.querySelectorAll('.fish-image');
 const modal = document.getElementById('image-modal');
@@ -225,33 +226,53 @@ fishImages.forEach((fishImage) => {
   fishImage.addEventListener('click', (e) => {
     modalImage.src = fishImage.src;
     modal.style.display = 'flex';
-    modalTitle.textContent = fishImage.parentElement.querySelector('.item-title').textContent;
-    modalCategory.textContent = fishImage.parentElement.querySelector('h4').textContent;
-    document.querySelector('.product-modal-description').textContent = e.target.getAttribute('data-description');
-    // Disable the default scroll behavior when the modal is open
+
+    const parentElement = fishImage.parentElement;
+    if (parentElement) {
+      const itemTitle = parentElement.querySelector('.item-title');
+      if (itemTitle && modalTitle) {
+        modalTitle.textContent = itemTitle.textContent;
+      }
+      const itemCategory = parentElement.querySelector('h4');
+      if (itemCategory && modalCategory) {
+        modalCategory.textContent = itemCategory.textContent;
+      }
+    }
+
+    const productModalDescription = document.querySelector('.product-modal-description');
+    if (productModalDescription) {
+      productModalDescription.textContent = e.target.getAttribute('data-description');
+    }
+
     document.body.style.overflow = 'hidden';
   });
 });
 
-closeButton.addEventListener('click', (event) => {
-  event.stopPropagation();
-  modal.style.display = 'none';
-  document.body.style.overflow = 'auto';
-});
-
-modal.addEventListener('click', (event) => {
-  if (event.target === modal) {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-  }
-});
-
+if (closeButton) {
+  closeButton.addEventListener('click', (event) => {
+    event.stopPropagation();
+    if (event.target.id === 'close') {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+}
+if (modal) {
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+}
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
   }
 });
+
+
 
 
 
