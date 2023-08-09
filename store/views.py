@@ -15,6 +15,7 @@ from django.views.generic.detail import SingleObjectMixin
 
 from store.models import Product, Category
 
+
 class SearchView(RedirectView):
     url = reverse_lazy('store:products', args=('all',))
     query_string = True
@@ -27,10 +28,31 @@ class IndexView(ListView):
     extra_context = {'title': 'Рибний Смак'}
 
 
+def set_screen_width(request):
+    if request.method == 'POST':
+        screen_width = request.POST.get('screen_width', None)
+        print("Screen width received:", screen_width)  # Добавьте это
+        request.session['screen_width'] = screen_width
+        return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'fail'})
+
+
 class ProductsView(SingleObjectMixin, ListView):
     template_name = 'products.html'
     cats = Category.objects.filter(is_published=True)
-    paginate_by = 12
+
+    def get_paginate_by(self, queryset):
+        screen_width = self.request.session.get('screen_width', None)
+        if screen_width:
+            # Установите paginate_by в зависимости от разрешения экрана
+            # (здесь приведен простой пример, вы можете настроить это по своему усмотрению)
+            if int(screen_width) < 768:
+                return 1
+            elif int(screen_width) < 1024:
+                return 9
+            else:
+                return 12
+        return 12  # значение по умолчанию
 
     def get(self, request, *args, **kwargs):
         try:

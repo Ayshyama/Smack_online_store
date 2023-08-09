@@ -19,25 +19,25 @@ function initializeElements(header, heading, productsContainer, animationItems, 
   if (introContainers) {
     introContainers.forEach((item) => {
       item.classList.add('animation-item-second');
-      setTimeout(() => item.classList.add('show-item'), 100);
+      setTimeout(() => item.classList.add('show-item'), 50);
     });
   }
 
   if (header) {
-    setTimeout(() => header.classList.add('show'), 100);
+    setTimeout(() => header.classList.add('show'), 50);
   }
 
   if (heading && productsContainer) {
     setTimeout(() => {
       heading.classList.add('show');
       productsContainer.classList.add('show');
-    }, 100);
+    }, 50);
   }
 
   if (animationItems) {
     setTimeout(() => {
       animationItems.forEach(item => item.classList.add('show-item'));
-    }, 100);
+    }, 50);
   }
 }
 
