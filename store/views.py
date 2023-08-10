@@ -1,19 +1,17 @@
 import json
 import re
 from datetime import datetime
-
 from django.db.models import Q
 from django.http import JsonResponse
 from django.core.mail import send_mail
-
 from django.http import Http404
 from django.urls import reverse_lazy
 from django.utils.encoding import smart_str
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView, RedirectView
 from django.views.generic.detail import SingleObjectMixin
-
 from store.models import Product, Category
+
 
 class SearchView(RedirectView):
     url = reverse_lazy('store:products', args=('all',))
@@ -30,7 +28,6 @@ class IndexView(ListView):
 class ProductsView(SingleObjectMixin, ListView):
     template_name = 'products.html'
     cats = Category.objects.filter(is_published=True)
-    paginate_by = 12
 
     def get(self, request, *args, **kwargs):
         try:
@@ -66,12 +63,35 @@ class ProductsView(SingleObjectMixin, ListView):
         return super().get_context_data(**kwargs, **context)
 
 
+def get_products_by_category(request):
+    category_slug = request.GET.get('category_slug', 'all')
+
+    if category_slug == 'all':
+        products = Product.objects.filter(is_published=True)
+    else:
+        products = Product.objects.filter(category__slug=category_slug, is_published=True)
+
+    products_list = []
+    for product in products:
+        products_list.append({
+            'id': product.id,
+            'image_url': product.image.url if product.image else '/static/img/ryb1.png',
+            'alt': product.alt,
+            'category': product.category.name,
+            'name': product.name,
+            'measure': product.measure,
+            'price': product.price,
+            'description': product.description,
+        })
+
+    return JsonResponse(products_list, safe=False)
+
+
 def get_last_order_data():
     try:
         with open('last_order_data.json', 'r') as file:
             return json.load(file)
     except FileNotFoundError:
-        # если файла не существует вернуть дефолт
         return {'last_order_date': '01-01', 'last_sequential_number': 0}
 
 
@@ -123,7 +143,6 @@ def handle_order(request):
         for item in cart_items:
             client_message += f'{item_number}. {item["title"]} - {item["price"]}грн/{item["weight"]}\n'
             item_number += 1
-        # Convert the email message to a UTF-8 encoded string
         client_message_utf8 = smart_str(client_message)
         subject = f'Ваше замовлення №{email_id}'
         send_mail(
