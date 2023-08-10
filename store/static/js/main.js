@@ -1,3 +1,6 @@
+
+
+
 // Animations
 window.onload = () => {
   if ('ontouchstart' in document.documentElement) {
@@ -163,20 +166,184 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-
 // CATEGORIES_BUTTONS //
-   const categoryButtons = document.querySelectorAll('.category-button');
+const categoryButtons = document.querySelectorAll('.category-button');
 
-   categoryButtons.forEach(button => {
-       button.addEventListener('click', function() {
-           // Удаляем класс "active" у всех кнопок
-           categoryButtons.forEach(btn => {
-               btn.classList.remove('active');
-           });
+categoryButtons.forEach(button => {
+    button.addEventListener('click', function(event) {
+        event.preventDefault(); // Предотвращаем перезагрузку страницы
+        const categorySlug = this.getAttribute('href').split('/').pop();
 
-           button.classList.add('active');
-       });
-   });
+        // Отправляем AJAX-запрос на сервер
+        fetch(`/ajax/get_products/?category_slug=${categorySlug}`)
+            .then(response => response.json())
+            .then(data => {
+                updateProducts(data);
+                updateCategoryName(categorySlug); // Добавляем эту строку
+            })
+            .catch(error => console.error('Error:', error));
+
+        // Обновляем активную кнопку
+        categoryButtons.forEach(btn => btn.classList.remove('chosen')); // Убираем класс chosen со всех кнопок
+        button.classList.add('chosen'); // Добавляем класс chosen к нажатой кнопке
+    });
+});
+
+
+
+function updateCategoryName(categorySlug) {
+    const categoryNameElement = document.querySelector('#products h2');
+    let categoryName = 'Всі категорії'; // Значение по умолчанию
+
+    if (categorySlug !== 'all') {
+        const selectedButton = document.querySelector(`.category-button[href$="${categorySlug}"]`);
+        if (selectedButton) {
+            categoryName = selectedButton.textContent.trim(); // Используем текст кнопки как имя категории
+        }
+    }
+
+    if (categoryNameElement) {
+        categoryNameElement.textContent = categoryName;
+    }
+}
+
+
+function updateProducts(products) {
+    const productsContainer = document.querySelector('.products .products-container');
+    productsContainer.innerHTML = '';
+
+    const heading = document.querySelector('.products .heading h2');
+    if (products.length > 0) {
+        heading.textContent = products[0].category;
+    } else {
+        heading.textContent = "Товарів не знайдено";
+    }
+
+    const productModal = document.createElement('div');
+    productModal.className = 'product-modal image-modal';
+    const productModalContent = document.createElement('div');
+    productModalContent.className = 'product-modal-content';
+    const closeSpan = document.createElement('span');
+    closeSpan.id = 'close';
+    closeSpan.className = 'close';
+    closeSpan.textContent = '×';
+    const modalCategory = document.createElement('h4');
+    const modalTitle = document.createElement('h3');
+    const modalDescription = document.createElement('p');
+    modalDescription.className = 'product-modal-description';
+    const modalImage = document.createElement('img');
+    modalImage.id = 'product-modal-image';
+    modalImage.className = 'product-modal-image';
+    productModalContent.appendChild(closeSpan);
+    productModalContent.appendChild(modalCategory);
+    productModalContent.appendChild(modalTitle);
+    productModalContent.appendChild(modalDescription);
+    productModalContent.appendChild(modalImage);
+    productModal.appendChild(productModalContent);
+
+
+    products.forEach(product => {
+        const productDiv = document.createElement('div');
+        productDiv.className = 'box animation-item';
+        productDiv.setAttribute('data-id', product.id);
+        productModal.className = 'product-modal image-modal';
+
+        const imageContainer = document.createElement('div');
+        imageContainer.className = 'image-container';
+        const productImage = document.createElement('img');
+        productImage.className = 'fish-image';
+        productImage.src = product.image_url ? product.image_url : '/static/img/ryb1.png';
+        productImage.alt = product.alt;
+
+        productImage.addEventListener('click', () => {
+            document.body.style.overflow = 'hidden';
+            modalImage.src = productImage.src;
+            modalCategory.textContent = product.category;
+            modalTitle.textContent = product.name;
+            modalDescription.textContent = product.description;
+            productModal.style.display = 'flex';
+        });
+
+        imageContainer.appendChild(productImage);
+
+        const productCategory = document.createElement('h4');
+        productCategory.textContent = product.category;
+        const horizontalLine = document.createElement('hr');
+
+        const productName = document.createElement('h3');
+        productName.className = 'item-title';
+        productName.textContent = product.name;
+
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'content';
+
+        const productPrice = document.createElement('span');
+        productPrice.className = 'price-weight';
+        productPrice.textContent = product.price + ' грн/' + product.measure;
+
+        const counterDiv = document.createElement('div');
+        counterDiv.className = 'counter';
+        const minusButton = document.createElement('button');
+        minusButton.className = 'counter_control';
+        minusButton.setAttribute('data-action', 'minus');
+        minusButton.textContent = '-';
+        const counterAmount = document.createElement('div');
+        counterAmount.className = 'counter_amount';
+        counterAmount.setAttribute('data-counter', '1');
+        counterAmount.textContent = '1';
+        const plusButton = document.createElement('button');
+        plusButton.className = 'counter_control';
+        plusButton.setAttribute('data-action', 'plus');
+        plusButton.textContent = '+';
+        counterDiv.appendChild(minusButton);
+        counterDiv.appendChild(counterAmount);
+        counterDiv.appendChild(plusButton);
+
+        const cartButtonContainer = document.createElement('div');
+        cartButtonContainer.className = 'cart-button-container';
+        const cartButtonDiv = document.createElement('div');
+        cartButtonDiv.setAttribute('data-cart', '');
+        const addCartButton = document.createElement('button');
+        addCartButton.setAttribute('data-cart', '');
+        addCartButton.className = 'add-cart-button';
+        addCartButton.textContent = 'Додати в кошик';
+        cartButtonDiv.appendChild(addCartButton);
+        cartButtonContainer.appendChild(cartButtonDiv);
+
+        contentDiv.appendChild(productPrice);
+        contentDiv.appendChild(counterDiv);
+        contentDiv.appendChild(cartButtonContainer);
+        productDiv.appendChild(imageContainer);
+        productDiv.appendChild(productCategory)
+        productDiv.appendChild(horizontalLine);
+        productDiv.appendChild(productName);
+        productDiv.appendChild(contentDiv);
+        productDiv.appendChild(productModal);
+
+        productsContainer.appendChild(productDiv);
+        productsContainer.appendChild(productModal);
+
+        closeSpan.addEventListener('click', () => {
+            productModal.style.display = 'none'; // Закрытие модального окна
+            document.body.style.overflow = 'auto';
+        });
+
+
+        productModal.addEventListener('click', (event) => {
+            if (event.target === productModal) {
+                closeModal(productModal);
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeModal(productModal);
+            }
+        });
+    });
+    handleScrollEventsForBoxes();
+}
+
 
 
 
@@ -187,20 +354,17 @@ const closeCartModalButton = document.getElementById('close-cart-modal');
 
 openCartModalButton.addEventListener('click', () => {
   cartModal.style.display = 'block';
-  // Disable the default scroll behavior when the cart modal is open
   document.body.style.overflow = 'hidden';
 });
 
 closeCartModalButton.addEventListener('click', () => {
   cartModal.style.display = 'none';
-  // Restore the default scroll behavior when the cart modal is closed
   document.body.style.overflow = 'auto';
 });
 
 window.addEventListener('click', (event) => {
   if (event.target === cartModal) {
     cartModal.style.display = 'none';
-    // Restore the default scroll behavior when the cart modal is closed
     document.body.style.overflow = 'auto';
   }
 });
@@ -208,22 +372,34 @@ window.addEventListener('click', (event) => {
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     cartModal.style.display = 'none';
-    // Restore the default scroll behavior when the cart modal is closed
     document.body.style.overflow = 'auto';
   }
 });
 
 
+
+
+// Обработчик для изменения категории
+$(".category-button").click(function() {
+    const categorySlug = $(this).data('category-slug'); // Предположим, что у нас есть data-атрибут для слага категории
+    fetchProductsByCategory(categorySlug);
+});
+
+// Обработчики для элементов управления пагинацией могут быть добавлены аналогичным образом
+
+
 // FULL_SIZE_IMAGE_MODAL
 const fishImages = document.querySelectorAll('.fish-image');
-const modal = document.getElementById('image-modal');
-const modalImage = document.getElementById('product-modal-image');
-const closeButton = document.getElementById('close');
-const modalTitle = document.querySelector('.product-modal-content h3');
-const modalCategory = document.querySelector('.product-modal-content h4');
 
 fishImages.forEach((fishImage) => {
   fishImage.addEventListener('click', (e) => {
+    const productDiv = e.target.closest('.box');
+    const modalId = 'image-modal-' + productDiv.dataset.id;
+    const modal = document.getElementById(modalId);
+    const modalImage = modal.querySelector('.product-modal-image');
+    const modalTitle = modal.querySelector('.product-modal-content h3');
+    const modalCategory = modal.querySelector('.product-modal-content h4');
+
     modalImage.src = fishImage.src;
     modal.style.display = 'flex';
 
@@ -239,36 +415,37 @@ fishImages.forEach((fishImage) => {
       }
     }
 
-    const productModalDescription = document.querySelector('.product-modal-description');
-    if (productModalDescription) {
-      productModalDescription.textContent = e.target.getAttribute('data-description');
-    }
-
     document.body.style.overflow = 'hidden';
   });
 });
 
-if (closeButton) {
-  closeButton.addEventListener('click', (event) => {
-    event.stopPropagation();
-    if (event.target.id === 'close') {
-      modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
-    }
+const closeProductModalButtons = document.querySelectorAll('.product-modal .close');
+
+closeProductModalButtons.forEach((closeButton) => {
+  closeButton.addEventListener('click', () => {
+    const modal = closeButton.closest('.product-modal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
   });
-}
-if (modal) {
-  modal.addEventListener('click', (event) => {
+});
+
+window.addEventListener('click', (event) => {
+  const productModals = document.querySelectorAll('.product-modal');
+  productModals.forEach((modal) => {
     if (event.target === modal) {
       modal.style.display = 'none';
       document.body.style.overflow = 'auto';
     }
   });
-}
+});
+
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
+    const productModals = document.querySelectorAll('.product-modal');
+    productModals.forEach((modal) => {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
   }
 });
 
