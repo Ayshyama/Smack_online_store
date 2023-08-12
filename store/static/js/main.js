@@ -376,18 +376,6 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-
-
-
-// Обработчик для изменения категории
-$(".category-button").click(function() {
-    const categorySlug = $(this).data('category-slug'); // Предположим, что у нас есть data-атрибут для слага категории
-    fetchProductsByCategory(categorySlug);
-});
-
-// Обработчики для элементов управления пагинацией могут быть добавлены аналогичным образом
-
-
 // FULL_SIZE_IMAGE_MODAL
 const fishImages = document.querySelectorAll('.fish-image');
 
