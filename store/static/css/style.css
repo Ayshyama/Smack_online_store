@@ -1023,7 +1023,7 @@ button.counter_control {
 
 /*Animations*/
 .animation-item {
-    transition: all 0.5s ease;
+    transition: all 0.4s ease;
     transform: translateY(-100%);
     opacity: 0;
 }
@@ -1083,12 +1083,12 @@ header.shadow {
 .box, .about {
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .social a, .copyright a {
     opacity: 0;
     transform: translateY(-40px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .box.show-item {
