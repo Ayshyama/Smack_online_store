@@ -73,3 +73,4 @@ window.addEventListener('click', function (event) {
 		calcCartPriceAndDelivery();
     }
 })
+
