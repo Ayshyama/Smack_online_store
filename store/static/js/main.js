@@ -1,7 +1,16 @@
+// cart close button animation
+const modalContent = document.getElementById('productModalContent');
+const closeButton = modalContent.querySelector('.close');
 
+modalContent.addEventListener('scroll', function() {
+    if (modalContent.scrollTop > 0) {
+        closeButton.classList.add('scrolling');
+    } else {
+        closeButton.classList.remove('scrolling');
+    }
+});
 
-
-// Animations
+// All animations
 window.onload = () => {
   if ('ontouchstart' in document.documentElement) {
     document.body.classList.add('mobile-device');
