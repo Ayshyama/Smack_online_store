@@ -68,7 +68,7 @@
             {% for product in object_list %}
                 <div class="box" data-id="{{ product.id }}">
                     <div class="image-container">
-                    <img class="fish-image" data-description="{{ product.description }}"
+                    <img class="fish-image" data-description="{{ product.description|linebreaks }}"
                          src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/ryb1.png' %} {% endif %}"
                          alt="{{ product.alt }}"></div>
                     <h4>{{ product.category }}</h4>
@@ -95,11 +95,12 @@
                 </div>
 
                 <div id="image-modal-{{ product.id }}" class="product-modal image-modal">
-                <div class="product-modal-content">
+                <div class="product-modal-content" id="productModalContent">
                     <span id="close" class="close">&times;</span>
                     <h4>{{ product.category }}</h4>
                     <h3>{{ product.name }}</h3>
-                    <p class="product-modal-description">{{ product.description }}</p>
+                    <pre class="product-modal-description"><code>{{ product.description|safe }}</code></pre>
+
                     <img id="product-modal-image" class="product-modal-image" src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/ryb1.png' %} {% endif %}" alt="{{ product.alt }}">
                 </div>
             </div>

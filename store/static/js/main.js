@@ -17,16 +17,22 @@ scrollUpButton.addEventListener('click', function() {
 });
 
 // cart close button animation
-const modalContent = document.getElementById('productModalContent');
-const closeButton = modalContent.querySelector('.close');
+function setScrollListeners() {
+    const modalContents = document.querySelectorAll('.product-modal-content');
 
-modalContent.addEventListener('scroll', function() {
-    if (modalContent.scrollTop > 0) {
-        closeButton.classList.add('scrolling');
-    } else {
-        closeButton.classList.remove('scrolling');
-    }
-});
+    modalContents.forEach(modalContent => {
+        const closeButton = modalContent.querySelector('.close');
+        modalContent.addEventListener('scroll', function() {
+            if (modalContent.scrollTop > 0) {
+                closeButton.classList.add('scrolling');
+            } else {
+                closeButton.classList.remove('scrolling');
+            }
+        });
+    });
+}
+
+
 
 // All animations
 window.onload = () => {
@@ -43,6 +49,7 @@ window.onload = () => {
   setupEventListeners();
   handleScrollEvents(header);
   handleScrollEventsForBoxes();
+  setScrollListeners()
 };
 
 function initializeElements(header, heading, productsContainer, animationItems, introContainers) {
@@ -219,7 +226,7 @@ categoryButtons.forEach(button => {
 function updateCategoryName(categorySlug) {
     const categoryNameElement = document.querySelector('#products h2');
     let categoryName = 'Всі категорії'; // Значение по умолчанию
-
+    setScrollListeners()
     if (categorySlug !== 'all') {
         const selectedButton = document.querySelector(`.category-button[href$="${categorySlug}"]`);
         if (selectedButton) {
@@ -230,6 +237,7 @@ function updateCategoryName(categorySlug) {
     if (categoryNameElement) {
         categoryNameElement.textContent = categoryName;
     }
+
 }
 
 

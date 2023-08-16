@@ -784,7 +784,7 @@ body {
     display: block;
     margin: 0 auto;
     cursor: auto;
-    max-width: 80%;
+    max-width: 100%;
     height: auto;
 }
 
@@ -1176,4 +1176,8 @@ header.shadow {
 .box.show-item {
     opacity: 1;
     transform: translateY(0);
+}
+
+.product-modal-description {
+    white-space: pre-wrap;
 }
