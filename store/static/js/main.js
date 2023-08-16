@@ -189,8 +189,6 @@ categoryButtons.forEach(button => {
     });
 });
 
-
-
 function updateCategoryName(categorySlug) {
     const categoryNameElement = document.querySelector('#products h2');
     let categoryName = 'Всі категорії'; // Значение по умолчанию
@@ -343,9 +341,6 @@ function updateProducts(products) {
     });
     handleScrollEventsForBoxes();
 }
-
-
-
 
 /// CART MODAL OPEN WINDOW SCRIPT
 const openCartModalButton = document.getElementById('open-cart-modal');
