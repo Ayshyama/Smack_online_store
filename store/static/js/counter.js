@@ -1,6 +1,13 @@
 // добавляем прослушку кликов и тачей на всем окне
 window.addEventListener('click', handleCounterClick);
-
+function updateTotalPriceForCartItem(cartItem) {
+    const priceElement = cartItem.querySelector('.price__currency');
+    const price = parseInt(priceElement.innerText.split('грн/')[0]);
+    const counterElement = cartItem.querySelector('[data-counter]');
+    const counter = parseInt(counterElement.innerText);
+    const totalPriceElement = cartItem.querySelector('.product-total-price');
+    totalPriceElement.innerText = `Вартість: ${counter * price} грн`;
+}
 function handleCounterClick(event) {
     // объявляем переменную для счетчика чтоб не было ошибок и повторения кода
     let amount;
@@ -17,6 +24,8 @@ function handleCounterClick(event) {
     if (event.target.dataset.action === 'plus') {
         amount.innerText = ++amount.innerText;
         if (event.target.closest('.cart-wrapper')) {
+            const cartItem = event.target.closest('.cart-item');
+            updateTotalPriceForCartItem(cartItem);
 
     }
     }
@@ -37,6 +46,9 @@ function handleCounterClick(event) {
 
             calcCartPriceAndDelivery();
         }
+
+        const cartItem = event.target.closest('.cart-item');
+        updateTotalPriceForCartItem(cartItem);
     }
 
     // проверяем клик на + или - внутри корзины
@@ -58,4 +70,5 @@ function handleCounterClick(event) {
         // Пересчет общей стоимости товаров в корзине
         calcCartPriceAndDelivery();
     }
+    updateFixedCartButtonVisibility();
 }
