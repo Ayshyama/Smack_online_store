@@ -1,3 +1,21 @@
+// scroll-up button
+const scrollUpButton = document.querySelector('.scroll-up-button');
+
+window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 200) {
+        scrollUpButton.classList.add('active');
+    } else {
+        scrollUpButton.classList.remove('active');
+    }
+});
+
+scrollUpButton.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
 // cart close button animation
 const modalContent = document.getElementById('productModalContent');
 const closeButton = modalContent.querySelector('.close');

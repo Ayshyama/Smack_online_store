@@ -42,6 +42,11 @@ function loadCartFromLocalStorage() {
                                       <div class="counter_amount" data-counter>${item.counter}</div>
                                       <button class="counter_control" data-action="plus">+</button>
                                     </div>
+                                    <div class="price__currency" style="margin-top: 10px">
+                                        <div class="product-total-price">
+                                          Вартість: ${parseInt(item.counter) * parseInt(item.price)} грн
+                                        </div>      
+                                    </div> 
                                     
                                   </div>    
                                 </div>
@@ -49,7 +54,11 @@ function loadCartFromLocalStorage() {
                             </div>`;
       cartWrapper.insertAdjacentHTML('beforeend', cartItemHTML);
       updateCart();
+
     });
+
+    updateFixedCartButtonVisibility();
+    updateCartItemCount();
   }
 }
 
@@ -65,17 +74,14 @@ function updateCart() {
     }
     toggleCartStatus();
     calcCartPriceAndDelivery();
+    updateCartItemCount();
+    updateFixedCartButtonVisibility();
 }
 
-// Modify the existing code to update the cart
 window.addEventListener('click', function (event) {
-  // ... (existing code)
-
-  // Update cart after adding the product
   updateCart();
 });
 
-// Save cart items to localStorage before unloading the page
 window.addEventListener('beforeunload', function () {
     saveCartToLocalStorage();
 });
