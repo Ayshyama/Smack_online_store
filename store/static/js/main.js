@@ -32,8 +32,6 @@ function setScrollListeners() {
     });
 }
 
-
-
 // All animations
 window.onload = () => {
   if ('ontouchstart' in document.documentElement) {
@@ -385,17 +383,20 @@ const closeCartModalButton = document.getElementById('close-cart-modal');
 openCartModalButton.addEventListener('click', () => {
   cartModal.style.display = 'block';
   document.body.style.overflow = 'hidden';
+  document.body.classList.add('no-scroll');
 });
 
 closeCartModalButton.addEventListener('click', () => {
   cartModal.style.display = 'none';
   document.body.style.overflow = 'auto';
+  document.body.classList.remove('no-scroll');
 });
 
 window.addEventListener('click', (event) => {
   if (event.target === cartModal) {
     cartModal.style.display = 'none';
     document.body.style.overflow = 'auto';
+    document.body.classList.remove('no-scroll');
   }
 });
 
@@ -403,6 +404,7 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     cartModal.style.display = 'none';
     document.body.style.overflow = 'auto';
+    document.body.classList.remove('no-scroll');
   }
 });
 
@@ -432,7 +434,7 @@ fishImages.forEach((fishImage) => {
         modalCategory.textContent = itemCategory.textContent;
       }
     }
-
+    document.body.classList.add('no-scroll');
     document.body.style.overflow = 'hidden';
   });
 });
@@ -444,6 +446,7 @@ closeProductModalButtons.forEach((closeButton) => {
     const modal = closeButton.closest('.product-modal');
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
+    document.body.classList.remove('no-scroll');
   });
 });
 
@@ -453,6 +456,7 @@ window.addEventListener('click', (event) => {
     if (event.target === modal) {
       modal.style.display = 'none';
       document.body.style.overflow = 'auto';
+      document.body.classList.remove('no-scroll');
     }
   });
 });
@@ -463,6 +467,7 @@ document.addEventListener('keydown', (event) => {
     productModals.forEach((modal) => {
       modal.style.display = 'none';
       document.body.style.overflow = 'auto';
+      document.body.classList.remove('no-scroll');
     });
   }
 });
