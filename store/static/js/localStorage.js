@@ -42,7 +42,9 @@ function loadCartFromLocalStorage() {
                                       <div class="counter_amount" data-counter>${item.counter}</div>
                                       <button class="counter_control" data-action="plus">+</button>
                                     </div>
-                                    <div class="price__currency" style="margin-top: 10px">
+                                    <div class="price__currency" style="margin-top: 10px; background-color: 
+                                    var(--second-color); color: var(--text-color); 
+                                    border: 1px solid var(--main-color-border) ">
                                         <div class="product-total-price">
                                           Вартість: ${parseInt(item.counter) * parseInt(item.price)} грн
                                         </div>      

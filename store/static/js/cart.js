@@ -78,8 +78,10 @@ window.addEventListener('click', function (event) {
                                                     <div class="counter_amount" data-counter>${productInfo.counter}</div>
                                                     <button class="counter_control" data-action="plus">+</button>
                                                 </div>  
-                                            <div class="price__currency" style="margin-top: 10px">
-                                                <div class="product-total-price">
+                                            <div class="price__currency" style="margin-top: 10px; background-color: 
+                                            var(--second-color); color: var(--text-color); 
+                                            border: 1px solid var(--main-color-border) ">
+                                                <div class="product-total-price" style=" !important;">
                                                     Вартість: ${parseInt(productInfo.counter) * parseInt(productInfo.price)} грн
                                                 </div>  
                                             </div>  

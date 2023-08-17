@@ -339,6 +339,7 @@ select.form-control:focus::-ms-value {
 }
 .delivery-cost {
     color: var(--main-color);
+    font-size: 20px;
 }
 
 .free {
@@ -346,11 +347,13 @@ select.form-control:focus::-ms-value {
 }
 
 .total-price {
-	color: var(--main-color);
+    color: var(--main-color);
+    font-size: 20px;
 }
 
 .hryvna {
-	color: var(--main-color);
+    color: var(--main-color);
+    font-size: 20px;
 }
 
   .cart-item__desc {
