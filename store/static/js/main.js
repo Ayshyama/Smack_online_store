@@ -380,11 +380,13 @@ const openCartModalButton = document.getElementById('open-cart-modal');
 const cartModal = document.getElementById('cart-modal');
 const closeCartModalButton = document.getElementById('close-cart-modal');
 
-openCartModalButton.addEventListener('click', () => {
-  cartModal.style.display = 'block';
-  document.body.style.overflow = 'hidden';
-  document.body.classList.add('no-scroll');
+openCartModalButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    cartModal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    document.body.classList.add('no-scroll');
 });
+
 
 closeCartModalButton.addEventListener('click', () => {
   cartModal.style.display = 'none';
