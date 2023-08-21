@@ -44,7 +44,8 @@ body {
 }
 
 .logo img {
-    width: 80px;
+    width: 100px;
+    margin-right: 20px;
 }
 .navbar {
     display: flex;
@@ -108,7 +109,8 @@ body {
 }
 .home {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
+
     background-size: cover;
     background: url(../img/bg.jpg) no-repeat center;
     background-size: cover;
@@ -124,9 +126,15 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
 .home-text h3 {
     color: var(--bg-color);
     margin: 0.5rem 0 1.4rem;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    font-size: 18px;
+    font-family: 'Lucida Grande', Arial, sans-serif;
     }
 .home-text p {
     font-size: 1rem;
@@ -156,12 +164,18 @@ body {
     background: #8a6f4d;
 }
 .intro-container {
-    background-color: #1b1b1b;
+    background-color: rgba(27, 27, 27, 0.7);
     width: 100%;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 30px;
     border-radius: 0.4rem;
+    backdrop-filter: blur(5px);
+    display: flex;
+}
+
+.intro-container h1 {
+    text-align: center;
 }
 .about {
     display: grid;
@@ -404,6 +418,13 @@ body {
     margin-top: 2px;
 }
 
+.intro-button {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+
+}
+
 .add-cart-button:hover {
     background: var(--main-color);
     color: var(--bg-color);
@@ -546,8 +567,6 @@ body {
 
 .products-container .box h3 {
     text-align: center;
-    font-size: 1.5rem;
-    font-weight: 600;
     margin: 0.5rem 0 0.5rem;
     color: var(--text-color) !important;
 }
@@ -986,6 +1005,9 @@ body.no-scroll {
     }
 }
 
+    .home-img {
+        max-width: 500px;
+    }
 
 @media (max-width: 380px) {
     .intro-container {
@@ -1130,7 +1152,9 @@ button.counter_control {
 }
 
 header {
-    background-color: var(--text-color);
+    /*background-color: var(--text-color);*/
+    background-color: rgba(27, 27, 27, 0.7);
+    backdrop-filter: blur(5px);
     position: fixed;
     width: 100%;
     top: 0;

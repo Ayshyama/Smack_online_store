@@ -26,6 +26,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="icon" href="{% static 'favicon.png' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Mulish' rel='stylesheet'>
 </head>
 
 <body>
@@ -35,6 +37,8 @@
     <header>
         <a href="{% url 'store:index' %}" class="logo animation-item">
             <img src="{% static 'img/logo.png' %}" alt="Logo">
+{#            <img src="{% static 'img/logo-2.png' %}" alt="Logo">#}
+
         </a>
         <!-- Menu-Icon -->
         <i class="bx bx-menu animation-item" id="menu-icon"></i>
@@ -70,20 +74,21 @@
             <div class="home-text">
                 <h1 style="color: var(--bg-color) !important;">Рибний смак </h1>
                 <br>
-                <h3>Ми пропонуємо широкий асортимент свіжих морепродуктів і риби.
-                    Незалежно від того, де ви знаходитесь в Україні, "Рибний смак" забезпечує швидку доставку,
-                    щоб ви могли насолоджуватися свіжістю і якістю наших продуктів.
+                <h3>Ми пропонуємо широкий асортимент морепродуктів і риби.
+                    Незалежно від того, де ви знаходитесь в Україні, Рибний Cмак забезпечує швидку доставку,
+                    щоб Ви насолоджувались свіжістю і якістю наших продуктів.
                 </h3>
                 <h3>Особлива гордість нашого магазину - це самостійно копчена та в'ялена риба.
                     Завдяки багатому досвіду та натхненню нашого власника, кожна порція готується з особливою любов'ю і турботою.
                 </h3>
-
+                <div class="intro-button">
                     <a href="{% url 'store:products' 'all' %}" class="add-cart-button" style="width: 220px; height: 34px;">Замовити Онлайн</a>
+                </div>
                 <br>
             </div>
         </div>
         <div class="home-img animation-item-second">
-            <img src="{% static 'img/main.png' %}" alt="">
+{#            <img src="{% static 'img/main.png' %}" alt="">#}
         </div>
     </section>
 {% endblock %}
@@ -215,14 +220,14 @@
     </div>
     <div class="footer-box ">
         <h3>Підтримка</h3>
-        <li><a href="#">Часті Запитання</a></li>
-        <li><a href="#">Умови</a></li>
+{#        <li><a href="#">Часті Запитання</a></li>#}
+        <li><a href="#">Угода користувача</a></li>
     </div>
     <div class="footer-box ">
         <h3>Корисна Інформація</h3>
-        <li><a href="#">Блог</a></li>
+{#        <li><a href="#">Блог</a></li>#}
         <li><a href="#">Рецепти</a></li>
-        <li><a href="#">Поради</a></li>
+{#        <li><a href="#">Поради</a></li>#}
     </div>
     <div class="footer-box ">
         <h3>Контакти</h3>
