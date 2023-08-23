@@ -44,7 +44,7 @@ body {
 }
 
 .logo img {
-    width: 100px;
+    width: 80px;
     margin-right: 20px;
 }
 .navbar {
@@ -164,13 +164,14 @@ body {
     background: #8a6f4d;
 }
 .intro-container {
-    background-color: rgba(27, 27, 27, 0.7);
+    background-color: rgba(27, 27, 27, 0.75);
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
     padding: 30px;
     border-radius: 0.4rem;
-    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     display: flex;
 }
 
@@ -830,8 +831,8 @@ body.no-scroll {
 
 .close.scrolling {
     background-color: rgba(60, 78, 92, 0.3);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 .close {
     color: var(--main-color);
@@ -921,7 +922,7 @@ body.no-scroll {
         margin-top: 190px;
     }
     header.show {
-        padding: 40px;
+        padding: 18px;
     }
     header {
         padding: 16px 4%;
@@ -942,7 +943,7 @@ body.no-scroll {
         margin-top: 1.5rem;
     }
     header.show {
-        padding: 30px;
+        padding: 18px;
     }
 
     #menu-icon {
@@ -1021,6 +1022,9 @@ body.no-scroll {
     .home{
         min-height: 70vh;
     }
+        .home-text h3 {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 360px) {
@@ -1028,12 +1032,13 @@ body.no-scroll {
         margin-top: 90px;
     }
 
+
 }
 
 
 @media (max-width: 360px) {
     header.show {
-        padding: 20px;
+        padding: 18px;
     }
     .category-button {
         max-width: 140px;
@@ -1045,7 +1050,7 @@ body.no-scroll {
         padding: 15px 4%;
     }
     .logo img {
-        width: 45px;
+        width: 80px;
     }
     .home-text {
         padding-top: 15px;
@@ -1069,7 +1074,7 @@ body.no-scroll {
         font-size: 1.2rem;
     }
     .category-buttons {
-        flex-wrap: wrap;  /* Изменено на 'wrap' */
+        flex-wrap: wrap;
     }
     .category-button {
         flex-basis: 100%;
@@ -1151,10 +1156,11 @@ button.counter_control {
   transform: translateY(0);
 }
 
+
 header {
-    /*background-color: var(--text-color);*/
-    background-color: rgba(27, 27, 27, 0.7);
-    backdrop-filter: blur(5px);
+    background-color: rgba(27, 27, 27, 1);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     position: fixed;
     width: 100%;
     top: 0;
@@ -1208,9 +1214,4 @@ header.shadow {
 
 .product-modal-description {
     white-space: pre-wrap;
-}
-@media (max-width: 600px) {
-    .box {
-        opacity: 0.2;
-    }
 }
