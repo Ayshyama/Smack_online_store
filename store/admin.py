@@ -1,5 +1,8 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
+from django.templatetags.static import static
+
+
 
 from store.models import Product, Category
 
@@ -24,9 +27,9 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'get_html_image', 'dt_update', 'is_published')
+    list_display = ('name', 'is_published', 'order', 'get_html_image', 'dt_update')
     list_display_links = ('name',)
-    list_editable = ('is_published',)
+    list_editable = ('order', 'is_published',)
     fields = ('name', 'slug', 'image', 'get_html_image', 'is_published', 'dt_update', 'alt')
     readonly_fields = ('dt_update', 'get_html_image')
     prepopulated_fields = {'slug': ('name',)}
@@ -36,6 +39,11 @@ class CategoryAdmin(admin.ModelAdmin):
             return mark_safe(f'<img src="{object.image.url}" width=200>')
 
     get_html_image.short_description = 'Мініатюра'
+
+    class Media:
+        css = {
+            'all': (static('css/admin_styles.css'),)
+        }
 
 
 admin.site.register(Category, CategoryAdmin)

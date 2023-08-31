@@ -4,6 +4,7 @@ from django.urls import reverse
 
 class Category(models.Model):
     name = models.CharField(max_length=150, verbose_name='Заголовок')
+    order = models.PositiveIntegerField(default=0, help_text="Для зміни порядку розташування на сайті", verbose_name='Порядковий номер')
     slug = models.SlugField(unique=True, verbose_name='Слаг')
     image = models.ImageField(upload_to='categories/', verbose_name='Зображення')
     is_published = models.BooleanField(default=True, verbose_name='На сайті')
@@ -19,7 +20,7 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'категорію'
         verbose_name_plural = 'Категорії'
-        ordering = ['dt_update', 'id']
+        ordering = ['order', 'dt_update', 'id']
 
 
 class Product(models.Model):

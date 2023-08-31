@@ -162,22 +162,25 @@ function isElementInViewport(el) {
 
 // HOME LINK
 // Get the scroll-link element
-const scrollLink = document.querySelector('.scroll-link');
+const scrollLinks = document.querySelectorAll('.scroll-link');
 
-// Check if the scroll-link exists
-if (scrollLink) {
-  // Add a click event listener to the scroll-link
-  scrollLink.addEventListener('click', (event) => {
-    const href = scrollLink.getAttribute('href');
-    if (href === '#home') {
-      event.preventDefault();
-      scrollToElement('home');
-    } else {
-      // Redirect to the link's href
-      window.location.href = href;
-    }
-  });
-}
+scrollLinks.forEach(scrollLink => {
+    scrollLink.addEventListener('click', (event) => {
+        const href = scrollLink.getAttribute('href');
+        if (href.endsWith('#home')) {
+            event.preventDefault();
+        } else if (href.startsWith('/')) {
+            window.location.href = href;
+        } else {
+            const target = document.querySelector(href);
+            if (target) {
+                event.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+});
+
 
 // Function to scroll to an element
 document.addEventListener('DOMContentLoaded', function() {

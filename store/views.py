@@ -13,6 +13,7 @@ from django.views.generic.detail import SingleObjectMixin
 from store.models import Product, Category
 
 
+
 class SearchView(RedirectView):
     url = reverse_lazy('store:products', args=('all',))
     query_string = True
@@ -27,11 +28,11 @@ class IndexView(ListView):
 
 class ProductsView(SingleObjectMixin, ListView):
     template_name = 'products.html'
-    cats = Category.objects.filter(is_published=True)
 
     def get(self, request, *args, **kwargs):
+        cats = Category.objects.filter(is_published=True)
         try:
-            self.object = self.get_object(self.cats)
+            self.object = self.get_object(cats)
         except Http404:
             self.object = None
         return super().get(request, *args, **kwargs)
@@ -56,9 +57,10 @@ class ProductsView(SingleObjectMixin, ListView):
         return queryset
 
     def get_context_data(self, **kwargs):
+        cats = Category.objects.filter(is_published=True)
         context = {
             "title": self.object.name if self.object else "Асортимент",
-            "cats": self.cats,
+            "cats": cats,
         }
         return super().get_context_data(**kwargs, **context)
 
